@@ -1,1 +1,0 @@
-<?php if ( !dynamic_sidebar( 'sidebar_post' ) ) : endif; ?>

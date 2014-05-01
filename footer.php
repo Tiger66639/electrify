@@ -3,20 +3,26 @@
 		<div class="c">
 			<section class="col">
 				<?php if ( ! dynamic_sidebar( 'footer_left' ) ): ?>
-					<h6>Widget here</h6>
-					<p>Please drop a widget into the "Footer - Left" slot.</p>
+					<div class="widget">
+						<h5>Widget here</h5>
+						<p>Please drop a widget into the "Footer - Left" slot.</p>
+					</div>
 				<?php endif; ?>
 			</section>
 			<section class="col">
 				<?php if ( ! dynamic_sidebar( 'footer_center' ) ): ?>
-					<h6>Widget here</h6>
-					<p>Please drop a widget into the "Footer - Center" slot.</p>
+					<div class="widget">
+						<h5>Widget here</h5>
+						<p>Please drop a widget into the "Footer - Left" slot.</p>
+					</div>
 				<?php endif; ?>
 			</section>
 			<section class="col">
 				<?php if ( ! dynamic_sidebar( 'footer_right' ) ): ?>
-					<h6>Widget here</h6>
-					<p>Please drop a widget into the "Footer - Right" slot.</p>
+					<div class="widget">
+						<h5>Widget here</h5>
+						<p>Please drop a widget into the "Footer - Left" slot.</p>
+					</div>
 				<?php endif; ?>
 			</section>
 		</div>

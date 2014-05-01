@@ -1,10 +1,10 @@
 /*
 Theme Name: Electrify
-Theme URI: http://www.first1444.org/
+Theme URI: http://www.first1444.com/
 Author: Ryan Duchene
-Author URI: http://wordpress.org/
-Description: A custom team for FIRST Team #1444 Lightning Lancers. A dark, modern look.
-Version: 1.4.0 (unstable)
+Author URI: http://teamtreehouse.com/ryanduchene
+Description: A custom theme for FIRST Team #1444 Lightning Lancers. A dark, modern look.
+Version: 6A
 License: The Eighth Commandment
 License URI: http://en.wikipedia.org/wiki/Thou_shalt_not_steal
 Tags: black, yellow, orange, custom, modern, dark
@@ -12,5 +12,4 @@ Tags: black, yellow, orange, custom, modern, dark
 
 /* 
 	I used Sass for development; you can find the files for it in the _scss/ directory.
-	For stable, final versions, compressed CSS is loaded to speed up load time. It's in the _res/ directory.
 */

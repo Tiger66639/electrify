@@ -1,0 +1,27 @@
+#f
+{
+	@extend %stn-l-f-tricolumn;
+	background:$color-1;
+	
+	h5
+	{
+		color:$color-2;
+		@include font-h;
+		text-align:center;
+		font-size:1.5em;
+	}
+	
+	.col
+	{
+		@extend %stn-l-f-tricolumn-col;
+		
+		p
+		{
+			color:$color-bg-2;
+		}
+	}
+	.widget
+	{
+		@extend %electrify-widget;
+	}
+}

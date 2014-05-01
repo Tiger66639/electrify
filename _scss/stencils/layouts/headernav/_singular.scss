@@ -1,0 +1,146 @@
+//	LAYOUTS > HEADER/NAV > SINGULAR
+//	(stn-l-hn-singular)
+//	A two-column layout, with the left column assumed to be the logo and the right column assumed to be the nav.
+//
+%stn-l-hn-singular {
+	> .c {
+		html.flexbox & {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( flex-direction, column, property, webkit );
+		
+			@media screen and ( min-width:$stn-desktop ) {
+				@include prefix( flex-direction, row, property, webkit );
+			
+			}
+		}
+		html.no-flexbox & {
+			@extend %cf;
+			
+		}
+		
+	}
+	
+	//	LOGO
+	%stn-l-hn-singular-logo {
+		text-align: center;
+		padding: 2%;
+		
+		h1 {
+			margin-right: auto;
+		}
+		h2 {
+			margin: auto inherit;
+		}
+		
+		//	Tablets and above
+		@media screen and ( min-width:$stn-tablet ) and ( max-width:$stn-tablet-max ) {
+			
+			a {
+				@include prefix( display, flex, value, webkit );
+				
+			} 
+			
+		}
+		
+		//	Laptops/desktops and above
+		@media screen and ( min-width:$stn-desktop ) {
+			text-align: right;
+			
+			html.flexbox & {
+				margin-right: auto;
+				
+			}
+			html.no-flexbox & {
+				float:left;
+				
+			}
+			
+		}
+		
+	}
+	
+	//	DESKTOP NAV
+	%stn-l-hn-singular-nav {
+		display: none;
+		
+		html.no-flexbox & {
+			@extend %cf;
+			
+		}
+		
+		@media screen and ( min-width:$stn-tablet ) {
+			
+			html.flexbox & {
+				@include prefix( display, flex, value, webkit );
+			}
+			
+			html.no-flexbox & {
+				display:inline-block;
+				float:right;
+			}
+			
+			> li {
+				html.no-flexbox & {
+					float:left;
+				}
+			}
+			
+			li {
+				
+				a {
+					display:block;
+					@include prefix( width, fill-available, value, webkit );
+					width:-moz-available;
+					padding:1em 0.55em;
+					font-size:1.4em;
+				}
+				
+				.sub-menu {
+					display:none;
+				}
+				
+				&:hover {
+					.sub-menu {
+						display:block;
+						position:absolute;
+					}
+					
+				}
+			}
+			
+		}
+		
+		@media screen and ( min-width:$stn-tablet ) and ( max-width:$stn-tablet-max ) {
+			
+			html.flexbox & {
+				@include prefix( justify-content, space-around, property, webkit );
+				
+			}
+			html.no-flexbox & {
+				float:left;
+				
+			}
+			
+		}
+	}
+	
+	//	MOBILE NAV
+	%stn-l-hn-singular-nav-mobile {
+		text-align: center;
+		
+		html.flexbox & {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( flex-direction, column, property, webkit );
+			
+			@media screen and ( min-width:$stn-tablet ) {
+				display: none;
+			
+			}
+		}
+		
+		a {
+			width:100%;
+		}
+	}
+	
+}

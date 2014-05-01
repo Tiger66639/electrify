@@ -1,0 +1,33 @@
+%stn-l-f-river
+{
+	> .c
+	{
+		html.flexbox &
+		{
+			@include prefix( display, flex, value, webkit );			
+		}
+		
+		html.no-flexbox &
+		{
+			
+		}
+	}
+	
+	%stn-l-f-river-col
+	{
+		display:none;
+		@media screen and ( min-width:$stn-tablet ) {
+			display:block;
+		}
+		h6
+		{
+			font-size:1.5em;
+		}
+	}
+	
+	%stn-l-f-river-col-primary
+	{
+		@extend %stn-l-f-river-col;
+		@include prefix( flex-grow, 2, property, webkit );
+	}
+}

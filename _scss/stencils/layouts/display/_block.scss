@@ -1,0 +1,281 @@
+//	LAYOUTS > DISPLAY > BLOCK
+//	(stn-l-d-block)
+//	A signature layout of Stencils. Blocks is a very dressy, yet very maintainable showcase layout.
+//	Use it when you have a product that you want to show off.
+//
+	
+%stn-l-d-block { // A block
+	padding: 5% 0;
+	overflow: hidden;
+
+	@media screen and ( min-width:$stn-desktop ) {
+		@include reset( padding );
+		width:100vw;
+
+		html.flexbox & {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( flex-direction, column, property, webkit );
+			@include prefix( justify-content, center, property, webkit );
+	
+			@media screen and ( max-height:599px ) {
+				@include prefix( flex-direction, row, property, webkit );
+		
+			}
+	
+		}
+
+	}
+
+	
+	@media screen and ( min-width:$stn-desktop ) {
+		//
+		//	BLOCK TYPES
+		//	There are three different types of blocks: whole, half, and auto.
+		//
+		//	Whole blocks (.whole) fill the entire height of the screen.
+		//
+		&.whole {
+			height:100vh;	
+		}
+		
+		//	Half blocks (.half) fill half the screen's height.
+		//
+		&.half {
+			height:50vh;
+	
+			html.flexbox & {
+				@include prefix( flex-direction, row, property, webkit );
+		
+			}
+			
+		}
+	
+	}
+
+	//	Auto blocks have no class; height: auto is inferred.
+
+	//	BLOCK SECTIONS
+	//	Blocks are divided into two sections: headers and content.
+	//
+	//	-HEADERS
+	//	The headers (.headers) introduce the reader to the block and its content.
+	//	They sometimes inclue paragraphs, but paragraphs may also be a part of the content, if you wish.
+	%stn-l-d-block-headers {
+	
+		@media screen and ( max-height:599px ) and ( min-width:$stn-desktop ) {
+			min-width:40%;
+		
+			html.flexbox & {
+				margin:auto 1%;
+			}
+		
+			html.no-flexbox & {
+				float:left;
+				margin:0 2%;
+				width:45%;
+				padding-top:10%;
+			
+			}
+		
+		}
+	
+		//	Primary header
+		h1 {
+			text-align:center;
+			font-size:1.5em;
+	
+			@media screen and ( min-width:$stn-tablet ) and ( max-width:$stn-tablet-max ) {
+				font-size:2.5em;
+			}
+	
+			@media screen and ( min-width:$stn-desktop ) {
+				font-size:3.5em;
+		
+				html.no-flexbox & {
+					margin-top:10%;
+			
+				}
+		
+			}
+	
+		}
+	
+		//	Secondary header
+		h2 {
+			text-align:center;
+			font-size:1.25em;
+	
+			@media screen and ( min-width:$stn-tablet ) and ( max-width:$stn-tablet-max ) {
+				font-size:1.75em;
+			}
+	
+			@media screen and ( min-width:$stn-desktop ) {
+				font-size:2.5em;
+		
+			}
+	
+		}
+	
+		//	Paragraph
+		p {
+			text-align:center;
+			padding:3%;
+	
+			@media screen and ( min-width:$stn-desktop ) and ( min-height:600px ) {
+				padding:2% 10%;
+			}
+		}
+	
+	}
+
+	//	-CONTENT
+	//	The content (.content) usually houses more advanced elements, such as an image, a video, or an embed.
+	//	As previously mentioned, it may also contain text.
+
+	%stn-l-d-block-content {
+		//margin-top:5%;
+	
+		@media screen and ( max-height:599px ) and ( min-width:$stn-desktop ) {
+			min-width:30%;
+		
+			html.flexbox & {
+				margin:auto 1%;
+			}
+		
+			html.no-flexbox & {
+				margin:10% 0;
+				margin-right:2%;
+				float:right;
+				wrap:none;
+				width:45%;
+			
+			}
+		
+		}
+	
+		//	CONTENT TYPES
+		//	Supported content types are limited right now.
+		//	Included are images, videos, and basic embed support (buggy!).
+		//	Additionally, text-based mediums can be used, such as buttons or paragraphs.
+		//
+		//
+		//	-IMAGES
+		//	Pretty good support, I would say.
+	
+		.img-c {
+			text-align:center;
+			@include reset( padding );
+		
+			@media screen and ( max-height:599px ) and ( min-width:$stn-desktop ) {
+				html.flexbox & {
+				
+				
+				}
+				html.no-flexbox & {
+					//width:50%;
+				
+				}
+			
+			}
+		
+			img {
+				display:inline-block;
+				width:50%;
+			
+				@media screen and ( min-width:$stn-desktop ) {
+					width:30%;
+				
+					@media screen and ( max-height:599px ) {
+						width:100%;
+					
+						html.no-flexbox & {
+							display:block;
+							float:right;
+						
+						}
+					
+					}
+				
+				}
+			}
+		}
+	
+		//	-EMBEDS
+		//	Limited support right now, and pretty buggy, especially on the responsive side.
+		.embed-c { // A paragraph tag is needed in order to center the embed
+			display:none; // Display off for mobile
+		
+			html.no-flexbox & {
+				@extend %cf;
+			}
+		
+			@media screen and ( min-width:$stn-tablet ) {
+				display:block;
+				@include reset( padding, margin );
+				text-align:center;
+		
+				iframe {
+					display:inline-block;
+					width:60%;
+				
+					@media screen and ( min-width:$stn-desktop ) {
+						width:45%;
+					
+						@media screen and ( max-height:599px ) {
+							width:100%;
+						
+						}
+					
+					}
+			
+					html.no-flexbox & {
+						float:right;
+					}
+				}
+			}
+		
+		}
+	
+		//	-TEXT
+		//	Always good to have text support.
+		.p-c {
+			text-align:justify;
+		}
+	
+		//	-BUTTONS
+		//	A clickable button that takes the user to another page.
+		.btn {
+			display:block;
+			padding:2%;
+			text-align:center;
+		
+			@media screen and ( min-width:$stn-tablet ) {
+				padding:2% 3%;
+				@include prefix( width, fit-content, value, webkit, moz );
+				display:block;
+				margin:0 auto;
+			
+				&.btn-embed {
+					display:none;
+				
+				}
+			
+			}
+		
+		}
+	}
+
+}
+
+@media screen and ( min-width:$stn-desktop ) {
+	
+	//	IMPORTANT
+	//	In order for blocks to work correctly, you must extend this selector
+	//	into your header.
+	%stn-l-d-blocks-header {
+		position: absolute;
+		width:100%;
+		background:transparent !important;
+		
+	}
+}

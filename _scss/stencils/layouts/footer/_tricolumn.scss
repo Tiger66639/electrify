@@ -1,0 +1,71 @@
+//	LAYOUTS > FOOTER > TRICOLUMN
+//	(stn-l-f-tricolumn)
+//	Three columns. Simple, right?
+//
+%stn-l-f-tricolumn {
+	padding:2% 0;
+	
+	> .c {
+		html.flexbox & {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( flex-direction, column, property, webkit );
+			
+			@media screen and ( min-width:$stn-desktop ) {
+				@include prefix( flex-direction, row, property, webkit );
+				@include prefix( justify-content, space-around, property, webkit );
+			}
+			
+		}
+		html.no-flexbox & {
+			@extend %cf;
+			
+		}
+	}
+	
+	%stn-l-f-tricolumn-col { // A single column
+		padding:0 4%;
+		
+		@media screen and ( min-width:$stn-desktop ) {
+			width:30%;
+			padding:initial;
+			
+			html.no-flexbox & {
+				float:left;
+				padding:0 1.5%;
+				
+			}
+			
+		}
+		
+		> :nth-child(1n+2) {
+			display:none;
+			// Only allows the first section form each column to display on smaller devices
+			
+			@media screen and ( min-width:$stn-desktop ) {
+				display:initial;
+				
+			}
+			
+		}
+		
+		%stn-l-f-tricolumn-h1 { // A column header
+			text-align:center;
+			font-size:2em;
+			padding:4% 0;
+			
+		}
+		%stn-l-f-tricolumn-h2 { // A section header within the column
+			text-align:left;
+			font-size:1.5em;
+			padding:1.5% 0;
+			
+		}
+		
+		p {
+			padding:2% 0;
+			text-align:justify;
+		}
+		
+	}
+	
+}

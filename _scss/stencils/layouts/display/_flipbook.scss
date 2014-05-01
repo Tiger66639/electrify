@@ -1,0 +1,57 @@
+//	LAYOUTS > DISPLAY > FLIPBOOK
+//	Horizontal rectangles filled with a background image. A box inside contains text and a button.
+//
+%stn-l-d-flipbook
+{
+	padding-top:4%;
+	
+	background-size:100% auto;
+	background-position:center;
+	background-repeat:no-repeat;
+	// IMPORTANT
+	// You must set the background image yourself
+	
+	@media screen and ( min-width:$stn-tablet ) {
+		padding:10%;
+		background-size:cover;
+	}
+	
+	%stn-l-d-flipbook-text
+	{
+		width:100%;
+		padding:1%;
+		
+		@media screen and ( min-width:$stn-tablet ) {
+			width:40%;
+			
+			&.left
+			{
+				margin-right:auto;
+			}
+			&.right
+			{
+				margin-left:auto;
+			}
+		}
+		
+		h1
+		{
+			font-size:2em;
+		}
+		p
+		{
+			line-height:1.15;
+			padding:2% 0;
+		}
+		
+		.btn
+		{
+			display:inline-block;
+			padding:3%;
+			font-size:1.2em;
+			text-decoration:none;
+		}
+		
+	}
+	
+}

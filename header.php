@@ -15,13 +15,31 @@
 				<h1><?php bloginfo( 'name' ); ?></h1>
 				<h2><?php bloginfo( 'description' ); ?></h2>
 			</a>
-			<ul id="n">
-				
-			</ul>
-		</div>
-		<ul id="n-mobile">
+			<?php
 			
-		</ul>
+			wp_nav_menu( array(
+				'theme_location' => 'nav_primary',
+				'container' => false,
+				'container_class' => false,
+				'container_id' => false,
+				'menu_id' => 'n',
+				'depth' => 2,
+			) );
+			
+			?>
+		</div>
+		<?php
+		
+		wp_nav_menu( array(
+			'theme_location' => 'nav_mobile',
+			'container' => false,
+			'container_class' => false,
+			'container_id' => false,
+			'menu_id' => 'n-mobile',
+			'depth' => 1,
+		) );
+		
+		?>
 		<a href="#" id="n-reveal">&equiv;</a>
 	</header>
 	<main id="m">

@@ -1,0 +1,236 @@
+@import "../includer";
+
+//	SINGULAR STYLES
+//
+//	Applied to pages, posts, and the 404 page. A lot of styles only apply to posts, but
+//	enough of them apply to pages and the 404 that it's not worth it to split them up.
+
+
+//	SIDEBAR
+//
+//	Styles the gray sidebar
+
+#main.aside {
+	@include prefix( display, flex, value, webkit );
+	
+	//	GENERAL
+	
+	#aside {
+		padding:2%;
+		width:30%;
+		background:$colorD4;
+		
+		.widget {
+			padding:5% 3%;
+			
+			h5 {
+				font-size:2em;
+				padding-bottom:2%;
+			}
+		}
+		
+		// The sidebar takes up too much valuable space on smartphones and tablets.
+		@media screen and ( max-width:749px ) {
+			display:none;
+		}
+	}
+	
+	//	ARTICLE W/ SIDEBAR
+	//
+	//	Styling for #article when it has an #aside next to it.
+	
+	#article {
+		width:65%;
+		
+		// The sidebar is hidden for tablets and smartphones; this allows the article to take back that space.
+		@media screen and ( max-width:749px ) {
+			width:100%;
+			
+			p {
+				padding:inherit 4%;
+			}
+		}
+	}
+}
+
+
+//	POST STYLES
+//
+//	These styles only apply to posts.
+
+//	Breadcrumbs: appear at the top of the page
+
+.post-breadcrumbs {
+	padding:0 0 2%;
+	@include h-font;
+	
+	.post-meta {
+		@include h-font;
+		float:right;
+	}
+}
+
+//	Post styles: used in the WordPress backend
+
+.post-body,#aside {
+	
+	blockquote {
+		margin:2% 0;
+		margin-left:4%;
+		padding-left:2%;
+		border-left:8px solid #ccc;
+		font-size:0.9em;
+	}
+	
+	ul,ol {
+		margin:2% 0;
+		margin-left:8%;
+	}
+	ul li {
+		list-style:circle;
+		padding:1.5% 1%;
+	}
+	ol li {
+		list-style-type:decimal;
+		padding:1.5% 1%;
+	}
+	
+	.wp-caption {
+		background:#ccc;
+		padding:2%;
+		margin:2%;
+	}
+	
+	.alignright {
+		float:right;
+	}
+	.alignleft {
+		float:left;
+	}
+}
+
+//	Author Bio: appears at the bottom of the page, giving information about the author
+
+.author-bio {
+	background:#eee;
+	padding:2%;
+	margin:2%;
+	
+	.author-avatar {
+		float:left;
+		display:block;
+		margin-right:2%;
+		margin-bottom:2%;
+	}
+	h4 {
+		font-size:1.6em;
+	}
+}
+
+//	Post end: Contains tags, categories, and a link to return back to the blog
+
+.post-end {
+	background:#eee;
+	padding:2%;
+	margin:2%;
+	
+	p {
+		@include h-font;
+		padding:1% 0;
+	}
+}
+
+//	Comments: Styles the comments divs
+
+#comments {
+	background:#eee;
+	margin:2%;
+	padding:2%;
+	
+	// The background of each comment increasingly becomes darker.
+	li {
+		padding:0 !important;
+		list-style:none !important;
+
+		li {
+			margin-left:5%;
+			background:#ddd;
+
+			li {
+				background:#ccc;
+
+				li {
+					background:#bbb;
+
+					li {
+						background:#aaa;
+					}
+				}
+			}
+		}
+
+		.comment-body {
+			padding:2%;
+		}
+	}
+
+	.comment {
+		
+		// General styling
+		p {
+			padding:1% 0;
+		}
+		
+		//	COMMENT META
+		//
+		//	The areas where the commenter's information is displayed.
+		
+		//	Author box
+		
+		.comment-author {
+			background:#000;
+			height:32px;
+
+			img {
+				height:auto;
+				width:auto;
+				float:left;
+			}
+			cite {
+				@include h-font;
+				color:$colorD1;
+				margin:auto;
+				display:inline-block;
+				padding:1.4% 1%;
+				font-size:1em;
+			}
+		}
+		
+		//	Other metadata
+		
+		.comment-meta {
+			background:#444;
+			height:32px;
+			
+			a:first-child {
+				font-size:1em;
+				padding:8px 1%;
+				vertical-align:middle;
+				display:block;
+				float:left;
+			}
+			a.comment-edit-link {
+				background:#222;
+				display:block;
+				float:right;
+				padding:8px 1%;
+			}
+			
+		}
+	}
+}
+
+#reply-title {
+	margin-left:3%;
+	font-size:1.5em;
+}

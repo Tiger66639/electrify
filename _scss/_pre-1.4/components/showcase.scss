@@ -1,0 +1,88 @@
+@import "../includer";
+@import "../elements/header";
+
+//	SHOWCASE HEADER
+
+#header.showcase {
+	
+	#nav-showcase-c {
+		width:100%;
+		
+		@media screen and ( max-width:649px ) {
+			width:initial;
+			
+		}
+	}
+	
+	#nav-showcase {
+		@extend #nav;
+		
+		li:nth-child( 2 ) {
+			margin-right:auto;
+		}
+	}
+	
+	#nav-showcase-mobile {
+		@extend #nav-mobile;
+		
+	}
+	
+	#logo {
+		display:none;
+	}
+}
+
+.block {
+	h1 {
+		font-size:4em;
+		
+		@media screen and ( min-width:650px ) {
+			padding-top:15vh;	
+		}
+		
+	}
+	h2 {
+		font-size:3em;
+	}
+	
+	&.half {
+		
+		h1 {
+			padding-top:0;
+			font-size:3em;
+		}
+		
+		@media screen and ( max-width:649px ) {
+			
+			h2 {
+				padding-bottom:2%;
+			}
+		}
+	}
+	
+	&:first-of-type {
+		margin-top:0;
+	
+		@media screen and ( max-width:649px ) {
+			h1 {
+				padding-top:0;
+			}
+		}
+	}
+	
+	&.fade {
+		width:100vw !important;
+	}
+	
+	@media screen and ( max-width:649px ) {
+		
+		h1 {
+			font-size:2em;
+		}
+		h2 {
+			font-size:1.5em;
+		}
+		
+	}
+}
+

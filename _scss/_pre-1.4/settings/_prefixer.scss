@@ -1,0 +1,17 @@
+@mixin prefix( $property, $value, $items, $vendors... ) {
+	@if ( $items == property ) {
+		@each $vendor in $vendors {
+			-#{ $vendor }-#{ $property }:$value;
+		}
+	} @elseif ( $items == value ) {
+		@each $vendor in $vendors {
+			#{ $property }:-#{ $vendor }-#{ $value };
+		}
+	} @elseif ( $items == all ) {
+		@each $vendor in $vendors {
+			-#{ $vendor }-#{ $property }:-#{ $vendor }-#{ $value };
+		}
+	}
+	
+	#{ $property }:$value;
+}

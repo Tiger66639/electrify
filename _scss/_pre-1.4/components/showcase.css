@@ -1,0 +1,272 @@
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 300; }
+
+.c {
+  width: 90%; }
+
+.c-small {
+  width: 70%; }
+
+.f {
+  margin: 0 auto; }
+
+p {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  line-height: 1.3;
+  text-align: justify; }
+
+a {
+  color: #0088ff;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+  a:active {
+    color: #ff8800; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 200; }
+
+small {
+  font-size: 0.5em; }
+
+strong {
+  font-weight: 500; }
+
+em {
+  font-style: italic; }
+
+.screen-reader-text {
+  display: none; }
+
+pre {
+  font-family: 'Menlo', monospace;
+  font-size: 18px; }
+
+.cf:before, .cf:after {
+  content: " ";
+  display: table; }
+
+.cf:after {
+  clear: both; }
+
+.cf {
+  *zoom: 1; }
+
+@font-face {
+  font-family: 'Icomoon';
+  src: url(settings/_icomoon/icomoon.eot), url(settings/_icomoon/icomoon.svg) format("svg"), url(settings/_icomoon/icomoon.ttf) format("truetype"), url(settings/_icomoon/icomoon.woff) format("woff");
+  font-variant: normal;
+  font-weight: normal; }
+
+.icon:before {
+  font-family: 'Icomoon';
+  font-size: 1em;
+  color: #0af;
+  margin-right: 5px; }
+
+.icon {
+  vertical-align: middle; }
+
+.icon:hover:before {
+  text-decoration: none; }
+
+.icon.article:before {
+  content: '\e60b '; }
+
+.icon.author:before {
+  content: '\e606 '; }
+
+.icon.date:before {
+  content: '\e607 '; }
+
+.icon.tag:before {
+  content: '\e608 '; }
+
+.icon.category:before {
+  content: '\e609 '; }
+
+.icon.home:before {
+  content: '\e605 '; }
+
+.icon.comments:before {
+  content: '\e60a '; }
+
+.icon.article:before {
+  content: '\e60b '; }
+
+#header {
+  background: black; }
+  #header #logo {
+    margin: auto 0;
+    margin-right: auto; }
+    #header #logo h1 {
+      font-size: 2em;
+      color: #ffdd00; }
+    #header #logo h2 {
+      color: #cccccc;
+      font-size: 1.25em;
+      text-align: right; }
+      @media screen and (max-width: 949px) {
+        #header #logo h2 {
+          margin: auto 0; } }
+      @media screen and (max-width: 649px) {
+        #header #logo h2 {
+          margin-top: 2%;
+          text-align: center; } }
+    #header #logo a:hover {
+      text-decoration: none; }
+    @media screen and (max-width: 949px) {
+      #header #logo a {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        width: 100%; } }
+    @media screen and (max-width: 649px) {
+      #header #logo a {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        text-align: center; } }
+    @media screen and (max-width: 949px) {
+      #header #logo {
+        padding: 0.5% 0;
+        margin: 0; } }
+  #header #nav, #header #nav-mobile, #header.showcase #nav-showcase-mobile, #header.showcase #nav-showcase {
+    margin: 0;
+    display: -webkit-flex;
+    display: flex;
+    z-index: 2500; }
+    #header #nav .sub-menu, #header #nav-mobile .sub-menu, #header.showcase #nav-showcase-mobile .sub-menu, #header.showcase #nav-showcase .sub-menu {
+      display: none; }
+    #header #nav li, #header #nav-mobile li, #header.showcase #nav-showcase-mobile li, #header.showcase #nav-showcase li {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-justify-content: center;
+      justify-content: center; }
+      #header #nav li a, #header #nav-mobile li a, #header.showcase #nav-showcase-mobile li a, #header.showcase #nav-showcase li a {
+        display: block;
+        font-family: "Raleway", sans-serif;
+        text-transform: uppercase;
+        font-weight: 200;
+        color: #ffdd00;
+        padding: 1em 0.65em;
+        font-size: 1.3em; }
+        #header #nav li a:hover, #header #nav-mobile li a:hover, #header.showcase #nav-showcase-mobile li a:hover, #header.showcase #nav-showcase li a:hover {
+          background: #ffdd00;
+          color: black;
+          text-decoration: none; }
+        @media screen and (max-width: 949px) {
+          #header #nav li a, #header #nav-mobile li a, #header.showcase #nav-showcase-mobile li a, #header.showcase #nav-showcase li a {
+            padding: 0.5em; } }
+      #header #nav li.current_page_item a, #header #nav-mobile li.current_page_item a, #header.showcase #nav-showcase-mobile li.current_page_item a, #header.showcase #nav-showcase li.current_page_item a {
+        background: linear-gradient(to bottom, transparent, rgba(255, 223, 0, 0.4)); }
+        #header #nav li.current_page_item a:hover, #header #nav-mobile li.current_page_item a:hover, #header.showcase #nav-showcase-mobile li.current_page_item a:hover, #header.showcase #nav-showcase li.current_page_item a:hover {
+          background: #fd0; }
+      #header #nav li:hover > a, #header #nav-mobile li:hover > a, #header.showcase #nav-showcase-mobile li:hover > a, #header.showcase #nav-showcase li:hover > a {
+        background: #ffdd00;
+        color: black;
+        text-decoration: none; }
+      #header #nav li:hover .sub-menu, #header #nav-mobile li:hover .sub-menu, #header.showcase #nav-showcase-mobile li:hover .sub-menu, #header.showcase #nav-showcase li:hover .sub-menu {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        position: absolute;
+        background: black;
+        box-shadow: 0 0 20px #000; }
+    @media screen and (max-width: 949px) {
+      #header #nav, #header #nav-mobile, #header.showcase #nav-showcase-mobile, #header.showcase #nav-showcase {
+        -webkit-justify-content: space-around;
+        justify-content: space-around; } }
+    @media screen and (max-width: 649px) {
+      #header #nav, #header #nav-mobile, #header.showcase #nav-showcase-mobile, #header.showcase #nav-showcase {
+        display: none; } }
+  #header #headerC {
+    display: -webkit-flex;
+    display: flex; }
+    @media screen and (max-width: 949px) {
+      #header #headerC {
+        -webkit-flex-direction: column;
+        flex-direction: column; } }
+
+#search-from-nav {
+  display: none;
+  margin: 0; }
+  #search-from-nav input {
+    padding: 1%;
+    background: black;
+    color: #ffdd00;
+    text-align: right;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666; }
+  #search-from-nav button {
+    padding: 1%; }
+
+@media screen and (min-width: 650px) {
+  #nav-mobile, #header.showcase #nav-showcase-mobile {
+    display: none !important; } }
+@media screen and (max-width: 649px) {
+  #nav-mobile, #header.showcase #nav-showcase-mobile {
+    display: block;
+    text-align: center;
+    padding-top: 3%;
+    position: static; } }
+
+#mobile-reveal-nav {
+  display: none; }
+  @media screen and (max-width: 649px) {
+    #mobile-reveal-nav {
+      display: block;
+      width: 100%;
+      padding: 0;
+      line-height: 0.8;
+      font-size: 3em;
+      text-align: center;
+      background: #444;
+      color: #ffdd00; }
+      #mobile-reveal-nav:active {
+        background: #888; } }
+
+#header.showcase #nav-showcase-c {
+  width: 100%; }
+  @media screen and (max-width: 649px) {
+    #header.showcase #nav-showcase-c {
+      width: initial; } }
+#header.showcase #nav-showcase li:nth-child(2) {
+  margin-right: auto; }
+#header.showcase #logo {
+  display: none; }
+
+.block h1 {
+  font-size: 4em; }
+  @media screen and (min-width: 650px) {
+    .block h1 {
+      padding-top: 15vh; } }
+.block h2 {
+  font-size: 3em; }
+.block.half h1 {
+  padding-top: 0;
+  font-size: 3em; }
+@media screen and (max-width: 649px) {
+  .block.half h2 {
+    padding-bottom: 2%; } }
+.block:first-of-type {
+  margin-top: 0; }
+  @media screen and (max-width: 649px) {
+    .block:first-of-type h1 {
+      padding-top: 0; } }
+.block.fade {
+  width: 100vw !important; }
+@media screen and (max-width: 649px) {
+  .block h1 {
+    font-size: 2em; }
+  .block h2 {
+    font-size: 1.5em; } }

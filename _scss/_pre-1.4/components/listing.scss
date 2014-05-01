@@ -1,0 +1,94 @@
+@import "../includer";
+
+//	LISTING
+//
+//	Listing pages--such as the default blog page, the archives, and search results--will use these styles.
+
+#article {
+	
+	//	LISTING START STYLES
+	//
+	//	This div appears before the main content and serves to give an introduction to the content
+	//	that follows.
+	
+	.listing-start {
+		border-bottom:1px solid #000;
+		padding-bottom:2%;
+		
+		img {
+			float:left;
+			margin:1%;
+		}
+	}
+	
+	//	LISTING POST STYLES
+	//
+	//	These styles apply to each individual post div.
+	
+	.post {
+		
+		.post-content {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( justify-content, space-between, property, webkit );
+			
+			//	EXCERPT BOX
+			.post-text {
+				width:60%;
+				
+				// On smartphones, the excerpt and meta boxes fill the screen width and are stacked in a column.
+				@media screen and ( max-width:649px ) {
+					width:100%;
+				}
+			}
+			
+			//	META BOX
+			ul.post-links {
+				@include h-font;
+				width:35%;
+				
+				li {
+					list-style:none !important;
+					padding:1.5% 0 !important;
+					
+					a:hover {
+						text-decoration:none;
+						color:$colorA-hover;
+					}
+				}
+				
+				// Aligns text right for smartphones, as well as filling screen width.
+				@media screen and ( max-width:649px ) {
+					width:100%;
+					text-align:right;
+				}
+			}
+			
+			// Stacks boxes in a column for smartphones.
+			@media screen and ( max-width:649px ) {
+				@include prefix( flex-direction, column, property, webkit );
+			}
+		}
+	}
+	
+	//	LISTING END STYLES
+	//
+	//	These styles will apply to the divs at the end of the listing pages.
+	
+	.listing-end {
+		padding:2% 0;
+		
+		.next-posts {
+			float:left;
+			padding-left:5%;
+		}
+		.prev-posts {
+			float:right;
+			padding-right:5%;
+		}
+		
+		a {
+			font-family:$h-font;
+			text-transform:uppercase;
+		}
+	}
+}

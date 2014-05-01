@@ -1,0 +1,103 @@
+//	FORMS
+//
+//	This page is a collection of junk. It was intended for good, but it must either expand or give most
+//	of its code to the comments area.
+//
+//	TODO Fix this up.
+
+//	General form styling
+
+form {
+	margin:2%;
+	
+	.group {
+		width:100%;
+		@include prefix( display, flex, value, webkit );
+		
+		.control {
+			@include prefix( width, fill-available, value, webkit );
+			width:-moz-available;
+		}
+		&.large {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( flex-direction, column, property, webkit );
+
+			input,textarea {
+				@include prefix( width, fill-available, value, webkit );
+				width:-moz-available;
+			}
+		}
+		
+		label {
+			padding:15px; // TODO Try to get this in percentages in a manner that makes it look okay in FF
+		}
+	}
+}
+
+#respond {
+	padding:2%;
+	margin:2%;
+	background:#eee;
+}
+
+textarea {
+	background:#aaa;
+	max-width:99.5%;
+	padding:2%;
+}
+
+input,button,textarea {
+	margin:0;
+	box-sizing:initial;
+	border:none;
+	@include p-font;
+	color:#000;
+	font-size:1.1em;
+}
+
+input[type="text"],input[type="email"],textarea {
+	padding:15px; // TODO Try to get this in percentages in a manner that makes it look okay in FF
+	background:#aaa;
+	border:none;
+}
+
+button,.button,input[type="submit"],label {
+	background:#666;
+	color:#fff;
+	padding:2% 2%;
+	text-transform:lowercase;
+	display:block;
+
+	&:hover {
+		cursor:pointer;
+	}
+
+	
+}
+.required {
+	background:#a00;
+}
+
+//	Contact Form 7 styling
+
+.wpcf7 {
+	
+	span {
+		display:block;
+		@include prefix( width, fill-available, value, webkit );
+		width:moz-available;
+		//height:100%;
+		
+		input,textarea {
+			@include prefix( width, fill-available, value, webkit );
+			width:-moz-available;
+		}
+	}
+	br {
+		display:none;
+	}
+	
+	.group {
+		margin:2% 0;
+	}
+}

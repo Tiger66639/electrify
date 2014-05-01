@@ -1,0 +1,230 @@
+//	HEADER STYLES (primary)
+//
+//	Contains all the styles that the header should need for each basic page.
+
+#header {
+	background:$colorD3;
+	
+	//	LOGO STYLES
+	//
+	//	Not really even a logo. Just some text.
+		
+	#logo {
+		margin:auto 0;
+		margin-right:auto;
+		
+		// GENERAL LOGO STYLES
+	
+		h1 { // Main logo heading
+			font-size:2em;
+			color:$colorD1;
+		}
+		h2 { // Secondary logo heading
+			color:$colorD2;
+			font-size:1.25em;
+			text-align:right;
+			
+			@media screen and ( max-width:949px ) {
+				margin:auto 0;
+			}
+			@media screen and ( max-width:649px ) {
+				margin-top:2%;
+				text-align:center;
+			}
+		}
+		
+		//	LOGO LAYOUT STYLES
+		//	
+		//	The logo is contained inside of an anchor that links back to the homepage when clicked.
+		
+		a {
+			&:hover {
+				text-decoration:none; // Overriding original settings.
+			}
+			
+			// 	The logo is spread out over the entire top part of the header for
+			//	devices with medium-sized screens.
+			
+			@media screen and ( max-width:949px ) {
+				@include prefix( display, flex, value, webkit );
+				@include prefix( justify-content, space-between, property, webkit );
+				width:100%;
+			}
+			
+			//	And it's drawn into a column for smartphones. Technically, this is supposed to be
+			//	handled by the mobile nav below. But see the todo down below for that.
+			
+			@media screen and ( max-width:649px ) {
+				@include prefix( flex-direction, column, property, webkit );
+				@include prefix( justify-content, space-around, property, webkit );
+				text-align:center;
+			}
+		}
+		
+		// A shim to correctly align #logo elements while in tablet mode.
+		@media screen and ( max-width:949px ) {
+			padding:0.5% 0;
+			margin:0;
+		}
+	}
+	
+	//	NAV
+	//
+	//	The nav is always one of the trickiest parts of any website. Always.
+	//	Flexbox helps out a lot.
+	
+	#nav {
+		margin:0;
+		@include prefix( display, flex, value, webkit );
+		z-index:2500;
+
+		.sub-menu {
+			display:none;
+		}
+
+		li {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( flex-direction, column, property, webkit );
+			@include prefix( justify-content, center, property, webkit );
+			
+			//	Basic link styling
+
+			a {
+				display:block;
+				@include h-font;
+				color:$colorD1;
+				padding:1em 0.65em;
+				font-size:1.3em;
+
+				&:hover {
+					background:$colorD1;
+					color:$colorD3;
+					text-decoration:none;
+					//box-shadow:0 0 30px $colorD1;
+				}
+				
+				// Readjust padding for tablets.
+				@media screen and ( max-width:949px ) {
+					padding:0.5em;
+				}
+			}
+			
+			//	Current links have gradient applied to them
+			&.current_page_item a {
+				background:linear-gradient( to bottom, transparent, rgba( 255, 223, 0, 0.4 ) );
+			
+				&:hover {
+					background:#fd0;
+				}
+			}
+
+			//	Submenu styles: dropdowns with CSS only!
+			
+			&:hover { // On hover,
+				> a {
+					background:$colorD1; // the links change color here
+					color:$colorD3; // and here
+					text-decoration:none; // (overriding original styles)
+				}
+				.sub-menu {
+					@include prefix( display, flex, value, webkit ); // while the submenu appears
+					@include prefix( flex-direction, column, property, webkit ); // in a column
+					position:absolute; // on top of other content
+					background:$colorD3; // on a visible background
+					box-shadow:0 0 20px #000; // with a fancy shadow just for kicks and grins.
+				}
+			}
+		}
+		
+		// Redistribute space in tablet mode.
+		@media screen and ( max-width:949px ) {
+			@include prefix( justify-content, space-around, property, webkit );
+		}
+		
+		// A different nav takes care of smartphone navigation, so we'll hide this one.
+		@media screen and ( max-width:649px ) {
+			display:none;
+		}
+		
+	}
+	
+	// The container uses flexbox to lay out the header.
+	#headerC {
+		@include prefix( display, flex, value, webkit );
+		
+		// The header changes into a column at medium-screen width.
+		@media screen and ( max-width:949px ) {
+			@include prefix( flex-direction, column, property, webkit );
+		}
+	}
+	
+} // end #header
+
+//	SEARCH FROM NAV
+//
+//	This is the form that appears when the user clicks on the link in the navigation.
+//	Handled completely and secretly by JavaScript and WordPress's PHP; Sass has nothing to do
+//	with it.
+
+#search-from-nav {
+	display:none;
+	margin:0;
+
+	input {
+		padding:1%;
+		background:$colorD3;
+		color:$colorD1;
+		text-align:right;
+		border-top:1px solid #666;
+		border-bottom:1px solid #666;
+	}
+	button {
+		padding:1%;
+	}
+}
+
+//	MOBILE NAV
+//
+//	This nav is hidden by default, but is revealed on smartphones.
+
+#nav-mobile {
+	@extend #nav;
+	
+	// It's really important that this doesn't display on smaller devices.
+	@media screen and ( min-width:650px ) {
+		display:none !important;
+	}
+	
+	// And this, of course, is what lets it display on smartphones.
+	@media screen and ( max-width:649px ) {
+		display:block;
+		text-align:center;
+		padding-top:3%;
+		position:static;
+	}
+}
+
+//	MOBILE REVEAL NAV
+//
+//	When this button is pressed, the mobile navigation slides down with JavaScript.
+
+#mobile-reveal-nav {
+	display:none; // Don't want it displaying on larger displays...
+	
+	// ...only on smaller ones.
+	@media screen and ( max-width:649px ) {
+		display:block;
+		width:100%;
+		padding:0;
+		line-height:0.8;
+		font-size:3em;
+		text-align:center;
+		background:#444;
+		color:$colorD1;
+		
+		// Just some fancy stuff. Just for fun.
+		&:active {
+			background:#888;
+		}
+	}
+}

@@ -1,0 +1,72 @@
+@import "../inc";
+
+//	THREE
+//
+//	Three columns, side by side. Pretty typical stuff.
+
+%three {
+	padding:2% 0;
+	
+	> .c {
+		html.flexbox & {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( flex-direction, column, property, webkit );
+			
+			@media screen and ( min-width:950px ) {
+				@include prefix( flex-direction, row, property, webkit );
+				@include prefix( justify-content, space-around, property, webkit );
+			}
+			
+		}
+		html.no-flexbox & {
+			@extend %cf;
+			
+		}
+	}
+	
+	%three-col {
+		padding:0 4%;
+		
+		@media screen and ( min-width:950px ) {
+			width:30%;
+			padding:initial;
+			
+			html.no-flexbox & {
+				float:left;
+				padding:0 1.5%;
+				
+			}
+			
+		}
+		
+		> :nth-child(1n+2) {
+			display:none;
+			
+			@media screen and ( min-width:950px ) {
+				display:initial;
+				
+			}
+			
+		}
+		
+		%three-col-h1 {
+			text-align:center;
+			font-size:2em;
+			padding:4% 0;
+			
+		}
+		%three-col-h2 {
+			text-align:left;
+			font-size:1.5em;
+			padding:1.5% 0;
+			
+		}
+		
+		p {
+			padding:2% 0;
+			text-align:justify;
+		}
+		
+	}
+	
+}

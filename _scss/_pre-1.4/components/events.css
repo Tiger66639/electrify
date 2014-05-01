@@ -1,0 +1,19 @@
+.tribe-events-back {
+  padding: 2% 5%; }
+
+.tribe-events-single-event-title {
+  text-align: center;
+  font-size: 2.5em; }
+
+h3 {
+  text-align: center;
+  font-size: 1.5em; }
+
+.tribe-events-single-event-description {
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  padding: 2%;
+  margin: 2%; }
+
+.tribe-events-single-section-title {
+  font-family: 'Raleway',sans-serif !important; }

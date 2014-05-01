@@ -1,0 +1,145 @@
+html.no-flexbox #main > .c:before, html.no-flexbox #main > .c:after {
+  content: " ";
+  display: table; }
+
+html.no-flexbox #main > .c:after {
+  clear: both; }
+
+html.no-flexbox #main > .c {
+  *zoom: 1; }
+
+html.no-flexbox #main > .c:before, html.no-flexbox #main > .c:after {
+  content: " ";
+  display: table; }
+
+html.no-flexbox #main > .c:after {
+  clear: both; }
+
+html.no-flexbox #main > .c {
+  *zoom: 1; }
+
+html.no-flexbox #main > .c:before, html.no-flexbox #main > .c:after {
+  content: " ";
+  display: table; }
+
+html.no-flexbox #main > .c:after {
+  clear: both; }
+
+html.no-flexbox #main > .c {
+  *zoom: 1; }
+
+html.no-flexbox #main > .c:before, html.no-flexbox #main > .c:after {
+  content: " ";
+  display: table; }
+
+html.no-flexbox #main > .c:after {
+  clear: both; }
+
+html.no-flexbox #main > .c {
+  *zoom: 1; }
+
+html.flexbox #main > .c {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+  @media screen and (min-width: 950px) {
+    html.flexbox #main > .c {
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-justify-content: space-between;
+      justify-content: space-between; } }
+#main #article {
+  width: 100%; }
+  @media screen and (min-width: 950px) {
+    #main #article {
+      width: 63%; }
+      html.no-flexbox #main #article {
+        float: left; } }
+#main #aside {
+  display: none; }
+  @media screen and (min-width: 950px) {
+    #main #aside {
+      display: block;
+      width: 33%; }
+      html.no-flexbox #main #aside {
+        float: right; } }
+
+html.no-flexbox #main > .c:before, html.no-flexbox #main > .c:after {
+  content: " ";
+  display: table; }
+
+html.no-flexbox #main > .c:after {
+  clear: both; }
+
+html.no-flexbox #main > .c {
+  *zoom: 1; }
+
+#main #article h1, #main #aside h1, #main #article h2, #main #aside h2, #main #article h3, #main #aside h3, #main #article h4, #main #aside h4, #main #article h5, #main #aside h5, #main #article h6, #main #aside h6 {
+  padding: 2% 0; }
+#main #article > h1:first-of-type, #main #aside > h1:first-of-type {
+  font-size: 3em; }
+#main #article h1, #main #aside h1 {
+  font-size: 2em; }
+#main #article h2, #main #aside h2 {
+  font-size: 1.5em; }
+#main #article h3, #main #aside h3 {
+  font-size: 1.3em; }
+#main #article h4, #main #aside h4 {
+  font-size: 1.1em; }
+#main #article p, #main #aside p {
+  text-align: justify;
+  line-height: 1.2;
+  font-size: 1rem;
+  padding: 1% 0;
+  padding-left: 1%; }
+#main #article hr, #main #aside hr {
+  height: 1px;
+  border: 0;
+  background: #000; }
+#main #article blockquote, #main #aside blockquote {
+  border-left: 5px solid #888;
+  margin-left: 2%;
+  padding-left: 2%; }
+#main #article ul, #main #aside ul, #main #article ol, #main #aside ol {
+  margin: 2% 0;
+  margin-left: 8%; }
+#main #article ul li, #main #aside ul li {
+  list-style: circle;
+  padding: 1.5% 1%; }
+#main #article ol li, #main #aside ol li {
+  list-style-type: decimal;
+  padding: 1.5% 1%; }
+#main #article a, #main #aside a {
+  color: #00a;
+  text-decoration: none; }
+  #main #article a:hover, #main #aside a:hover {
+    text-decoration: underline; }
+  #main #article a:active, #main #aside a:active {
+    color: #a00; }
+#main #article small, #main #aside small {
+  font-size: 0.5em; }
+#main #article cite, #main #aside cite {
+  text-align: right; }
+#main #article strong, #main #aside strong {
+  font-weight: bold; }
+#main #article em, #main #aside em, #main #article q, #main #aside q {
+  font-style: italic; }
+#main #article s, #main #aside s {
+  text-decoration: line-through; }
+
+#main #article {
+  padding: 2% 0; }
+  #main #article h1:first-of-type {
+    border-bottom: 1px solid black; }
+#main #aside {
+  background: #cccccc;
+  width: 30%;
+  padding: 2%; }
+  #main #aside h5 {
+    font-size: 1.5em;
+    padding: 3% 0; }
+#main h1, #main h2, #main h3, #main h4, #main h5, #main h6 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  text-transform: uppercase; }

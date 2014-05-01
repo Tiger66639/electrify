@@ -1,0 +1,21 @@
+@import "helpers";
+
+%c {
+	width:90%;
+	//max-width:1250px;
+	margin:0 auto;
+}
+
+%cf:before,%cf:after, {
+    content: " ";
+    display: table;
+}
+
+%cf:after {
+    clear: both;
+}
+
+%cf {
+	*zoom:1;
+}
+

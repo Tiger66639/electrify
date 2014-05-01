@@ -1,0 +1,65 @@
+//	HELPERS
+//	
+//	These mixins and functions help to provide a lot of basic functionality
+//	that front-end developers need.
+
+//	RESETS
+//
+//	Partial resets: include to reset padding, margin, etc.
+//	Based on Eric Meyers's reset
+
+@mixin reset_ {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	
+}
+
+@mixin reset( $properties... ) {
+	@each $property in $properties {
+		@if $property == margin or $property == padding or $property == border {
+			#{ $property }: 0;
+			
+		}
+		@else if $property == font-size {
+			#{ $property }: 100%;
+			
+		}
+		@else if $property == font {
+			#{ $property }: inherit;
+			
+		}
+		@else if $property == vertical-align {
+			#{ $property }: baseline;
+			
+		}
+	
+	}
+	
+}
+
+//	PREFIX
+//
+//	A very lightweight way to manage your prefixes.
+
+@mixin prefix( $property, $value, $location, $prefixes... ) {
+	
+	@if $location == property {
+		@each $prefix in $prefixes {
+			-#{ $prefix }-#{ $property }: $value;
+		}
+		
+	}
+	@elseif $location == value {
+		@each $prefix in $prefixes {
+			#{ $property }: -#{ $prefix }-#{ $value };
+		}
+		
+	}
+	
+	#{ $property }: $value;
+	
+}

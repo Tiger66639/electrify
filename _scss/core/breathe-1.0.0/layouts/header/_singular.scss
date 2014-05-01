@@ -1,0 +1,162 @@
+@import "../inc";
+
+//	HEADER LAYOUT: SINGULAR
+//
+//	The Singular layout places the logo on the left side of the screen, the navigation on the right.
+//	It assumes a container is its direct child, and that all its content resides in the container.
+
+%layout-singular {
+	> .c {
+		html.flexbox & {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( flex-direction, column, property, webkit );
+		
+			@media screen and ( min-width:950px ) {
+				@include prefix( flex-direction, row, property, webkit );
+			
+			}
+		}
+		html.no-flexbox & {
+			@extend %cf;
+			
+		}
+		
+	}
+	
+	//	LOGO
+	%logo {
+		text-align: center;
+		padding: 2%;
+		
+		h1 {
+			margin-right: auto;
+			font-size: 1.5em;
+		}
+		h2 {
+			margin: auto inherit;
+			font-size: 1.25em;
+		}
+		
+		//	Tablets and above
+		@media screen and ( min-width:700px ) and ( max-width:949px ) {
+			padding: 1.5%;
+			
+			a {
+				@include prefix( display, flex, value, webkit );
+				
+				
+			} 
+			
+		}
+		
+		//	Laptops/desktops and above
+		@media screen and ( min-width:950px ) {
+			text-align: right;
+			padding: 0.5%;
+			
+			html.flexbox & {
+				margin-right: auto;
+				
+			}
+			html.no-flexbox & {
+				float:left;
+				
+			}
+			
+			h1 {
+				font-size: 1.9em;
+			}
+			h2 {
+				font-size: 1.25em;
+			}
+			
+		}
+		
+	}
+	
+	//	DESKTOP NAV
+	%nav {
+		display: none;
+		
+		html.no-flexbox & {
+			@extend %cf;
+			
+		}
+		
+		@media screen and ( min-width:700px ) {
+			
+			html.flexbox & {
+				@include prefix( display, flex, value, webkit );
+			}
+			
+			html.no-flexbox & {
+				display:inline-block;
+				float:right;
+			}
+			
+			> li {
+				html.no-flexbox & {
+					float:left;
+				}
+			}
+			
+			li {
+				
+				a {
+					display:block;
+					@include prefix( width, fill-available, value, webkit );
+					width:-moz-available;
+					padding:1em 0.55em;
+					font-size:1.4em;
+				}
+				
+				.sub-menu {
+					display:none;
+				}
+				
+				&:hover {
+					.sub-menu {
+						display:block;
+						position:absolute;
+					}
+					
+				}
+			}
+			
+		}
+		
+		@media screen and ( min-width:700px ) and ( max-width:949px ) {
+			
+			html.flexbox & {
+				@include prefix( justify-content, space-around, property, webkit );
+				
+			}
+			html.no-flexbox & {
+				float:left;
+				
+			}
+			
+		}
+	}
+	
+	//	MOBILE NAV
+	%nav-mobile {
+		text-align: center;
+		
+		html.flexbox & {
+			@include prefix( display, flex, value, webkit );
+			@include prefix( flex-direction, column, property, webkit );
+			
+		}
+		
+		@media screen and ( min-width:650px ) {
+			display: none !important;
+		
+		}
+		
+		a {
+			width:100%;
+		}
+	}
+	
+}

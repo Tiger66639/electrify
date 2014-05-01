@@ -23,7 +23,7 @@
 	//	LOGO
 	%stn-l-hn-singular-logo {
 		text-align: center;
-		padding: 2%;
+		padding: 0.5%;
 		
 		h1 {
 			margin-right: auto;
@@ -91,7 +91,6 @@
 					display:block;
 					@include prefix( width, fill-available, value, webkit );
 					width:-moz-available;
-					padding:1em 0.55em;
 					font-size:1.4em;
 				}
 				

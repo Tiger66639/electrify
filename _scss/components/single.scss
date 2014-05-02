@@ -1,0 +1,26 @@
+@import "inc";
+
+#m
+{
+	@extend %stn-l-m-blog;
+	
+	#a
+	{
+		@extend %stn-l-m-blog-article;
+		@extend %electrify-article;
+		padding-bottom:10%;
+	}
+
+	#s
+	{
+		@extend %stn-l-m-blog-aside;
+		background:$color-bg-2;
+		padding:2%;
+		width:30%;
+		
+		.widget
+		{
+			@extend %electrify-widget;
+		}
+	}
+}

@@ -82,6 +82,13 @@ add_action( 'wp_enqueue_scripts', 'electrify_lib' );
 function electrify_css()
 {
 	wp_enqueue_style( 'master', get_template_directory_uri() . '/_scss/style.css' );
+	
+	wp_register_style( 'listing', get_template_directory_uri() . '/_scss/components/listing.css' );
+	
+	if ( is_home() )
+	{
+		wp_enqueue_style( 'listing' );
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'electrify_css' );

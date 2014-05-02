@@ -1,0 +1,49 @@
+@import "inc";
+
+#m
+{
+	@extend %stn-l-m-listing;
+	@extend %electrify-article;
+	
+	a:hover
+	{
+		text-decoration:none;
+	}
+	
+	h1
+	{
+		border-bottom:1px solid $color-1;
+		font-size:3em;
+		text-align:center;
+		@include font-h;
+	}
+	
+	.post
+	{
+		h2
+		{
+			@extend %stn-l-m-listing-header;
+			@include font-h;
+			padding:2% 0 1%;
+			font-size:1.8em;
+		}
+		
+		.post-content
+		{
+			@extend %stn-l-m-listing-content;
+			
+			.post-meta
+			{
+				@include font-h;
+				@include reset( margin, padding );
+				font-size:1.1em;
+				
+				li
+				{
+					list-style:none;
+					padding:4% 0;
+				}
+			}
+		}
+	}
+}

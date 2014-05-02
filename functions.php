@@ -84,13 +84,13 @@ function electrify_css()
 	wp_enqueue_style( 'master', get_template_directory_uri() . '/_scss/style.css' );
 	
 	wp_register_style( 'listing', get_template_directory_uri() . '/_scss/components/listing.css' );
-	if ( is_home() )
+	if ( is_home() || is_archive() )
 	{
 		wp_enqueue_style( 'listing' );
 	}
 	
 	wp_register_style( 'single', get_template_directory_uri() . '/_scss/components/single.css' );
-	if ( is_singular() )
+	if ( is_singular() || is_404() )
 	{
 		wp_enqueue_style( 'single' );
 	}

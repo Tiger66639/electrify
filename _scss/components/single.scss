@@ -8,6 +8,7 @@
 	{
 		@extend %stn-l-m-blog-article;
 		@extend %electrify-article;
+		padding:2% inherit;
 		padding-bottom:10%;
 	}
 
@@ -21,6 +22,26 @@
 		.widget
 		{
 			@extend %electrify-widget;
+		}
+		
+		.post-meta
+		{
+			padding-bottom:6%;
+			margin-bottom:5%;
+			border-bottom:1px solid $color-p;
+			
+			@include font-h;
+			font-size:1.2em;
+			
+			li
+			{
+				padding:2%;
+				
+				a:hover
+				{
+					text-decoration:none;
+				}
+			}
 		}
 	}
 }

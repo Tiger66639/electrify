@@ -12,10 +12,19 @@
 	
 	h1
 	{
-		border-bottom:1px solid $color-1;
+		//border-bottom:1px solid $color-1;
 		font-size:3em;
 		text-align:center;
 		@include font-h;
+	}
+	
+	.archive-description
+	{
+		@include reset( padding );
+		width:60%;
+		margin:0 auto;
+		text-align:center;
+		color:lighten( $color-p, 30% );
 	}
 	
 	.post

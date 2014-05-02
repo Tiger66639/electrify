@@ -14,7 +14,7 @@
 					</div>
 					<ul class="post-meta">
 						<li>
-							<?php the_author(); ?>
+							<?php the_author_posts_link(); ?>
 						</li>
 						<li>
 							<?php the_time( get_option( 'date_format' ) ); ?>

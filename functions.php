@@ -86,6 +86,19 @@ function electrify_css()
 
 add_action( 'wp_enqueue_scripts', 'electrify_css' );
 
+/**
+ * Registers and enqueues theme scripts.
+ *
+ * @return void
+ * @author Ryan
+ **/
+function electrify_js()
+{
+	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/_coffee/nav.js', array( 'jquery' ), '', true );
+}
+
+add_action( 'wp_enqueue_scripts', 'electrify_js' );
+
 
 /**
  * Lengthens the excerpt.

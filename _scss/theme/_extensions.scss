@@ -1,15 +1,23 @@
-%electrify-widget
+%electrify-article
 {
 	@extend %stn-t-article;
 	
 	a
 	{
 		color:#0af;
-		text-decoration:none;
-		
 		&:hover
 		{
 			color:#fa0;
 		}
+	}
+}
+
+%electrify-widget
+{
+	@extend %electrify-article;
+	
+	a
+	{
+		text-decoration:none;
 	}
 }

@@ -94,6 +94,12 @@ function electrify_css()
 	{
 		wp_enqueue_style( 'single' );
 	}
+	
+	wp_register_style( 'blocks', get_template_directory_uri() . '/_scss/components/blocks.css' );
+	if ( is_front_page() || is_page_template( 'showcase.php' ) )
+	{
+		wp_enqueue_style( 'blocks' );
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'electrify_css' );

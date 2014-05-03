@@ -1,0 +1,92 @@
+@import "inc";
+
+.block
+{
+	@extend %stn-l-d-block;
+	
+	.block-headers
+	{
+		@extend %stn-l-d-block-headers;
+		margin-bottom:2%;
+		min-width:45%;
+		
+		h1,
+		h2
+		{
+			@include font-h;
+		}
+	}
+	
+	.block-content
+	{
+		@extend %stn-l-d-block-content;
+		
+		.btn
+		{
+			@include font-h;
+			font-size:1.3em;
+			padding:2%;
+		}
+		
+		embed
+		{
+			border:1px solid white;
+		}
+	}
+	
+	p
+	{
+		line-height:1.5;
+	}
+	
+	&.slider
+	{
+		@extend .block.whole;
+	}
+	
+	&.half
+	{
+		.block-headers,
+		.block-content
+		{
+			margin:auto inherit;
+		}
+		
+		.block-content
+		{
+			padding:2%;
+		}
+	}
+	
+	&.block-blog
+	{
+		.post-meta,
+		.post-end
+		{
+			text-align:right;
+			padding:1% 0;
+			@include font-h;
+			font-size:1.2em;
+			
+			a
+			{
+				color:#08f;
+				
+				&:hover
+				{
+					color:#f80;
+				}
+			}
+		}
+		
+		.block-content
+		{
+			margin-right:2%;
+		}
+	}
+}
+
+#h
+{
+	@extend %stn-l-d-blocks-header;
+}

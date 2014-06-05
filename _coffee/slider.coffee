@@ -62,7 +62,7 @@
 					
 			$slider.slidesjs args
 				
-		if not mobile
+		if not mobile and $slider.children().length isnt 0
 			doSlider()
 		
 ) jQuery

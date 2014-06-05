@@ -71,7 +71,7 @@
         };
         return $slider.slidesjs(args);
       };
-      if (!mobile) {
+      if (!mobile && $slider.children().length !== 0) {
         return doSlider();
       }
     });

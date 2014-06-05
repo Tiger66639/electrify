@@ -1,10 +1,12 @@
-$color-bg    : #eee;
-$color-bg-2  : #ccc;
-$color-1     : #000;
-$color-1-inv : #fff;
-$color-2     : #fd0;
-$color-p     : #444;
-$color-h     : #333;
+$color-bg      : #eee;
+$color-bg-2    : #ccc;
+$color-1       : #000;
+$color-1-inv   : #fff;
+$color-2       : #fd0;
+$color-p       : #444;
+$color-h       : #333;
+$color-a       : #08f;
+$color-a-hover : lighten( $color-a, 20% );
 
 
 $font-stack:'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;

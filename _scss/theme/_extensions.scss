@@ -4,10 +4,10 @@
 	
 	a
 	{
-		color:#08f;
+		color:$color-a;
 		&:hover
 		{
-			color:#f80;
+			color:$color-a-hover;
 		}
 	}
 	

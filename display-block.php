@@ -12,6 +12,7 @@
 		$background .= 'background-image:url(' . $background_image . ');';
 		$background .= 'background-size:cover;';
 		$background .= 'background-position:center;';
+		$background .= 'box-shadow:inset 0 0 60px #000;';
 	}
 		
 	?>
@@ -70,7 +71,7 @@
 		
 	<?php else: ?>
 
-		<section class="block <?php the_field( 'display' ); ?> <?php the_field( 'scheme' ); ?>"
+		<section class="block <?php the_field( 'display' ); ?> <?php the_field( 'scheme' ); ?> <?php if ( get_field( 'fade_in' ) ) echo 'fade'; ?>"
 			style="<?php echo $background; ?>">
 			<hgroup class="block-headers">
 			
@@ -103,7 +104,7 @@
 				
 					<?php if ( get_field( 'embed_mobile' ) ): ?>
 						<a class="btn btn-embed"
-							href="<?php the_field( 'embed_mobile_link' ) ?>"
+							href="<?php the_field( 'embed_mobile_link' ); ?>"
 							style="background:<?php the_field( 'h1_color' ); ?>;color:<?php the_field( 'background_color' ); ?>;">
 								<?php the_field( 'embed_mobile' ); ?>
 						</a>

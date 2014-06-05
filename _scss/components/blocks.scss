@@ -1,5 +1,10 @@
 @import "inc";
 
+body
+{
+	background:#000;
+}
+
 .block
 {
 	@extend %stn-l-d-block;

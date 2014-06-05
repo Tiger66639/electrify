@@ -182,7 +182,8 @@ body
 						border-left-color : $color-h ;
 					}
 					
-					&:hover
+					&:hover,
+					&.active
 					{
 						border-color:$color-h;
 			

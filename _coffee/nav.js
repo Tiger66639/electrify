@@ -2,7 +2,7 @@
 (function() {
   (function($) {
     return $(function() {
-      var $nav, $reveal, toggleNav;
+      var $form, $nav, $reveal, $search, $searchParent, toggleNav, toggleSearch;
       $nav = $('#n-mobile');
       $reveal = $('#n-reveal');
       $nav.hide();
@@ -18,7 +18,20 @@
         }
         return false;
       };
-      return $reveal.click(toggleNav);
+      $reveal.click(toggleNav);
+      $search = $('#n .menu-item [title="Search"]');
+      $searchParent = $search.parent();
+      $form = $('#n-search');
+      toggleSearch = function() {
+        $searchParent.toggleClass('active');
+        if ($searchParent.hasClass('active')) {
+          $form.slideDown(250);
+        } else {
+          $form.slideUp(250);
+        }
+        return false;
+      };
+      return $search.click(toggleSearch);
     });
   })(jQuery);
 

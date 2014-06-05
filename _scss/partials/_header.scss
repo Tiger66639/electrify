@@ -57,13 +57,13 @@
 			}	
 		}
 		
-		
 		a
 		{
 			padding:0.85em 0.5em;
 		}
 		
-		&:hover
+		&:hover,
+		&.active
 		{
 			border-color:$color-2;
 			
@@ -75,6 +75,29 @@
 		}
 	}
 	
+}
+
+#n-search
+{
+	display:none;
+}
+#n-search-input
+{
+	display:block;
+	width:100%;
+	padding:1%;
+	@include reset( margin, border );
+	background:$color-2;
+	color:$color-1;
+	text-transform:uppercase;
+	@include font-h;
+	font-size:1.5em;
+	
+	#h.light &
+	{
+		background:$color-h;
+		color:$color-1-inv;
+	}
 }
 
 #n-mobile

@@ -28,6 +28,9 @@
 			
 			?>
 		</div>
+		<form role="search" method="get" id="n-search" action="<?php echo home_url( '/' ); ?>">
+			<input type="text" value="" name="s" placeholder="SEARCH" id="n-search-input">
+		</form>
 		<?php
 		
 		wp_nav_menu( array(

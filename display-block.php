@@ -50,8 +50,8 @@
 				
 						<p class="post-meta"
 							style="color:<?php echo $p_color; ?>;">
-							<?php the_author_posts_link(); ?> |
-							<?php the_time( get_option( 'date_format' ) ); ?>
+							<span data-icon="user"></span><?php the_author_posts_link(); ?> |
+							<span data-icon="month"></span><?php the_time( get_option( 'date_format' ) ); ?>
 						</p>
 						
 						<div class="p-c" style="color:<?php echo $p_color; ?>;">
@@ -59,7 +59,7 @@
 						</div>
 				
 						<p class="post-end">
-							<a href="<?php the_permalink(); ?>">Continue reading</a>
+							<span data-icon="document"></span><a href="<?php the_permalink(); ?>">Continue reading</a>
 						</p>
 				
 					</div>

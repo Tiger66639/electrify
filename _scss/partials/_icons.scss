@@ -1,3 +1,21 @@
-@import "../_lib/genericons/genericons.css";
+@import "_lib/genericons/genericons";
 
+[data-icon]
+{
+	@extend .genericon;
+	color:$color-p;
+	font-size : 1em;
+	width     : 1em;
+	height    : 1em;
+	margin-right:0.15em;
+}
 
+$icons:user, month, category, tag, document;
+
+@each $icon in $icons
+{
+	[data-icon="#{$icon}"]
+	{
+		@extend .genericon-#{$icon};
+	}
+}

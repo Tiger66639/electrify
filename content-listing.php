@@ -6,21 +6,21 @@
 		</div>
 		<ul class="post-meta">
 			<li>
-				<?php the_author_posts_link(); ?>
+				<span data-icon="user"></span><?php the_author_posts_link(); ?>
 			</li>
 			<li>
-				<?php the_time( get_option( 'date_format' ) ); ?>
+				<span data-icon="month"></span><?php the_time( get_option( 'date_format' ) ); ?>
 			</li>
 			<li>
-				<?php the_category( ', ' ); ?>
+				<span data-icon="category"></span><?php the_category( ', ' ); ?>
 			</li>
 			<?php if ( get_the_tags() ): ?>
 				<li>
-					<?php the_tags( '', ', ', '' ); ?>
+					<span data-icon="tag"></span><?php the_tags( '', ', ', '' ); ?>
 				</li>
 			<?php endif; ?>
 			<li>
-				<a href="<?php the_permalink(); ?>">Continue reading</a>
+				<span data-icon="document"></span><a href="<?php the_permalink(); ?>">Continue reading</a>
 			</li>
 		</ul>
 	</div>

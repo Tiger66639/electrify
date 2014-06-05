@@ -37,8 +37,9 @@
 			
 			<?php while ( $posts_query->have_posts() ): $posts_query->the_post(); ?>
 				
-				<section class="block block-blog half <?php echo $scheme; ?>"
-					style="<?php echo $background; ?>">
+				<section class="block block-blog half"
+					style="<?php echo $background; ?>"
+					data-scheme="<?php echo $scheme; ?>">
 			
 					<hgroup class="block-headers">
 						<h1 style="color:<?php echo $h1_color; ?>;">Blog</h1>
@@ -53,7 +54,7 @@
 							<?php the_time( get_option( 'date_format' ) ); ?>
 						</p>
 						
-						<div class="p-c">
+						<div class="p-c" style="color:<?php echo $p_color; ?>;">
 							<?php the_excerpt(); ?>
 						</div>
 				
@@ -71,8 +72,9 @@
 		
 	<?php else: ?>
 
-		<section class="block <?php the_field( 'display' ); ?> <?php the_field( 'scheme' ); ?> <?php if ( get_field( 'fade_in' ) ) echo 'fade'; ?>"
-			style="<?php echo $background; ?>">
+		<section class="block <?php the_field( 'display' ); ?> <?php if ( get_field( 'fade_in' ) ) echo 'fade'; ?>"
+			style="<?php echo $background; ?>"
+			data-scheme="<?php the_field( 'scheme' ); ?>">
 			<hgroup class="block-headers">
 			
 				<?php if ( get_field( 'h1' ) ): ?>

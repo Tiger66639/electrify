@@ -5,6 +5,57 @@ body
 	background:#000;
 }
 
+#slider
+{
+	.slidesjs-pagination
+	{
+		position:absolute;
+		z-index:1000;
+		width:100%;
+		bottom:0;
+		
+		html.flexbox &
+		{
+			@include prefix( display, flex, value, webkit );
+			@include prefix( justify-content, center, property, webkit );
+		}
+		
+		.slidesjs-pagination-item
+		{
+			
+			a
+			{
+				display:block;
+				line-height:0;
+				font-size:0;
+				padding:1rem 3.5rem;
+				border-top:1px solid $color-p;
+				
+				&.active
+				{
+					border-color:$color-2;
+				}
+			}
+			
+		}
+		
+	}
+	
+	@media screen and ( min-width:$stn-desktop ) {
+		
+		&.light .slidesjs-pagination-item a
+		{
+			border-color:$color-bg-2;
+			
+			&.active
+			{
+				border-color:$color-h;
+			}
+		}
+		
+	}
+}
+
 .block
 {
 	@extend %stn-l-d-block;
@@ -94,4 +145,56 @@ body
 #h
 {
 	@extend %stn-l-d-blocks-header;
+	z-index:1000;
+	
+	@media screen and ( min-width:$stn-desktop ) {
+		&.light
+		{
+			#logo
+			{
+				h1
+				{
+					color:$color-h;
+				}
+			
+				h2
+				{
+					color:$color-p;
+				}
+			}
+		
+			#n
+			{
+				color:$color-h;
+				
+				.sub-menu
+				{
+					background:$color-1-inv;
+					box-shadow:0 0 15px $color-h;
+				}
+				
+				.menu-item
+				{
+					&.current-page-parent,
+					&.current-menu-item
+					{
+						border-top-color  : $color-h ;
+						border-left-color : $color-h ;
+					}
+					
+					&:hover
+					{
+						border-color:$color-h;
+			
+						> a
+						{
+							background:$color-h;
+							color:$color-1-inv;
+						}
+					}
+				}
+			}
+			
+		}
+	}
 }

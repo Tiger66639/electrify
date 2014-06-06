@@ -29,6 +29,12 @@
 							</li>
 						<?php endif; ?>
 					</ul>
+					<?php if ( $author_desc = get_the_author_meta( 'description' ) ): ?>
+						<section class="widget author-meta">
+							<h3>About <?php the_author(); ?></h3>
+							<p><?php echo $author_desc; ?></p>
+						</section>
+					<?php endif; unset( $author_desc ); ?>
 					<?php get_sidebar(); ?>
 				</aside>
 			</div>

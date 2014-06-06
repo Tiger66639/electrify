@@ -5,43 +5,43 @@ body
 	background:#000;
 }
 
-#slider
-{
-	.slidesjs-pagination
-	{
-		position:absolute;
-		z-index:1000;
-		width:100%;
-		bottom:0;
-		
-		html.flexbox &
-		{
-			@include prefix( display, flex, value, webkit );
-			@include prefix( justify-content, center, property, webkit );
-		}
-		
-		.slidesjs-pagination-item
-		{
-			
-			a
-			{
-				display:block;
-				line-height:0;
-				font-size:0;
-				padding:1rem 3.5rem;
-				border-top:1px solid $color-p;
-				
-				&.active
-				{
-					border-color:$color-2;
-				}
-			}
-			
-		}
-		
-	}
+@media screen and ( min-width:$stn-desktop ) {
 	
-	@media screen and ( min-width:$stn-desktop ) {
+	#slider
+	{
+		.slidesjs-pagination
+		{
+			position:absolute;
+			z-index:1000;
+			width:100%;
+			bottom:0;
+		
+			html.flexbox &
+			{
+				@include prefix( display, flex, value, webkit );
+				@include prefix( justify-content, center, property, webkit );
+			}
+		
+			.slidesjs-pagination-item
+			{
+			
+				a
+				{
+					display:block;
+					line-height:0;
+					font-size:0;
+					padding:1rem 3.5rem;
+					border-top:1px solid $color-p;
+				
+					&.active
+					{
+						border-color:$color-2;
+					}
+				}
+			
+			}
+		
+		}
 		
 		&.light .slidesjs-pagination-item a
 		{
@@ -142,7 +142,8 @@ body
 	}
 }
 
-#h
+#h,
+#h-showcase
 {
 	@extend %stn-l-d-blocks-header;
 	z-index:1000;

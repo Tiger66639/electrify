@@ -103,6 +103,12 @@ function electrify_css()
 	{
 		wp_enqueue_style( 'blocks' );
 	}
+	
+	wp_register_style( 'showcase', get_template_directory_uri() . '/_scss/components/showcase.css' );
+	if ( is_page_template( 'showcase.php' ) )
+	{
+		wp_enqueue_style( 'showcase' );
+	}
 }
 
 /**

@@ -1,0 +1,49 @@
+@import "inc";
+
+#n-showcase
+{
+	@include font-h;
+	font-size:1.4em;
+	
+	html.flexbox &
+	{
+		@include prefix( display, flex, value, webkit );
+		
+	}
+	
+	.menu-item
+	{
+		border-top    : 4px solid transparent;
+		border-bottom : 4px solid transparent;
+		
+		a
+		{
+			display:block;
+			padding:0.85em 0.5em;
+			color:$color-2;
+		}
+		
+		&.current-page-parent,
+		&.current-menu-item
+		{
+			border-top-color  : $color-2;
+			border-left-color : $color-2;
+		}
+		
+		&:hover
+		{
+			border-color:$color-2;
+			
+			a
+			{
+				background:$color-2;
+				color:$color-1;
+			}
+		}
+		
+		&:nth-child( 2 )
+		{
+			margin-right:auto;
+		}
+	}
+}

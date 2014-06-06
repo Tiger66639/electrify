@@ -26,6 +26,8 @@ $slides_query = new WP_Query( array(
 	<?php endif; ?>
 </section>
 
+<?php $slides_query->rewind_posts(); ?>
+
 <?php if ( $slides_query->have_posts() ): ?>
 
 	<?php while ( $slides_query->have_posts() ): $slides_query->the_post(); ?>

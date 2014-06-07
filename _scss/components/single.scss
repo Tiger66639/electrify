@@ -11,6 +11,12 @@
 		padding:2% inherit;
 		padding-bottom:10%;
 		
+		hr.end-content
+		{
+			margin:8% 0 3%;
+			background:$color-p;
+		}
+		
 		#comments,
 		.comment-meta
 		{
@@ -27,7 +33,7 @@
 		
 		.comment-meta
 		{
-			background:$color-p;
+			background:$color-h;
 			padding:0 0.4em;
 			
 			html.flexbox &
@@ -70,11 +76,11 @@
 					{
 						text-decoration:none;
 						background:$color-2;
-						color:$color-p;
+						color:$color-h;
 						
 						[data-icon]
 						{
-							color:$color-p;
+							color:$color-h;
 						}
 					}	
 				}
@@ -92,6 +98,11 @@
 		{
 			margin-top:1%;
 			margin-bottom:3%;
+		}
+		
+		#reply-title
+		{
+			font-size:3em;
 		}
 		
 	}

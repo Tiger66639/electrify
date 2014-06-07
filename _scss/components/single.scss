@@ -39,6 +39,7 @@
 			html.flexbox &
 			{
 				@include prefix( display, flex, value, webkit );
+				@include prefix( flex-wrap, wrap, property, webkit );
 			}
 			
 			> li
@@ -100,9 +101,31 @@
 			margin-bottom:3%;
 		}
 		
-		#reply-title
+		#reply-title,
+		.section-header
 		{
 			font-size:3em;
+		}
+		
+		#reveal-comments-a
+		{
+			display:none;
+			@include reset_;
+			padding:1em 0;
+			width:100%;
+			text-align:center;
+			@include font-h;
+			background:$color-h;
+			color:$color-2;
+			
+			&.active,
+			&:hover
+			{
+				text-decoration:none;
+				cursor:pointer;
+				color:$color-h;
+				background:$color-2;
+			}
 		}
 		
 	}

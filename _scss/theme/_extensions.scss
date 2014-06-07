@@ -22,6 +22,11 @@
 		color:$color-h;
 	}
 	
+	h1.section-header
+	{
+		@extend h1:first-of-type;
+	}
+	
 	p
 	{
 		color:$color-p;

@@ -20,6 +20,9 @@
 				</li>
 			<?php endif; ?>
 			<li>
+				<span data-icon="comment"></span><a href="<?php comments_link(); ?>"><?php comments_number( '0 comments', '1 comments', '% comments' ); ?></a>
+			</li>
+			<li>
 				<span data-icon="document"></span><a href="<?php the_permalink(); ?>">Continue reading</a>
 			</li>
 		</ul>

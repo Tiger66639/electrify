@@ -30,6 +30,9 @@
 								<span data-icon="tag"></span><?php the_tags( '', ', ', '' ); ?>
 							</li>
 						<?php endif; ?>
+						<li>
+							<span data-icon="comment"></span><a href="<?php comments_link(); ?>"><?php comments_number( '0 comments', '1 comments', '% comments' ); ?></a>
+						</li>
 					</ul>
 					<?php if ( $author_desc = get_the_author_meta( 'description' ) ): ?>
 						<section class="widget author-meta">

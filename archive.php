@@ -10,6 +10,8 @@
 			
 		<?php endwhile; ?>
 		
+		<?php get_template_part( 'interface', 'listing-footer' ); ?>
+		
 	<?php endif; ?>
 </div>
 

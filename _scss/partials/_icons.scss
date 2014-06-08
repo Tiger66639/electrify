@@ -10,7 +10,7 @@
 	margin-right:0.15em;
 }
 
-$icons:user, month, category, tag, document, edit, reply-single, link, comment;
+$icons:user, month, category, tag, document, edit, reply-single, link, comment, previous, next;
 
 @each $icon in $icons
 {

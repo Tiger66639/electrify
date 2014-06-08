@@ -5,6 +5,8 @@
 	@extend %stn-l-m-listing;
 	@extend %electrify-article;
 	
+	margin-bottom:2%;
+	
 	a:hover
 	{
 		text-decoration:none;
@@ -54,5 +56,22 @@
 				}
 			}
 		}
+	}
+}
+
+.f-listing
+{
+	html.flexbox &
+	{
+		@include prefix( display, flex, value, webkit );
+		@include prefix( justify-content, space-between, property, webkit );
+	}
+	
+	a
+	{
+		display:block;
+		@include font-h;
+		font-size:1.2em;
+		padding:1em;
 	}
 }

@@ -2,41 +2,51 @@
 (function() {
   (function($) {
     return $(function() {
-      var $header, $slider, $window, changeScheme, currentScheme, doSlider, findSlideSchemeById, mobile, sliderFinish, sliderInit, width;
+      var $b, $block, $blockContent, $blockh1, $blockh2, $blockp, $doc, $h, $html, $pag, $slider, $window, currentScheme, doSlider, fadeFinish, findSlideBkImgById, findSlideById, findSlideSchemeById, mobile, numSlides, propsFinal, propsInit, sliderFinish, sliderInit, width;
       $window = $(window);
+      $doc = $(document);
       width = $window.width();
-      mobile = width < 650;
+      mobile = width < 950;
+      $slider = $('#slider');
+      $h = $('#h,#h-showcase');
+      $b = $('body');
+      $html = $('html');
+      numSlides = $slider.children().length;
       $window.resize(function() {
         width = $window.width();
-        return mobile = width < 650;
+        return mobile = width < 950;
       });
       currentScheme = null;
-      $slider = $('#slider');
-      $header = $('#h');
-      findSlideSchemeById = function(slideId) {
+      findSlideById = function(slideId) {
         slideId--;
-        return $('#slider .slidesjs-slide[slidesjs-index="' + slideId.toString() + '"]').attr('data-scheme');
+        return $('#slider .slidesjs-slide[slidesjs-index="' + slideId.toString() + '"]');
+      };
+      findSlideSchemeById = function(slideId) {
+        return findSlideById(slideId).attr('data-scheme');
+      };
+      findSlideBkImgById = function(slideId) {
+        return findSlideById(slideId).hasClass('bg-img');
       };
       sliderInit = function(slideNum) {
         var scheme;
         scheme = findSlideSchemeById(slideNum);
-        $header.addClass(scheme);
+        $h.addClass(scheme);
         $slider.addClass(scheme);
         return currentScheme = scheme;
-      };
-      changeScheme = function(newScheme) {
-        $header.toggleClass('light');
-        $header.toggleClass('dark');
-        $slider.toggleClass('light');
-        $slider.toggleClass('dark');
-        if (currentScheme !== newScheme) {
-          return currentScheme = newScheme;
-        }
       };
       sliderFinish = function(slideNum) {
         var newScheme;
         newScheme = findSlideSchemeById(slideNum);
-        return changeScheme(newScheme);
+        if (currentScheme !== newScheme) {
+          currentScheme = newScheme;
+          $h.toggleClass('light');
+          $h.toggleClass('dark');
+          $slider.toggleClass('light');
+          $slider.toggleClass('dark');
+        }
+        if (findSlideBkImgById(slideNum !== $h.hasClass('shadow'))) {
+          return $h.toggleClass('shadow');
+        }
       };
       doSlider = function(interval) {
         var args;
@@ -71,8 +81,111 @@
         };
         return $slider.slidesjs(args);
       };
-      if (!mobile && $slider.children().length !== 0) {
-        return doSlider();
+      fadeFinish = function() {
+        $b.removeClass('fade-in-progress');
+        return $b.css('position', 'static');
+      };
+      $block = null;
+      if (numSlides === 0) {
+        $block = $('#a .block:first-of-type');
+        if ($block.hasClass('fade' && !mobile)) {
+          $b = $('body');
+          $blockh1 = $('#a .block:first-of-type h1');
+          $blockh2 = $('#a .block:first-of-type h2');
+          $blockp = $('#a .block:first-of-type p');
+          $blockContent = $('#a .block:first-of-type .content');
+          $b.css('position', 'fixed');
+          $b.addClass('fade-in-progress');
+          propsInit = {
+            opacity: 0,
+            '-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"'
+          };
+          $block.css(propsInit);
+          $h.css(propsInit);
+          $blockh1.css(propsInit);
+          $blockh2.css(propsInit);
+          $blockp.css(propsInit);
+          $blockContent.css(propsInit);
+          $doc.one('dblclick', function() {
+            $block.stop(true, true);
+            $h.stop(true, true);
+            $blockh1.stop(true, true);
+            $blockh2.stop(true, true);
+            $blockp.stop(true, true);
+            $blockContent.stop(true, true);
+            $block.css(propsFinal);
+            $h.css(propsFinal);
+            $blockh1.css(propsFinal);
+            $blockh2.css(propsFinal);
+            $blockp.css(propsFinal);
+            $blockContent.css(propsFinal);
+            return fadeFinish();
+          });
+          propsFinal = {
+            opacity: 1,
+            '-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"'
+          };
+          $block.delay(1500).animate(propsFinal, 3000);
+          $blockh1.delay(5000).animate(propsFinal, 1500);
+          $blockh2.delay(8000).animate(propsFinal, 1500);
+          $blockp.delay(11000).animate(propsFinal, 1500);
+          $blockContent.delay(11000).animate(propsFinal, 1500);
+          return $h.delay(11000).animate(propsFinal, 1500, 'swing', fadeFinish);
+        }
+      } else {
+        $block = $('#slider .block:first-of-type');
+        if (!mobile && $block.hasClass('fade')) {
+          doSlider(17500);
+          $b = $('body');
+          $pag = $('#slider .slidesjs-pagination');
+          $blockh1 = $('#slider .block:first-of-type h1');
+          $blockh2 = $('#slider .block:first-of-type h2');
+          $blockp = $('#slider .block:first-of-type p');
+          $blockContent = $('#slider .block:first-of-type .content');
+          $b.css('position', 'fixed');
+          $b.addClass('fade-in-progress');
+          propsInit = {
+            opacity: 0,
+            '-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"'
+          };
+          $block.css(propsInit);
+          $h.css(propsInit);
+          $pag.css(propsInit);
+          $blockh1.css(propsInit);
+          $blockh2.css(propsInit);
+          $blockp.css(propsInit);
+          $blockContent.css(propsInit);
+          $doc.one('dblclick', function() {
+            $block.stop(true, true);
+            $h.stop(true, true);
+            $pag.stop(true, true);
+            $blockh1.stop(true, true);
+            $blockh2.stop(true, true);
+            $blockp.stop(true, true);
+            $blockContent.stop(true, true);
+            $block.css(propsFinal);
+            $h.css(propsFinal);
+            $pag.css(propsFinal);
+            $blockh1.css(propsFinal);
+            $blockh2.css(propsFinal);
+            $blockp.css(propsFinal);
+            $blockContent.css(propsFinal);
+            return fadeFinish();
+          });
+          propsFinal = {
+            opacity: 1,
+            '-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"'
+          };
+          $block.delay(1500).animate(propsFinal, 3000);
+          $blockh1.delay(5000).animate(propsFinal, 1500);
+          $blockh2.delay(8000).animate(propsFinal, 1500);
+          $blockp.delay(11000).animate(propsFinal, 1500);
+          $blockContent.delay(11000).animate(propsFinal, 1500);
+          $pag.delay(11000).animate(propsFinal, 1500);
+          return $h.delay(11000).animate(propsFinal, 1500, 'swing', fadeFinish);
+        } else if (!mobile) {
+          return doSlider();
+        }
       }
     });
   })(jQuery);

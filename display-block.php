@@ -5,10 +5,11 @@
 <?php else: ?>
 	
 	<?php
-		
+	$background_image_;
 	$background = 'background-color:' . get_field( 'background_color' ) . ';';
 	if ( $background_image = get_field( 'background_image' ) )
 	{
+		$background_image_ = true;
 		$background .= 'background-image:url(' . $background_image . ');';
 		$background .= 'background-size:cover;';
 		$background .= 'background-position:center;';
@@ -72,7 +73,8 @@
 		
 	<?php else: ?>
 
-		<section class="block <?php the_field( 'display' ); ?> <?php if ( get_field( 'fade_in' ) ) echo 'fade'; ?>"
+		<section
+			class="block <?php the_field( 'display' ); ?> <?php if ( get_field( 'fade_in' ) ) echo 'fade'; ?> <?php if ( $background_image_ ) echo 'bg-img'; ?>"
 			style="<?php echo $background; ?>"
 			data-scheme="<?php the_field( 'scheme' ); ?>">
 			<hgroup class="block-headers">

@@ -42,6 +42,11 @@
 				@include prefix( flex-wrap, wrap, property, webkit );
 			}
 			
+			html.no-flexbox &
+			{
+				@extend %cf;
+			}
+			
 			> li
 			{
 				@include font-h;
@@ -59,9 +64,31 @@
 					padding:0.8em 0.4em;
 				}
 				
-				&.comment-time
+				html.flexbox &
 				{
-					margin-right:auto;
+					
+					&.comment-time
+					{
+						margin-right:auto;
+					}
+				}
+				
+				html.no-flexbox &
+				{
+					
+					&.comment-author,
+					&.comment-date,
+					&.comment-time
+					{
+						float:left;
+					}
+					
+					&.comment-reply,
+					&.comment-edit,
+					&.comment-permalink
+					{
+						float:right;
+					}
 				}
 				
 				a

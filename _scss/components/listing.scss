@@ -49,6 +49,11 @@
 				@include reset( margin, padding );
 				font-size:1.1em;
 				
+				html.no-flexbox &
+				{
+					vertical-align:top;
+				}
+				
 				li
 				{
 					list-style:none;
@@ -65,6 +70,22 @@
 	{
 		@include prefix( display, flex, value, webkit );
 		@include prefix( justify-content, space-between, property, webkit );
+	}
+	
+	html.no-flexbox &
+	{
+		@extend %cf;
+		width:100%;
+		
+		.posts-older
+		{
+			float:left;
+		}
+		.posts-newer
+		{
+			float:right;
+		}
+		
 	}
 	
 	a

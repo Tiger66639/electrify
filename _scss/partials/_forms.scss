@@ -8,12 +8,27 @@
 		@include prefix( display, flex, value, webkit );
 	}
 	
+	html.no-flexbox &
+	{
+		
+	}
+	
 	input,
 	textarea
 	{
 		@include reset_;
 		background:$color-bg-2;
-		@include prefix( width, fill-available, value, webkit );
+		width:-moz-available;
+		
+		html.flexbox &
+		{
+			@include prefix( width, fill-available, value, webkit );
+		}
+		
+		html.no-flexbox &
+		{
+			width:50%;
+		}
 	}
 	
 	label
@@ -21,7 +36,11 @@
 		@include font-h;
 		background:$color-h;
 		color:$color-bg-2;
-		@include prefix( min-width, max-content, value, webkit, moz );
+		
+		html.flexbox &
+		{
+			@include prefix( min-width, max-content, value, webkit, moz );
+		}
 		
 		&.required
 		{
@@ -40,6 +59,11 @@
 	{
 		font-size:1.1em;
 		padding:1em;
+		
+		html.no-flexbox &
+		{
+			display:inline-block;
+		}
 	}
 	
 	textarea
@@ -53,6 +77,17 @@
 		html.flexbox &
 		{
 			@include prefix( flex-direction, column, value, webkit );
+		}
+		
+		html.no-flexbox &
+		{
+			input,
+			textarea,
+			label
+			{
+				display:block;
+				width:100%;
+			}
 		}
 	}
 	

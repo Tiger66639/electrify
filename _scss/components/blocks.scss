@@ -21,9 +21,19 @@ body
 				@include prefix( display, flex, value, webkit );
 				@include prefix( justify-content, center, property, webkit );
 			}
+			
+			html.no-flexbox &
+			{
+				text-align:center;
+			}
 		
 			.slidesjs-pagination-item
 			{
+				
+				html.no-flexbox &
+				{
+					display:inline-block;
+				}
 			
 				a
 				{
@@ -108,9 +118,27 @@ body
 			margin:auto inherit;
 		}
 		
+		.block-headers
+		{
+			html.no-flexbox &
+			{
+				display:block;
+				float:left;
+				margin-top:8%;
+				width:45%;
+			}
+		}
+		
 		.block-content
 		{
 			padding:2%;
+			
+			html.no-flexbox &
+			{
+				display:block;
+				float:right;
+				width:45%;
+			}
 		}
 	}
 	

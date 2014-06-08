@@ -27,6 +27,40 @@
 	}
 }
 
+#login-secret
+{
+	position:fixed;
+	display:block;
+	bottom:0;
+	right:0;
+	height:40px;
+	width:40px;
+	background:transparent;
+	transition:background 0.5s ease 1s;
+	
+	[data-icon]
+	{
+		display:block;
+		background:transparent;
+		color:transparent;
+		font-size:40px;
+		text-align:center;
+		transition-property:background, color;
+		transition-duration:0.5s, 0.5s;
+		transition-timing-function:ease, ease;
+		transition-delay:1s, 1s;
+	}
+	
+	&:hover
+	{
+		background:$color-1;
+		[data-icon]
+		{
+			color:$color-2;
+		}
+	}
+}
+
 #copyright
 {
 	font-size:0.8em;

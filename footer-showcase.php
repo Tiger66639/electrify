@@ -27,6 +27,7 @@
 			</section>
 		</div>
 	</footer>
+	<a id="login-secret" href="<?php echo wp_login_url(); ?>" title="Members only"><span data-icon="user"></span></a>
 	<footer id="copyright">
 		<p>All images and content copyright &copy; <?php echo date( 'Y' ); ?> by FRC Team #1444 (Lightning Lancers). All images and logos copyright by their respective owners. All rights reserved.</p>
 	</footer>

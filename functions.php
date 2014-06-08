@@ -96,8 +96,14 @@ function electrify_css()
 		wp_enqueue_style( 'listing' );
 	}
 	
-	wp_register_style( 'single', get_template_directory_uri() . '/_scss/components/single.css' );
+	wp_register_style( 'singular', get_template_directory_uri() . '/_scss/components/singular.css' );
 	if ( ( is_singular() && ! is_page_template( 'showcase.php' ) ) || is_404() )
+	{
+		wp_enqueue_style( 'singular' );
+	}
+	
+	wp_register_style( 'single', get_template_directory_uri() . '/_scss/components/single.css' );
+	if ( is_single() )
 	{
 		wp_enqueue_style( 'single' );
 	}

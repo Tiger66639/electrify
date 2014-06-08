@@ -11,8 +11,19 @@
 		
 	}
 	
+	html.no-flexbox &
+	{
+		@extend %cf;
+	}
+	
 	.menu-item
 	{
+		
+		html.no-flexbox &
+		{
+			display:inline-block;
+		}
+		
 		border-top    : 4px solid transparent;
 		border-bottom : 4px solid transparent;
 		
@@ -41,9 +52,29 @@
 			}
 		}
 		
-		&:nth-child( 2 )
+		html.flexbox &
 		{
-			margin-right:auto;
+			&:nth-child( 2 )
+			{
+				margin-right:auto;
+			}
 		}
+		
+		html.no-flexbox &
+		{
+			&:first-child,
+			&:nth-child( 2 )
+			{
+				float:left;
+			}
+			
+			// A little bit of a hack, but clever nonetheless.
+			&:nth-child( n+3 ):nth-last-child( n+1 )
+			{
+				float:right;
+			}
+		}
+		
+		
 	}
 }

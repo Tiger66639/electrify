@@ -171,4 +171,16 @@
 		
 	}
 	
+	#a-search
+	{
+		@extend #a;
+		width:100%;
+		margin-bottom:30%;
+		
+		h1
+		{
+			text-align:center;
+		}
+	}
+	
 }

@@ -27,6 +27,9 @@
 			</section>
 		</div>
 	</footer>
+	<footer id="copyright">
+		<p>All images and content copyright &copy; <?php echo date( 'Y' ); ?> by FRC Team #1444 (Lightning Lancers). All images and logos copyright by their respective owners. All rights reserved.</p>
+	</footer>
 	<div id="inc">
 		<?php wp_footer(); ?>
 	</div>

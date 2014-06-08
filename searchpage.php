@@ -5,9 +5,7 @@
 <div class="c">
 	<article id="a-search">
 		<h1 class="section-header">Search</h1>
-		<form role="search" method="get" class="form-group" action="<?php echo home_url( '/' ); ?>">
-			<input type="text" value="" name="s">
-		</form>
+		<?php get_search_form(); ?>
 	</article>
 </div>
 

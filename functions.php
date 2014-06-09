@@ -43,6 +43,11 @@ function electrify_plugins()
 add_action( 'tgmpa_register', 'electrify_plugins' );
 
 /**
+ * Adds the Advanced Custom Fields plugin (dependency)
+ */
+require_once dirname( __FILE__ ) . '/_lib/advanced-custom-fields/acf.php';
+
+/**
  * Registers navigation menus.
  *
  * @return void

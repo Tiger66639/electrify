@@ -43,6 +43,79 @@ function electrify_plugins()
 add_action( 'tgmpa_register', 'electrify_plugins' );
 
 /**
+ * Registers custom post types.
+ *
+ * @return void
+ * @author Ryan
+ */
+function electrify_post_types()
+{
+	register_post_type( 'slide', array(
+		'label' => 'Slides',
+		'description' => 'Slides that go on the homepage.',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'page',
+		'map_meta_cap' => true,
+		'hierarchical' => false,
+		'rewrite' => array( 'slug' => 'slide', 'with_front' => true ),
+		'query_var' => true,
+		'exclude_from_search' => true,
+		'supports' => array( 'title','custom-fields','revisions','author','page-attributes' ),
+		'labels' => array(
+			'name' => 'Slides',
+			'singular_name' => 'Slide',
+			'menu_name' => 'Slides',
+			'add_new' => 'Add Slide',
+			'add_new_item' => 'Add New Slide',
+			'edit' => 'Edit',
+			'edit_item' => 'Edit Slide',
+			'new_item' => 'New Slide',
+			'view' => 'View Slide',
+			'view_item' => 'View Slide',
+			'search_items' => 'Search Slides',
+			'not_found' => 'No Slides Found',
+			'not_found_in_trash' => 'No Slides Found in Trash',
+			'parent' => 'Parent Slide',
+		),
+	) );
+	
+	register_post_type( 'showcase_block', array(
+		'label' => 'Showcase',
+		'description' => 'A system of blocks that provides a fancy layout.',
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'capability_type' => 'page',
+		'map_meta_cap' => true,
+		'hierarchical' => true,
+		'rewrite' => array( 'slug' => 'showcase_block', 'with_front' => true ),
+		'query_var' => true,
+		'exclude_from_search' => true,
+		'supports' => array( 'title','custom-fields','comments','revisions','author','page-attributes' ),
+		'labels' => array(
+			'name' => 'Showcase',
+			'singular_name' => 'Showcase Block',
+			'menu_name' => 'Showcase',
+			'add_new' => 'Add Showcase Block',
+			'add_new_item' => 'Add New Showcase Block',
+			'edit' => 'Edit',
+			'edit_item' => 'Edit Showcase Block',
+			'new_item' => 'New Showcase Block',
+			'view' => 'View Showcase Block',
+			'view_item' => 'View Showcase Block',
+			'search_items' => 'Search Showcase',
+			'not_found' => 'No Showcase Found',
+			'not_found_in_trash' => 'No Showcase Found in Trash',
+			'parent' => 'Parent Showcase Block',
+		),
+	) );
+}
+
+add_action( 'init', 'electrify_post_types' );
+
+/**
  * Adds the Advanced Custom Fields plugin (dependency)
  */
 

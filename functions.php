@@ -606,6 +606,12 @@ function electrify_css()
 	{
 		wp_enqueue_style( 'showcase' );
 	}
+	
+	if ( is_bbpress() )
+	{
+		wp_dequeue_style( 'bbp-default' );
+	}
+	
 }
 
 /**

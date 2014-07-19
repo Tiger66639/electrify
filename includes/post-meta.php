@@ -5,7 +5,7 @@
 */
 
 define( 'ACF_LITE', true );
-require_once dirname( __FILE__ ) . '../_lib/advanced-custom-fields/acf.php';
+require_once dirname( __FILE__ ) . '/../dependencies/advanced-custom-fields/acf.php';
 
 if(function_exists("register_field_group"))
 {

@@ -1,5 +1,7 @@
 <?php
 
+$el_dir = get_template_directory_uri();
+
 if ( ! function_exists( 'electrify_setup' ) )
 {
 	/**
@@ -36,7 +38,7 @@ $includes = array(
 
 foreach ( $includes as $include )
 {
-	require_once dirname( __FILE__ ) . '/' . $include . '.php';
+	require_once dirname( __FILE__ ) . '/includes/' . $include . '.php';
 }
 
 /**

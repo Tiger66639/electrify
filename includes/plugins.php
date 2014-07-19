@@ -6,7 +6,7 @@
 * @return void
 * @author Ryan
 */
-require dirname( __FILE__ ) . '/_lib/tgm-dependencies/class-tgm-plugin-activation.php';
+require_once dirname( __FILE__ ) . '/../dependencies/tgm-dependencies/class-tgm-plugin-activation.php';
 
 function electrify_plugins()
 {

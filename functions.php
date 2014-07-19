@@ -497,6 +497,7 @@ function electrify_nav_menus() {
 
 	$menus = array(
 		'nav_primary' => __( 'Primary Navigation' ),
+		'nav_admin' => __( 'Admin Navigation' ),
 		'nav_mobile' => __( 'Mobile Navigation' ),
 	);
 
@@ -654,4 +655,3 @@ function excerpt_lengthen() {
 	return 100;
 }
 add_action( 'excerpt_length', 'excerpt_lengthen' );
-

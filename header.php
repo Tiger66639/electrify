@@ -18,14 +18,29 @@
 			</a>
 			<?php
 			
-			wp_nav_menu( array(
-				'theme_location' => 'nav_primary',
-				'container' => false,
-				'container_class' => false,
-				'container_id' => false,
-				'menu_id' => 'n',
-				'depth' => 2,
-			) );
+			if ( current_user_can( 'edit_posts' ) && has_nav_menu( 'nav_admin' ) )
+			{
+				wp_nav_menu( array(
+					'theme_location' => 'nav_admin',
+					'container' => false,
+					'container_class' => false,
+					'container_id' => false,
+					'menu_id' => 'n',
+					'depth' => 2,
+				) );
+			}
+			
+			else
+			{
+				wp_nav_menu( array(
+					'theme_location' => 'nav_primary',
+					'container' => false,
+					'container_class' => false,
+					'container_id' => false,
+					'menu_id' => 'n',
+					'depth' => 2,
+				) );
+			}
 			
 			?>
 		</div>

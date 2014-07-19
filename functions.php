@@ -493,14 +493,13 @@ if(function_exists("register_field_group"))
  * @return void
  * @author Ryan
  **/
-function electrify_nav_menus() {
+function electrify_nav_menus()
+{
 
-	$menus = array(
+	register_nav_menus( array(
 		'nav_primary' => __( 'Primary Navigation' ),
 		'nav_mobile' => __( 'Mobile Navigation' ),
-	);
-
-	register_nav_menus( $menus );
+	) );
 
 }
 
@@ -508,40 +507,91 @@ add_action( 'init', 'electrify_nav_menus' );
 
 
 /**
- * Registers sidebars
+ * Adds sidebar locations.
  *
- * @return void
- * @author Ryan
- **/
-function electrify_register_sidebar( $name, $id, $description ) {
-	$args = array(
-		'name'			=> __( $name ),
-		'id'            => $id,
-		'description'   => $description,
-		'before_widget' => '<section class="widget">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h5>',
-		'after_title'   => '</h5>',
+ */
+function electrify_sidebars()
+{
+	$sidebars = array(
+		
+		array(
+			'footer_left',
+			'Footer - left column',
+			'Displays in the footer, in the left column.',
+		),
+		
+		array(
+			'footer_center',
+			'Footer - center column',
+			'Displays in the footer, in the center column.',
+		),
+		
+		array(
+			'footer_right',
+			'Footer - right column',
+			'Displays in the footer, in the right column.',
+		),
+		
+		array(
+			'footer_showcase_left',
+			'Showcase footer - left column',
+			'Displays in the showcase footer, in the left column.',
+		),
+		
+		array(
+			'footer_showcase_center',
+			'Showcase footer - center column',
+			'Displays in the showcase footer, in the center column.',
+		),
+		
+		array(
+			'footer_showcase_right',
+			'Showcase footer - right column',
+			'Displays in the showcase footer, in the right column.',
+		),
+		
+		array(
+			'footer_bbpress_left',
+			'Forums footer - left column',
+			'Displays in the forums footer, in the left column.',
+		),
+		
+		array(
+			'footer_bbpress_center',
+			'Forums footer - center column',
+			'Displays in the forums footer, in the center column.',
+		),
+		
+		array(
+			'footer_bbpress_right',
+			'Forums footer - right column',
+			'Displays in the forums footer, in the right column.',
+		),
+		
+		array(
+			'sidebar',
+			'Main Sidebar',
+			'Displays in the sidebar on most posts.',
+		)
+		
 	);
-
-	register_sidebar( $args );
-}
-
-function electrify_create_sidebars() {
-
-	electrify_register_sidebar( 'Footer - left column', 'footer_left', 'Displays in the footer, in the left column.' );
-	electrify_register_sidebar( 'Footer - center column', 'footer_center', 'Displays in the footer, in the center column.' );
-	electrify_register_sidebar( 'Footer - right column', 'footer_right', 'Displays in the footer, in the right column.' );
 	
-	electrify_register_sidebar( 'Showcase Footer - left column', 'footer_showcase_left', 'Displays in the showcase footer only, in the left column.' );
-	electrify_register_sidebar( 'Showcase Footer - center column', 'footer_showcase_center', 'Displays in the showcase footer only, in the center column.' );
-	electrify_register_sidebar( 'Showcase Footer - right column', 'footer_showcase_right', 'Displays in the showcase footer only, in the right column.' );
-	
-	electrify_register_sidebar( 'Sidebar', 'sidebar', 'Displays in the sidebar on every page that has a sidebar.' );
+	foreach ( $sidebars as $sidebar )
+	{
+		register_sidebar( array(
+			'id'            => $sidebar[0],
+			'name'			 => __( $sidebar[1], 'electrify' ),
+			'description'   => $sidebar[2],
+			'before_widget' => '<section class="widget">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h5>',
+			'after_title'   => '</h5>',
+		) );
+	}
 	
 }
 
-add_action( 'widgets_init', 'electrify_create_sidebars' );
+add_action( 'widgets_init', 'electrify_sidebars' );
 
 /**
  * Registers and enqueues theme dependencies.
@@ -648,4 +698,3 @@ function excerpt_lengthen() {
 	return 100;
 }
 add_action( 'excerpt_length', 'excerpt_lengthen' );
-

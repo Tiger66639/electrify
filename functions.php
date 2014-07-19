@@ -534,6 +534,10 @@ function electrify_create_sidebars() {
 	electrify_register_sidebar( 'Footer - center column', 'footer_center', 'Displays in the footer, in the center column.' );
 	electrify_register_sidebar( 'Footer - right column', 'footer_right', 'Displays in the footer, in the right column.' );
 	
+	electrify_register_sidebar( 'Forums Footer - left column', 'footer_bbpress_left', 'Displays in the forums footer, in the left column.' );
+	electrify_register_sidebar( 'Forums Footer - center column', 'footer_bbpress_center', 'Displays in the forums footer, in the center column.' );
+	electrify_register_sidebar( 'Forums Footer - right column', 'footer_bbpress_right', 'Displays in the forums footer, in the right column.' );
+	
 	electrify_register_sidebar( 'Showcase Footer - left column', 'footer_showcase_left', 'Displays in the showcase footer only, in the left column.' );
 	electrify_register_sidebar( 'Showcase Footer - center column', 'footer_showcase_center', 'Displays in the showcase footer only, in the center column.' );
 	electrify_register_sidebar( 'Showcase Footer - right column', 'footer_showcase_right', 'Displays in the showcase footer only, in the right column.' );

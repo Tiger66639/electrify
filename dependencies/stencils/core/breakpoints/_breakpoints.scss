@@ -1,0 +1,224 @@
+
+//
+//	CONFIG: USE OLD BREAKPOINTS (boolean)
+//	If set to true, uses the old breakpoint sizes
+//
+$stn-cfg-breakpoints-old: false !default;
+
+//	CONFIG: BREAKPOINTS (map of pixel values)
+//	Sets breakpoints for use by Stencils modules and external projects.
+//	Order from smallest to largest breakpoints. Stencils will break if you fail to do so.
+//
+@if $stn-cfg-breakpoints-old
+{
+	$stn-cfg-breakpoints: (
+		xs: 649px,
+		sm: 650px,
+		md: 950px,
+		lg: 950px,
+	) !default !global;
+	
+	$stn-mobile     : 649px !default !global;
+	$stn-tablet     : 650px !default !global;
+	$stn-tablet-max : 949px !default !global;
+	$stn-desktop    : 950px !default !global;
+	
+}
+
+@else
+{
+	$stn-cfg-breakpoints: (
+		xs: 1px,
+		sm: 768px,
+		md: 992px,
+		lg: 1200px,
+	) !default !global;
+}
+
+//	LIST OF BREAKPOINTS
+//	A list of breakpoint slugs.
+//
+$stn-breakpoints-slugs: map-keys( $stn-cfg-breakpoints );
+
+//	SMALLEST BREAKPOINT
+//	The smallest set breakpoint.
+//
+$stn-breakpoint-smallest: nth( $stn-breakpoints-slugs, 1 );
+
+//	LARGEST BREAKPOINT
+//	The largest set breakpoint.
+//
+$stn-breakpoint-largest: nth( $stn-breakpoints-slugs, length( $stn-breakpoints-slugs ) );
+
+//	FUNCTION: BREAKPOINT-ABOVE
+//	Returns the slug of the breakpoint one level above the passed one.
+//		$breakpoint		A valid breakpoint key						"xs", "sm", "md", "lg"
+//
+@function stn-breakpoint-above( $breakpoint )
+{
+	@if $breakpoint == $stn-breakpoint-largest
+	{
+		@return $stn-breakpoint-largest;
+	}
+	
+	@else
+	{
+		@return nth( $stn-breakpoints-slugs, index( $stn-breakpoints-slugs, $breakpoint ) + 1 );
+	}
+	
+}
+
+//	FUNCTION: BREAKPOINT-BELOW
+//	Returns the slug of the breakpoint one level below the passed one.
+//		$breakpoint		A valid breakpoint key						"xs", "sm", "md", "lg"
+//
+@function stn-breakpoint-below( $breakpoint )
+{
+	@if $breakpoint == $stn-breakpoint-smallest
+	{
+		@return $stn-breakpoint-smallest;
+	}
+	
+	@else
+	{
+		@return nth( $stn-breakpoints-slugs, index( $stn-breakpoints-slugs, $breakpoint ) - 1 );
+	}
+	
+}
+
+//	FUNCTION: BREAKPOINT
+//	Returns the pixel value associated with the passed breakpoint.
+//		$breakpoint		A vaild breakpoint key						"xs", "sm", "md", "lg"
+//		$upper			Whether this is an upper breakpoint		(boolean) ("lg" converts to "md")
+//
+@function stn-breakpoint( $breakpoint, $upper: false )
+{
+	
+	@if $upper
+	{
+		@return map-get( $stn-cfg-breakpoints, stn-breakpoint-above( $breakpoint ) ) - 1px;
+	}
+	
+	@else
+	{
+		@return map-get( $stn-cfg-breakpoints, $breakpoint );
+	}
+	
+}
+
+//	MIXIN: BREAKPOINT-LOWER
+//	Generates a @media query that applies passed styles to the passed breakpoint and all above it.
+//		$breakpoint		The lower limit of the query		"xs", "sm", "md", or "lg"
+//
+@mixin stn-breakpoint-lower( $breakpoint )
+{
+	@media ( min-width:stn-breakpoint( $breakpoint ) )
+	{
+		@content;
+	}
+}
+
+//	MIXIN: BREAKPOINT-UPPER
+//	Generates a @media query that applies passed styles to the passed breakpoint and all below it.
+//		$breakpoint		The upper limit of the query		"xs", "sm", or "md"
+//
+@mixin stn-breakpoint-upper( $breakpoint )
+{
+	@media ( max-width:stn-breakpoint( $breakpoint, true ) )
+	{
+		@content;
+	}
+}
+
+//	MIXIN: BREAKPOINT-RANGE
+//	Generates a @media query that applies passed styles betwen the two passed breakpoints.
+//		$lower	The lower breakpoint		"xs", "sm", "md"
+//		$upper	The upper breakpoint		"sm", "md", "lg"
+//
+@mixin stn-breakpoint-range( $lower, $upper )
+{
+	
+	@if $lower == $stn-breakpoint-largest
+	{
+		//	Probably called by an iterator.
+		//	Due to various issues, change to lower breakpoint.
+		//
+		@include stn-breakpoint-lower( $lower ) { @content; }
+	}
+	
+	@else
+	{
+		@media ( min-width:stn-breakpoint( $lower ) ) and ( max-width:stn-breakpoint( $upper, true ) )
+		{
+			@content;
+		}
+	}
+	
+}
+
+//	MIXIN: BREAKPOINT-AROUND
+//	Generates a @media query that applies passed styles to all except between the two passed breakpoints.
+//		$lower	The lower breakpoint		"xs", "sm", "md"
+//		$upper	The upper breakpoint		"sm", "md", "lg"
+//
+@mixin stn-breakpoint-around( $lower, $upper )
+{
+	
+	@if $lower == $stn-breakpoint-smallest
+	{
+		//	Probably called by an iterator.
+		//	Use the $upper breakpoint as a lower breakpoint instead.
+		//
+		@include stn-breakpoint-lower( $upper ) { @content; }
+	}
+	
+	@elseif $lower == $stn-breakpoint-largest
+	{
+		//	Probably called by an iterator.
+		//	Due to various issues, change to lower breakpoint.
+		//
+		@include stn-breakpoint-lower( $lower ) { @content; }
+	}
+	
+	@else
+	{
+		@media ( max-width:stn-breakpoint( $lower ) ), ( min-width:stn-breakpoint( $upper, true ) )
+		{
+			@content;
+		}
+	}
+	
+}
+
+//	MIXIN: BREAKPOINT-ONLY
+//	Generates a @media query that applies passed styles to only the passed breakpoint.
+//	Possesses the same logic as stn-breakpoint-range, but passing the same breakpoint twice.
+//
+@mixin stn-breakpoint-only( $breakpoint )
+{
+	@include stn-breakpoint-range( $breakpoint, $breakpoint ) { @content; }
+}
+
+//	MIXIN: BREAKPOINT-EXCEPT
+//	Generates a @media query that applies passed styles to all breakpoints except the passed one.
+//	Possesses the same logic as stn-breakpoint-around, but passing the same breakpoint twice.
+//
+@mixin stn-breakpoint-except( $breakpoint )
+{
+	
+	@if $breakpoint == $stn-breakpoint-largest
+	{
+		@include stn-breakpoint-upper( $breakpoint ) { @content; }
+	}
+	
+	@elseif $breakpoint == $stn-breakpoint-smallest
+	{
+		@include stn-breakpoint-lower( stn-breakpoint-above( $breakpoint ) ) { @content; }
+	}
+	
+	@else
+	{
+		@include stn-breakpoint-around( $breakpoint, $breakpoint ) { @content; }
+	}
+	
+}

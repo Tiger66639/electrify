@@ -1,0 +1,65 @@
+
+//	MIXIN: FLEX
+// Generates a flexbox formatting context
+//		$justify-content		The justify-content settings		CSS justify-content
+//		$flex-direction		The flex-direction settings		CSS flex-direction
+//		$align-items			The align-items settings			CSS align-items
+//		$flex						Whether this flexbox should allow its children to fill width
+//		$sel						A quoted CSS selector coresponding to the flex items of this flexbox
+//
+@mixin flex( $justify-content: null, $flex-flow: null, $align-items: null, $align-content: null, $flex: false, $sel: "> *" ) {
+
+	@include prefix( display, flex );
+
+	@include prefix( justify-content, $justify-content );
+	@include prefix( align-content, $align-content );
+	
+	@include prefix( flex-flow, $flex-flow );
+	
+	@include prefix( align-items, $align-items );
+
+	@if $flex
+	{
+		#{$sel}
+		{
+			flex:auto;
+		}
+	}
+	
+}
+
+
+// MIXIN: FLEX-ITEM
+//	Allows for high control of flexbox items
+//
+@mixin flex-item( $flex: null, $order: null, $align: null )
+{
+
+	@include prefix( flex, $flex );
+
+	@include prefix( order, $order );
+	
+	@include prefix( align-self, $align );
+
+}
+
+//	CLEARFIX
+//	Forces element to clear floated children
+//
+%cf
+{
+	
+	&:before,
+	&:after
+	{
+		content: " ";
+		display: table;
+	}
+	
+	&:after
+	{
+		clear:both;
+	}
+	
+	*zoom:1;
+}

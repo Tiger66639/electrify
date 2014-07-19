@@ -1,0 +1,85 @@
+//	TEMPLATES > DISPLAY > BLOCK
+//	(stn-td-block)
+//	A signature layout of Stencils. Blocks is a very dressy, yet very maintainable showcase layout.
+//	Use it when you have a product that you want to show off.
+//
+//	Note that you should give any content that precedes a set of blocks
+//	a position of either absolute or fixed.
+//	Additionally, give it a transparent background.
+//
+	
+@mixin stn-td-block( $headers, $content )
+{
+	padding: 5% 0;
+	overflow: hidden;
+
+	@include stn-breakpoint-lower( md )
+	{
+		@include reset( padding );
+		width:100vw;
+		
+		@media ( max-height:599px )
+		{
+			@include stn-sink( 2, 300px, false, "#{$headers},#{$content}" );
+		}
+
+		@include stn-mdrn( flexbox )
+		{
+			@include flex( center, column );
+		
+			@media ( max-height:599px )
+			{
+				@include prefix( flex-direction, row );
+				@include prefix( align-items, center );
+			}
+		
+		}
+		
+		//
+		//	BLOCK TYPES
+		//	There are three different types of blocks: whole, half, and auto.
+		//
+		//	Whole blocks (.whole) fill the entire height of the screen.
+		//
+		&.whole {
+			height:100vh;
+		}
+		
+		//	Half blocks (.half) fill half the screen's height.
+		//
+		&.half
+		{
+			height:50vh;
+	
+			@include stn-mdrn( flexbox )
+			{
+				@include prefix( flex-direction, row );
+			}
+			
+		}
+		//	Auto blocks have no class; height: auto is inferred.
+
+	}
+
+	//	HACK
+	//	It is impossible (at least, to me at this time) to vertically align columns
+	//	on screens with a height less than 600px. I've approximated it here,
+	//	and so it will look weird in older browsers.
+	//
+	@include stn-mdrn-no( flexbox )
+	{
+		@include stn-breakpoint-lower( md )
+		{
+			@media ( max-height:599px )
+			{
+				
+				#{$headers},
+				#{$content}
+				{
+					margin-top:15%;
+					vertical-align:middle;
+				}
+			}
+		}
+	}
+}

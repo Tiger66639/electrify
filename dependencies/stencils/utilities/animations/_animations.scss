@@ -1,0 +1,54 @@
+//
+//	MIXIN: KEYFRAMES
+//	Generates the @keyframes wrapper, as well as a webkit-prefixed copy.
+//		$name		The unique name to give to the keyframes rule to identify the animation
+//
+@mixin stn-keyframes( $name )
+{
+	
+	@at-root
+	{
+		
+		@-webkit-keyframes #{$name}
+		{
+			@content;
+		}
+		
+		@keyframes #{$name}
+		{
+			@content;
+		}
+		
+	}
+	
+}
+
+//	MIXIN: ANIMATION
+//	Generates rules for a CSS animation, prefixes included.
+//		$keyframes			The name of the keyframe set to use
+//								A name used in a @keyframes rule or in the stn-keyframes mixin
+//		$duration			The duration of the animation for one cycle
+//								(seconds)
+//		$delay				The delay between when the element is loaded and when the animation begins
+//								(seconds)
+//		$timing-function	Controls progression of the animation
+//								A vaild timing keyword or function
+//		$fill-mode			Whether to apply beginning/end styles of the animation to the element prior to/after the animation
+//								"none", "backwards", "forwards", "both"
+//		$iteration-count	The number of times to play the animation.
+//								A number, or "infinite"
+//		$direction			The direction in which to play the animation.
+//								"normal", "reverse", "alternate", "alternate-reverse"
+//
+@mixin stn-animation( $keyframes, $duration, $delay, $timing-function, $fill-mode, $iteration-count, $direction )
+{
+	
+	@include prefix( animation-name, $keyframes );
+	@include prefix( animation-duration, $duration );
+	@include prefix( animation-delay, $delay );
+	@include prefix( animation-timing-function, $timing-function );
+	@include prefix( animation-fill-mode, $fill-mode );
+	@include prefix( animation-iteration-count, $iteration-count );
+	@include prefix( animation-direction, $direction );
+	
+}

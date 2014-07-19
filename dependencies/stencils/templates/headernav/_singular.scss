@@ -1,0 +1,109 @@
+//	TEMPLATES > HEADER/NAV > SINGULAR
+//	A two-column layout, with the left column assumed to be the logo and the right  assumed to be the nav.
+//	All arguments are quoted selectors.
+//		$c					The direct container
+//		$logo				The logo wrapper
+//		$nav				The nav wrapper
+//		$nav-c			The (other) nav wrapper, related to $nav
+//		$nav-mobile		The mobile nav wrapper
+//		$nav-itms		The nav items, related to $nav-c
+//
+@mixin stn-thn-singular( $c, $logo, $nav-w1, $nav-w2, $nav, $nav-mobile, $nav-itms )
+{
+	#{$c} {
+		@extend %stn-row;
+	}
+	
+	//	LOGO
+	//
+	#{$logo}
+	{
+		@extend %stn-col-xs-12;
+		@extend %stn-col-md-4;
+	}
+	
+	//	DESKTOP NAVIGATION
+	//	Make this a double wrapper.
+	//
+	
+	#{$nav-w1}
+	{
+		@extend %cf;
+		@extend %stn-hide-xs-only;
+		@extend %stn-col-sm-12;
+		@extend %stn-col-md-8;
+	}
+	
+	#{$nav-w2}
+	{
+		
+		@include stn-breakpoint-range( sm, md )
+		{
+			@include stn-list( row, space-around, $sel-c: $nav, $sel-itms: $nav-itms, $wrap: true );
+		}
+		
+		@include stn-breakpoint-lower( md )
+		{
+			@include stn-list( row, right, $sel-c: $nav, $sel-itms: $nav-itms, $wrap: true );
+		}
+		
+		li
+		{
+	
+			a
+			{
+				display:block;
+				width:-moz-available;
+				@include prefix( width, fill-available );
+			}
+	
+			.sub-menu
+			{
+				display:none;
+				position:absolute;
+			}
+	
+			&:hover
+			{
+				.sub-menu
+				{
+					display:block;
+				}
+	
+			}
+			
+		}
+		
+		@include stn-breakpoint-range( sm, md )
+		{
+			
+			@include stn-mdrn( flexbox )
+			{
+				@include prefix( justify-content, space-around );
+			}
+			
+			@include stn-mdrn-no( flexbox )
+			{
+				float:left;
+			}
+			
+		}
+	}
+	
+	//	MOBILE NAV
+	#{$nav-mobile}
+	{
+		@extend %stn-hide-sm-up;
+		
+		@include stn-mdrn( flexbox )
+		{
+			@include flex( $flex-flow: column );
+		}
+		
+		a
+		{
+			width:100%;
+		}
+	}
+ 
+}

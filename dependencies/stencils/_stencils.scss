@@ -1,28 +1,19 @@
+//	STENCILS INCLUDE
+//	This file imports all other Stencils files into itself.
+//
+//
 //	CORE
 //
-@import "core/variables";				// Variables
-@import "core/helpers";					// Helpers
+@import "core/inc";			//	managed imports
 
-//	LAYOUTS
-//	Display
+//	LAYOUT
 //
-@import "layouts/display/block";		// Blocks
-@import "layouts/display/flipbook";		// Flipbook
+@import "layout/inc";		// managed imports
 
-//	Footer
+//	UTILITIES
 //
-@import "layouts/footer/tricolumn";		// Tricolumn
-@import "layouts/footer/river";			// River
+@import "utilities/inc";	// managed imports
 
-//	Header/Nav
+//	TEMPLATES
 //
-@import "layouts/headernav/singular";	// Singular
-
-//	Main
-//
-@import "layouts/main/blog";			// Blog
-@import "layouts/main/listing";			// Listing
-
-//	TYPOGRAPHY
-//
-@import "typography/article";			// Article
+@import "templates/inc";	// managed imports

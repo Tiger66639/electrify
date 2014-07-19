@@ -1,0 +1,52 @@
+//
+//	MIXIN: SINK
+//	Provides a way to lay out block elements similarly to the list mixin.
+//	Displys differently with flexbox than with non-flexbox, but no way to change that.
+//		$num		The number of "columns" the sink will have.
+//					Without a number, will display whatever is comfortable and wrap around.
+//		$min		The minimum width of each child element.
+//					Pass an inflexible value (px, em, etc.) for a fixed minimum width
+//					Pass a map with breakpoints associated with inflexible values for changes across breakpoints
+//		$sel		A quoted selector that applies to the children of the sink element.
+//					Defaults to all direct children (> *)
+//
+@mixin stn-sink( $cols: null, $min: null, $wrap: true, $sel: "> *" )
+{
+	
+	#{$sel}
+	{
+		@include prefix( box-sizing, border-box );
+		width:99% / $cols; // Just in case something weird happens, nobody will know about that 1%
+	}
+	
+	@include stn-mdrn( flexbox )
+	{
+		@include flex( $flex-flow: wrap, $flex: true, $sel: $sel );
+	}
+	
+	@include stn-mdrn-no( flexbox )
+	{
+		#{$sel}
+		{
+			display:inline-block;
+			
+			@if type-of( $min ) == number
+			{
+				min-width:$min;
+			}
+			
+			@elseif type-of( $min ) == map
+			{
+				@each $breakpoint in map-keys( $min )
+				{
+					@include stn-breakpoint-lower( $breakpoint )
+					{
+						min-width:map-get( $min, $breakpoint );
+					}
+				}
+			}
+			
+		}
+	}
+	
+}

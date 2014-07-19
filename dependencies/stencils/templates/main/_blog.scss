@@ -1,0 +1,25 @@
+//	TEMPLATES > MAIN > BLOG
+//	Your typical blog-type layout, with a generous amount of article space as well as a sidebar.
+//		$c				The container
+//		$article		The article wrapper
+//		$aside		The aside/sidebar wrapper
+//
+@mixin stn-tm-blog( $c, $article, $aside ) {
+	
+	#{$c}
+	{
+		@extend %stn-row;
+	}
+	
+	#{$article}
+	{ // The article
+		@extend %stn-col-xs-12;
+		@extend %stn-col-md-8;
+	}
+	
+	#{$aside}
+	{ // The sidebar
+		@extend %stn-col-md-up;
+		@extend %stn-col-md-4;
+	}
+}

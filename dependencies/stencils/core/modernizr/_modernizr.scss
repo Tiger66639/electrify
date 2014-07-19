@@ -1,0 +1,26 @@
+//	MODERNIZR MIXINS
+//	Note that flexbox testing is required for Stencils layout and templates.
+//	Neither will work correctly unless you include Modernizr with the Flexbox module.
+//
+//	MIXIN: MODERNIZR
+//	Generates a rule that applies only to a specific Modernizr feature.
+//		$feature		The feature to target (see the Modernizr website for a list)
+//
+@mixin stn-mdrn( $feature )
+{
+	html.#{$feature} &
+	{
+		@content;
+	}
+}
+
+//	MIXIN: MODERNIZR-NO
+//	Generates a rule that applies only to the lack of a specific Modernizr feature.
+//
+@mixin stn-mdrn-no( $feature )
+{
+	html.no-#{$feature} &
+	{
+		@content;
+	}
+}

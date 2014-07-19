@@ -1,0 +1,26 @@
+//	TEMPLATES > MAIN > LISTING
+//	Lays out small bits of content (maybe search results or a main blog page) vertically
+//	Excerpts on the left, metadata on the right
+//
+@mixin stn-tm-listing( $content, $excerpt: "> :first-child", $meta: "> :last-child" )
+{
+	
+	#{$content}
+	{
+		@extend %stn-row;
+		
+		#{$excerpt}
+		{
+			@extend %stn-col-xs-12;
+			@extend %stn-col-sm-8;
+		}
+		
+		#{$meta}
+		{
+			@extend %stn-col-xs-12;
+			@extend %stn-col-sm-4;
+		}
+	
+	}
+	
+}

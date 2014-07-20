@@ -19,7 +19,7 @@
 	
 	#{$aside}
 	{ // The sidebar
-		@extend %stn-col-md-up;
+		@extend %stn-show-md-up;
 		@extend %stn-col-md-4;
 	}
 }

@@ -1,0 +1,39 @@
+//	TEMPLATES > DISPLAY > FLIPBOOK
+//	Horizontal rectangles filled with a background image. A box inside contains text and a button.
+//
+@mixin stn-td-flipbook( $text: "> :first-child" )
+{
+	padding-top:4%;
+	
+	background-size:100% auto;
+	background-position:center;
+	background-repeat:no-repeat;
+	// IMPORTANT
+	// You must set the background image yourself
+	
+	@include stn-breakpoint-lower( sm ) {
+		padding:10%;
+		background-size:cover;
+	}
+	
+	#{$text}
+	{
+		width:100%;
+		padding:1%;
+		
+		@include stn-breakpoint-lower( sm ) {
+			width:40%;
+			
+			&.left
+			{
+				margin-right:auto;
+			}
+			&.right
+			{
+				margin-left:auto;
+			}
+		}
+		
+	}
+	
+}

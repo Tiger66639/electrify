@@ -1,0 +1,25 @@
+//	TEMPLATES > FOOTER > RIVER
+//	A three-column footer where one column has high priority.
+//
+@mixin stn-tf-river( $c, $col, $col-main )
+{
+	#{$c}
+	{
+		@extend %stn-row;
+		
+	}
+	
+	#{$col}
+	{
+		@extend %stn-hide-xs-only;
+		@extend %stn-col-sm-3;
+		
+	}
+	
+	#{$col-main}
+	{
+		@extend %stn-col-xs-12;
+		@extend %stn-col-sm-6;
+	}
+	
+}

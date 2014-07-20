@@ -1,0 +1,347 @@
+@import "inc";
+
+body
+{
+	background:$color-1;
+}
+
+.block
+{
+	@include stn-td-block( ".block-headers", ".block-content" );
+	
+	//	BLOCK HEADERS
+	//	Holds headers and occasionally a paragraph.
+	//
+	&-headers
+	{
+		min-width:45%;
+		
+		h1,
+		h2
+		{
+			@include font-h;
+			text-align:center;
+			font-size:2.25em; // Font size for mobile...
+		}
+		
+		//	Font size for tablets+
+		//
+		@include stn-breakpoint-lower( sm )
+		{
+			h1
+			{
+				font-size:3.5em;
+			}
+			
+			h2
+			{
+				font-size:2.5em;
+			}
+		}
+		
+	}
+	
+	//	BLOCK CONTENT
+	//	Holds text, images, video, and more.
+	//
+	&-content
+	{
+		
+		//	Buttons
+		//
+		.btn
+		{
+			display:block;
+			margin:0 auto;
+			@include prefix( width, fit-content );
+			padding:2%;
+			@include font-h;
+			font-size:1.3em;
+			
+			//	Embed buttons replace embeds on xs displays. They're for everything else.
+			//
+			&-embed
+			{
+				@extend %stn-show-xs-only;
+				@include stn-breakpoint-lower( sm )
+				{
+					display:none;
+				}
+			}
+		}
+		
+		//	Images
+		//
+		.img-c
+		{
+			@extend %img;
+			text-align:center;
+			
+			img
+			{
+				width:35%;
+			}
+		}
+		
+		//	Videos
+		//	These things are weird.
+		//
+		.embed-c
+		{
+			@extend %stn-hide-xs-only;
+			
+			@include stn-breakpoint-lower( sm )
+			{
+				display:block;
+				@include reset( padding, margin );
+				text-align:center;
+				
+				iframe
+				{
+					width:60%;
+				}
+			}
+			
+			@include stn-breakpoint-lower( md )
+			{
+				iframe
+				{
+					width:45%;
+				}
+			}
+			
+			@media ( max-height:599px )
+			{
+				iframe
+				{
+					width:100%;
+				}
+			}
+			
+		}
+		
+	}
+	
+	//	Paragraphs (both in headers and in content)
+	//
+	&-headers p,
+	&-content p
+	{
+		text-align:center;
+		line-height:1.625;
+		padding:1.5% 7%;
+	}
+	
+	//	HALF-BLOCKS
+	//	Need a few extra styles to make them work on shorter viewports.
+	//
+	&.half
+	{
+		.block-headers,
+		.block-content
+		{
+			margin:auto inherit;
+		}
+		
+		@include stn-mdrn-no( flexbox )
+		{
+			.block-headers
+			{
+				display:block;
+				float:left;
+				margin-top:8%;
+				width:45%;
+			}
+		}
+		
+		.block-content
+		{
+			padding:2%;
+			
+			@include stn-mdrn-no( flexbox )
+			{
+				display:block;
+				float:right;
+				width:45%;
+			}
+		}
+	}
+	
+	//	Slider blocks always display as whole blocks.
+	//
+	&.slider
+	{
+		@extend .block.whole;
+	}
+	
+	//	A special block option exists to automatically show the latest post from the blog.
+	//	It needs a few extra styles to work properly.
+	//
+	&.block-blog
+	{
+		.post-meta,
+		.post-end
+		{
+			text-align:right;
+			padding:1% 0;
+			@include font-h;
+			font-size:1.2em;
+			
+			a
+			{
+				color:$color-a;
+				
+				&:hover
+				{
+					color:$color-a-hover;
+				}
+			}
+		}
+		
+		p
+		{
+			text-align:left;
+		}
+		
+		.block-content
+		{
+			margin-right:2%;
+		}
+	}
+}
+
+//	SLIDER
+//	Runs on desktops+ only.
+//
+@include stn-breakpoint-lower( md )
+{
+	
+	#slider
+	{
+		.slidesjs-pagination
+		{
+			position:absolute;
+			z-index:1000;
+			width:100%;
+			bottom:0;
+		
+			@include stn-mdrn( flexbox )
+			{
+				@include flex( center );
+			}
+			
+			@include stn-mdrn-no( flexbox )
+			{
+				text-align:center;
+			}
+		
+			.slidesjs-pagination-item
+			{
+				
+				@include stn-mdrn-no( flexbox )
+				{
+					display:inline-block;
+				}
+			
+				a
+				{
+					display:block;
+					padding:1rem 3.5rem;
+					border-top:1px solid $color-p;
+					line-height:0;
+					font-size:0;
+				
+					&.active
+					{
+						border-color:$color-2;
+					}
+				}
+			
+			}
+		
+		}
+		
+		&.light .slidesjs-pagination-item a
+		{
+			border-color:$color-bg-2;
+			
+			&.active
+			{
+				border-color:$color-h;
+			}
+		}
+		
+	}
+}
+
+//	SLIDER HEADERS
+//	Extra styles are applied to headers to make them display on top of
+//	the blocks.
+//
+#h,
+#h-showcase
+{
+	@include stn-breakpoint-lower( md )
+	{
+		position:absolute;
+		top:0;
+		width:100%;
+		z-index:1000;
+		background:transparent;
+	}
+	
+	//	Only on desktops+, though.
+	//
+	@include stn-breakpoint-lower( md )
+	{
+		&.light
+		{
+			#logo
+			{
+				h1
+				{
+					color:$color-h;
+				}
+			
+				h2
+				{
+					color:$color-p;
+				}
+			}
+		
+			#n
+			{
+				color:$color-h;
+				
+				.sub-menu
+				{
+					background:$color-1-inv;
+					box-shadow:0 0 15px $color-h;
+				}
+				
+				.menu-item
+				{
+					&.current-page-parent,
+					&.current-menu-item
+					{
+						border-top-color  : $color-h ;
+						border-left-color : $color-h ;
+					}
+					
+					&:hover,
+					&.active
+					{
+						border-color:$color-h;
+			
+						> a
+						{
+							background:$color-h;
+							color:$color-1-inv;
+						}
+					}
+				}
+			}
+			
+		}
+	}
+}

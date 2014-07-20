@@ -1,0 +1,76 @@
+#f
+{
+	@include stn-tf-tricolumn( "> .c", ".col" );
+	padding:2% 0;
+	background:$color-1;
+	
+	.col
+	{
+		//@extend %stn-l-f-tricolumn-col;
+		
+		p
+		{
+			color:$color-bg-2;
+		}
+	}
+	.widget
+	{
+		@extend %electrify-widget;
+		
+		h5
+		{
+			color:$color-2;
+			@include font-h;
+			text-align:center;
+			font-size:1.5em;
+			padding:3% 0;
+		}
+	}
+}
+
+#login-secret
+{
+	position:fixed;
+	display:block;
+	bottom:0;
+	right:0;
+	height:40px;
+	width:40px;
+	background:transparent;
+	transition:background 0.5s ease 1s;
+	
+	[data-icon]
+	{
+		display:block;
+		background:transparent;
+		color:transparent;
+		font-size:40px;
+		text-align:center;
+		transition-property:background, color;
+		transition-duration:0.5s, 0.5s;
+		transition-timing-function:ease, ease;
+		transition-delay:1s, 1s;
+	}
+	
+	&:hover
+	{
+		background:$color-1;
+		[data-icon]
+		{
+			color:$color-2;
+		}
+	}
+}
+
+#copyright
+{
+	font-size:0.8em;
+	text-align:center;
+	background:$color-1;
+	color:$color-bg-2;
+	
+	p
+	{
+		padding:1.5em;
+	}
+}

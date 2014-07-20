@@ -5,7 +5,7 @@
  * Extends WordPress's Walker_Comment class
  * Generates HTML for comments
  *
- * 
+ *
  * @package default
  * @author Ryan
  */
@@ -21,23 +21,26 @@ class Electrify_Comment extends Walker_Comment
 	 * start_lvl() only goes as high as 1 deep nested comments */
 	function __construct() { ?>
 		
-		<h1 class="section-header"><?php comments_number( '0 comments', '1 comment', '% comments' ); ?> on <br>&ldquo;<?php the_title(); ?>&rdquo;</h1>
+		<?php if ( get_comments_number() ): ?>
+			<h1 class="section-header"><?php comments_number( '0 comments', '1 comment', '% comments' ); ?></h1>
+		<?php endif; ?>
+		
 		<ul id="comments">
 		
 	<?php }
 	
-	/** START_LVL 
+	/** START_LVL
 	 * Starts the list before the CHILD elements are added. Unlike most of the walkers,
 	 * the start_lvl function means the start of a nested comment. It applies to the first
 	 * new level under the comments that are not replies. Also, it appear that, by default,
 	 * WordPress just echos the walk instead of passing it to &$output properly. Go figure.  */
-	function start_lvl( &$output, $depth = 0, $args = array() ) {		
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$GLOBALS['comment_depth'] = $depth + 1; ?>
 
 				<ul class="comments-replies">
 	<?php }
 
-	/** END_LVL 
+	/** END_LVL
 	 * Ends the children list of after the elements are added. */
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$GLOBALS['comment_depth'] = $depth + 1; ?>
@@ -50,7 +53,7 @@ class Electrify_Comment extends Walker_Comment
 	function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {
 		$depth++;
 		$GLOBALS['comment_depth'] = $depth;
-		$GLOBALS['comment'] = $comment; 
+		$GLOBALS['comment'] = $comment;
 		$parent_class = ( empty( $args['has_children'] ) ? '' : 'parent' ); ?>
 		
 		<li <?php comment_class( $parent_class ); ?> id="comment-<?php comment_ID(); ?>">
@@ -113,7 +116,7 @@ class Electrify_Comment extends Walker_Comment
 	<?php }
 	
 	/** DESTRUCTOR
-	 * I just using this since we needed to use the constructor to reach the top 
+	 * I just using this since we needed to use the constructor to reach the top
 	 * of the comments list, just seems to balance out :) */
 	function __destruct() { ?>
 	

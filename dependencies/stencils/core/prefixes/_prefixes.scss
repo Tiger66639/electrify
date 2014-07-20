@@ -1,0 +1,194 @@
+//	Prefix dictionary
+//	Stores prefix entries for the autoprefixer
+//	Use stn-prefix-add() to add new entries
+//	Use stn-prefix-find() to find entries
+$stn-prefixes: () !global;
+
+//	Prefix dictionary adder
+//	Add a new prefix entry to the prefix dictionary
+//		$property	The property of the entry
+//		$value		The value of the entry
+//		$location	Which item to prefix							"property" or "value"
+//		$prefixes	A space seperated list of prefixes to apply
+//		@return		$stn-prefixes with the passed settings added. Assign to $stn prefixes.
+//
+@function stn-prefix-add( $property, $value, $location, $prefixes... )
+{
+	@return map-merge( $stn-prefixes, ( #{$property}-#{$value}: ( location: $location, prefixes: $prefixes, ) ) );
+}
+
+//	Prefix dictionary finder
+//	Find and return a prefix entry in the prefix dictionary
+//		$property	The property (CSS declaration) of the desired entry
+//		$value		The value (CSS declaration) of the desired entry
+//		@return		The settings for the given property-value combination
+//
+@function stn-prefix-find( $property, $value )
+{
+	@return map-get( $stn-prefixes, #{$property}-#{$value} );
+}
+
+//	Default prefixes library (boolean)
+//	If on, will automatically generate default prefixes in the database.
+//	If off, default database will be empty.
+//
+$stn-cfg-default-prefixes: true !default;
+
+@if $stn-cfg-default-prefixes == true
+{
+	//	Default prefix library
+	//	If enabled, this list of entries will automatically be added to the dictionary at runtime.
+	//
+	$stn-prefixes-default: (
+
+		// Flexbox
+		//
+		display-flex      : ( location: value, prefixes: webkit, ),
+		justify-content-_ : ( location: property, prefixes: webkit, ),
+		align-content-_   : ( location: property, prefixes: webkit, ),
+		flex-direction-_  : ( location: property, prefixes: webkit, ),
+		flex-wrap-_       : ( location: property, prefixes: webkit, ),
+		flex-flow-_			: ( location: property, prefixes: webkit, ),
+		align-items-_     : ( location: property, prefixes: webkit, ),
+
+		// Flexbox items
+		//
+		flex-_			: ( location: property, prefixes: webkit, ),
+		order-_			: ( location: property, prefixes: webkit, ),
+		align-self-_	: ( location: property, prefixes: webkit, ),
+		
+		//	Animations
+		//
+		animation-_							: ( location: property, prefixes: webkit, ),
+		animation-delay_					: ( location: property, prefixes: webkit, ),
+		animation-direction_				: ( location: property, prefixes: webkit, ),
+		animation-duration_				: ( location: property, prefixes: webkit, ),
+		animation-iteration-count-_	: ( location: property, prefixes: webkit, ),
+		animation-name-_					: ( location: property, prefixes: webkit, ),
+		animation-play-state-_			: ( location: property, prefixes: webkit, ),
+		animation-timing-function_		: ( location: property, prefixes: webkit, ),
+		animation-fill-mode-_			: ( location: property, prefixes: webkit, ),
+		
+		//	Transitions
+		//
+		transition-_						: ( location: property, prefixes: webkit moz o, ),
+		transition-property-_			: ( location: property, prefixes: webkit moz o, ),
+		transition-duration-_			: ( location: property, prefixes: webkit moz o, ),
+		transition-delay-_				: ( location: property, prefixes: webkit moz o, ),
+		transition-timing-function-_	: ( location: property, prefixes: webkit moz o, ),
+
+		// Intristic sizing
+		//
+		width-min-content    : ( location: value, prefixes: webkit moz, ),
+		width-max-content    : ( location: value, prefixes: webkit moz, ),
+		width-fit-content    : ( location: value, prefixes: webkit moz, ),
+		width-fill-available : ( location: value, prefixes: webkit, ),
+		width-available      : ( location: value, prefixes: moz, ),
+		
+		//	Misc
+		//
+		box-sizing-_ : ( location: property, prefixes: webkit moz, ),
+
+	);
+
+	$stn-prefixes: map-merge( $stn-prefixes, $stn-prefixes-default ) !global;
+
+}
+
+
+//	Auto prefixer
+//	Outputs prefixes based on an internal database
+//		$property		The property of the CSS declaration to prefix
+//		$value			The value of the CSS declaration to prefix
+//		$dep-location	(deprecated) Where to apply the prefix(es)			"property" or "value"
+//		$dep-prefixes	(deprecated) A list of prefixes to apply
+//
+@mixin prefix( $property, $value, $dep-location: null, $dep-prefixes: null )
+{
+	
+	@if $dep-location or $dep-prefixes
+	{
+		//	Someone has upgraded to Stencils 4 but hasn't changed to
+		//	the automatic prefixer.
+		//
+		@warn "Passing location and prefixes arguments to the automatic prefixer is a deprecated functionality (from v4A). It will be removed in future versions of Stencils.\nPlease either use the manual prefixer (prefix_) or configure the automatic prefixer correctly.";
+		@warn "Calling the manual prefixer.";
+		@include prefix_( $property, $value, $dep-location, $dep-prefixes );
+		
+	}
+	
+	@else
+	{
+		
+		$settings: stn-prefix-find( $property, $value );
+
+		@if $settings
+		{
+			@if map-get( $settings, location ) == property
+			{
+				@each $prefix in map-get( $settings, prefixes )
+				{
+					-#{$prefix}-#{$property}:$value;
+				}
+			}
+
+			@elseif map-get( $settings, location ) == value
+			{
+				@each $prefix in map-get( $settings, prefixes )
+				{
+					#{$property}:-#{$prefix}-#{$value};
+				}
+			}
+		}
+
+		@else
+		{
+			$settings: stn-prefix-find( $property, _ );
+
+			@if $settings
+			{
+				@each $prefix in map-get( $settings, prefixes )
+				{
+					-#{$prefix}-#{$property}:$value;
+				}
+			}
+			
+			@else
+			{
+				@warn "Couldn't find #{$property}:#{$value}; prefix support";
+			}
+			
+		}
+
+		#{$property}:$value;
+		
+	}
+
+}
+
+//	Manual prefixer
+//	Outputs prefixed styles based on arguments:
+//		$property	The property of the CSS declaration
+//		$value		The value of the CSS declaration
+//		$location	Where to prefix (either the property or the value)		"property" or "value"
+//		$prefixes	A space-seperated list of prefixes to apply
+//
+@mixin prefix_( $property, $value, $location, $prefixes... )
+{
+
+	@if $location == property {
+		@each $prefix in $prefixes {
+			-#{ $prefix }-#{ $property }: $value;
+		}
+
+	}
+	@elseif $location == value {
+		@each $prefix in $prefixes {
+			#{ $property }: -#{ $prefix }-#{ $value };
+		}
+
+	}
+
+	#{ $property }: $value;
+
+}

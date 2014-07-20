@@ -1,0 +1,30 @@
+//	CONFIG: CONTAINER WIDTH
+//	The width of the container divs
+//	Recommended to be a percentage
+//
+$stn-cfg-c-width: 95% !default;
+
+
+//	CONFIG: CONTAINER MAX-WIDTH
+//	The maximum width of the container divs
+//
+$stn-cfg-c-max-width: 1500px !default;
+
+//	CONTAINER
+//	Base container selector
+//
+%c {
+	@extend %stn-row;
+	margin:0 auto;
+	width:$stn-cfg-c-width;
+	max-width:$stn-cfg-c-max-width;
+}
+
+//	FULL-WIDTH CONTAINER
+//	Full-width container selector
+%fwc
+{
+	@extend %stn-row;
+	margin:0 auto;
+	width:100%;
+}

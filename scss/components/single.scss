@@ -1,0 +1,182 @@
+@import "inc";
+
+#m
+{
+	#a
+	{
+		hr.end-content
+		{
+			margin:8% 0 3%;
+			background:$color-p;
+		}
+	
+		#comments,
+		.comment-meta
+		{
+			@include reset-all;
+	
+			.comment,
+			> li
+			{
+				@include reset-all;
+				list-style-type:none;
+		
+			}
+		}
+	
+		.comment-meta
+		{
+			background:$color-h;
+			padding:0 0.4em;
+		
+			@include stn-mdrn( flexbox )
+			{
+				@include flex( $flex-flow: wrap );
+			}
+		
+			@include stn-mdrn-no( flexbox )
+			{
+				@extend %cf;
+			}
+		
+			> li
+			{
+				@include font-h;
+				color:$color-bg-2;
+			
+				&.comment-author,
+				&.comment-date,
+				&.comment-time,
+				&.comment-reply a,
+				&.comment-edit a,
+				&.comment-permalink a
+				{
+					display:block;
+					font-size:1.2em;
+					padding:0.8em 0.4em;
+				}
+			
+				@include stn-mdrn( flexbox )
+				{
+				
+					&.comment-time
+					{
+						margin-right:auto;
+					}
+				}
+			
+				@include stn-mdrn-no( flexbox )
+				{
+				
+					&.comment-author,
+					&.comment-date,
+					&.comment-time
+					{
+						float:left;
+					}
+				
+					&.comment-reply,
+					&.comment-edit,
+					&.comment-permalink
+					{
+						float:right;
+					}
+				}
+			
+				a
+				{
+					color:$color-2;
+				
+					[data-icon]
+					{
+						color:$color-2;
+					}
+				
+					&:hover
+					{
+						text-decoration:none;
+						background:$color-2;
+						color:$color-h;
+					
+						[data-icon]
+						{
+							color:$color-h;
+						}
+					}
+				}
+			}
+		}
+	
+		.comments-replies
+		{
+			@include reset( margin );
+			margin:2% 5%;
+			margin-right:0;
+		}
+	
+		.comment-c
+		{
+			margin-top:1%;
+			margin-bottom:3%;
+		}
+	
+		#reply-title,
+		.section-header
+		{
+			font-size:3em;
+		}
+	
+		#reveal-comments-a
+		{
+			display:none;
+			@include reset-all;
+			padding:1em 0;
+			width:100%;
+			text-align:center;
+			@include font-h;
+			background:$color-h;
+			color:$color-2;
+		
+			&.active,
+			&:hover
+			{
+				text-decoration:none;
+				cursor:pointer;
+				color:$color-h;
+				background:$color-2;
+			}
+		}
+	
+	}
+
+	#s
+	{
+		.post-meta
+		{
+			padding-bottom:6%;
+			margin-bottom:5%;
+			border-bottom:1px solid $color-p;
+		
+			@include font-h;
+			font-size:1.2em;
+		
+			li
+			{
+				padding:2%;
+			
+				a:hover
+				{
+					text-decoration:none;
+				}
+			}
+		}
+	
+		.author-meta
+		{
+			padding-bottom:6%;
+			margin-bottom:5%;
+			border-bottom:1px solid $color-p;
+		}
+	}
+	
+}

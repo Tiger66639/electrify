@@ -1,0 +1,180 @@
+
+//	MIXIN: LIST
+//	Controls layout of children. Setting is two wrappers around the elements to be controlled. Apply this mixin to outer wrapper.
+//		$orientation	The direction in which elements are laid out
+//							[row|horizontal|landscape]|[column|vertical|portrait]
+//
+//		$align			Around which position to move the content.
+//							All justify-content values supported, as well as left, right, center, start, and end
+//
+//		$reverse			Whether to reverse source order or not
+//							(boolean) (for non-flexbox browsers, works only on horizontal layout)
+//
+//		$wrap				Whether to premit the elements to wrap around
+//							(boolean)
+//
+//		$sel-c			The selector for the inner container, relative to the outer wrapper
+//							A quoted valid CSS selector (defaults to first direct child of outer wrapper)
+//
+//		$sel-itms		The selector for the items, relative to the inner wrapper
+//							A quoted valid CSS selector (defaults to all direct children of inner wrapper)
+//
+@mixin stn-list( $orientation: null, $align: null, $reverse: false, $wrap: true, $sel-c: '> :first-child', $sel-itms: '> *' )
+{
+	
+	$justify-content: null !default;
+	$flex-direction: null !default;
+	
+	$outer-float: left !default;
+	$inner-float: left !default;
+	
+	@if $orientation
+	{
+		//	The orientation has been changed from its default
+		//
+		
+		@if $align == left
+		{
+			@if $reverse and ( $orientation == row or $orientation == horizontal or $orientation == landscape )
+			{
+				$justify-content:flex-end;
+				$flex-direction:row-reverse;
+				$inner-float:right;
+			}
+			
+		}
+		
+		@elseif $align == right
+		{
+			@if $orientation == row or $orientation == horizontal or $orientation == landscape
+			{
+				@if $reverse
+				{
+					$justify-content:flex-start;
+					$flex-direction:row-reverse;
+					$inner-float:right;
+				}
+				
+				@else
+				{
+					$justify-content:flex-end;
+				}
+				
+				$outer-float:right;
+				
+			}
+			
+		}
+		
+		@elseif $align == center
+		{
+			$justify-content:center;
+		}
+		
+		@elseif $align == flex-start or $align == start
+		{
+			
+			@if $reverse and ( $orientation == row or $orientation == horizontal or $orientation == landscape )
+			{
+				$outer-float:right;
+				$inner-float:right;
+				
+				$flex-direction:row-reverse;
+			}
+			
+		}
+		
+		@elseif $align == flex-end or $align == end
+		{
+			$justify-content:flex-end;
+			
+			@if $orientation == row or $orientation == horizontal or $orientation == landscape
+			{
+				@if $reverse
+				{
+					$flex-direction:row-reverse;
+					$inner-float:right;
+				}
+				
+				@else
+				{
+					$outer-float:right;
+				}
+			}
+			
+		}
+		
+		@elseif $align == space-between or $align == space-around
+		{
+			$justify-content: $align;
+			
+			//	Can't support space-between or space-around
+			//
+			@warn "From stn-list: Using flexbox values 'space-between' or 'space-around' are not supported in non-flexbox browsers. IE<10, as well as other older and less-popular web browsers will not be able to properly display these elements.";
+		}
+		
+	}
+	
+	@include stn-mdrn( flexbox )
+	{
+		#{$sel-c}
+		{
+			
+			@if $wrap
+			{
+				@include flex( $justify-content, $flex-direction wrap );
+			}
+			
+			@else
+			{
+				@include flex( $justify-content, $flex-direction );
+				@warn "From stn-list: Forcing nowrap is not supported in non-flexbox browsers. IE<10, as well as other older and less-popular web browsers will not be able to properly display these elements.";
+			}
+			
+		}
+	}
+	
+	@include stn-mdrn-no( flexbox )
+	{
+		
+		@if $flex-direction == row or $flex-direction == row-reverse or $flex-direction == null
+		{
+			@at-root ( with: rule )
+			{
+				@extend %cf;
+			}
+				
+			#{$sel-c}
+			{
+				@at-root ( with: rule )
+				{
+					@extend %cf;
+				}
+				
+				float:$outer-float;
+				
+				#{$sel-itms}
+				{
+					float:$inner-float;
+				}
+				
+			}
+			
+		}
+		
+		@elseif $flex-direction == column
+		{
+			display:block;
+			width:100%;
+		}
+		
+	}
+	
+	@if $orientation == column-reverse
+	{
+		//	Not supporting column-reverse
+		//
+		@warn "From stn-list: Displaying columns in reverse order does not work for non-flexbox browsers. IE<10, as well as other older and less-popular web browsers will not be able to properly display these elements. Reverting to column display.";
+	}
+	
+}

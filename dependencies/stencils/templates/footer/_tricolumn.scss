@@ -1,0 +1,21 @@
+//	TEMPLATES > FOOTER > TRICOLUMN
+//	Three columns. Simple, right?
+//		$c		The container
+//		$col	A column
+//
+@mixin stn-tf-tricolumn( $c, $col )
+{
+
+	#{$c}
+	{
+		@extend %stn-row;
+		//@include stn-sink( 3, $sel: $col );
+	}
+	
+	#{$col}
+	{
+		@extend %stn-col-xs-12;
+		@extend %stn-col-sm-4;
+	}
+	
+}

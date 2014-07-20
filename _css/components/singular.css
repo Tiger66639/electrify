@@ -1,0 +1,258 @@
+/* line 49, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
+html.no-flexbox #m > .c {
+  *zoom: 1;
+}
+/* line 52, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
+html.no-flexbox #m > .c:before, html.no-flexbox #m > .c:after {
+  content: " ";
+  display: table;
+}
+/* line 59, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
+html.no-flexbox #m > .c:after {
+  clear: both;
+}
+
+/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.flexbox #m > .c {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: wrap;
+  flex-flow: wrap;
+}
+/* line 38, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+#m > .c #a, #m > .c #a-search, #m > .c #s {
+  margin-left: 1%;
+  margin-right: 1%;
+  position: relative;
+}
+/* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.no-flexbox #m > .c #a, html.no-flexbox #m > .c #a-search, html.no-flexbox #m > .c #s {
+  float: left;
+}
+/* line 49, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+#m > .c #a:first-child, #m > .c #a-search:first-child, #m > .c #s:first-child {
+  margin-left: 0;
+}
+/* line 54, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+#m > .c #a:last-child, #m > .c #a-search:last-child, #m > .c #s:last-child {
+  margin-right: 0;
+}
+/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.flexbox #m > .c #a:last-child, html.flexbox #m > .c #a-search:last-child, html.flexbox #m > .c #s:last-child {
+  margin-left: auto;
+}
+/* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.no-flexbox #m > .c #a:last-child, html.no-flexbox #m > .c #a-search:last-child, html.no-flexbox #m > .c #s:last-child {
+  float: right;
+}
+
+@media (min-width: 1px) {
+  /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+  #m #a, #m #a-search {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+  #m #s {
+    width: 32%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+  #m #a, #m #a-search {
+    width: 66%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* line 38, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_visibility.scss */
+  #m #s {
+    display: initial;
+  }
+}
+@media (max-width: 991px) {
+  /* line 38, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_visibility.scss */
+  #m #s {
+    display: none;
+  }
+}
+
+/* line 8, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget h1, #m #a h1, #m #a-search h1, #m #s .widget h2, #m #a h2, #m #a-search h2, #m #s .widget h3, #m #a h3, #m #a-search h3, #m #s .widget h4, #m #a h4, #m #a-search h4, #m #s .widget h5, #m #a h5, #m #a-search h5, #m #s .widget h6, #m #a h6, #m #a-search h6 {
+  padding: 2% 0;
+}
+/* line 13, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget > h1:first-of-type, #m #a > h1:first-of-type, #m #a-search > h1:first-of-type, #m #s .widget > h1.section-header, #m #a > h1.section-header, #m #a-search > h1.section-header {
+  font-size: 3em;
+}
+/* line 17, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget h1, #m #a h1, #m #a-search h1 {
+  font-size: 2em;
+}
+/* line 21, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget h2, #m #a h2, #m #a-search h2 {
+  font-size: 1.5em;
+}
+/* line 25, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget h3, #m #a h3, #m #a-search h3 {
+  font-size: 1.3em;
+}
+/* line 28, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget h4, #m #a h4, #m #a-search h4 {
+  font-size: 1.1em;
+}
+/* line 40, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget p, #m #a p, #m #a-search p {
+  text-align: justify;
+  line-height: 1.625;
+  font-size: 1rem;
+  padding: 1% 0;
+}
+/* line 48, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget hr, #m #a hr, #m #a-search hr {
+  height: 1px;
+  border: 0;
+  background: #000;
+}
+/* line 55, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget blockquote, #m #a blockquote, #m #a-search blockquote {
+  border-left: 5px solid #888;
+  margin-left: 2%;
+  padding-left: 2%;
+}
+/* line 62, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget ul, #m #a ul, #m #a-search ul, #m #s .widget ol, #m #a ol, #m #a-search ol {
+  margin: 2% 0;
+  margin-left: 8%;
+}
+/* line 66, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget ul li, #m #a ul li, #m #a-search ul li, #m #s .widget ol li, #m #a ol li, #m #a-search ol li {
+  padding: 1.5% 1%;
+}
+/* line 71, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget ul li, #m #a ul li, #m #a-search ul li {
+  list-style: circle;
+}
+/* line 74, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget ol li, #m #a ol li, #m #a-search ol li {
+  list-style-type: decimal;
+}
+/* line 80, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget a, #m #a a, #m #a-search a {
+  color: #00a;
+  text-decoration: none;
+}
+/* line 84, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget a:hover, #m #a a:hover, #m #a-search a:hover {
+  text-decoration: underline;
+}
+/* line 88, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget a:active, #m #a a:active, #m #a-search a:active {
+  color: #a00;
+}
+/* line 94, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget small, #m #a small, #m #a-search small {
+  font-size: 0.5em;
+}
+/* line 101, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget cite, #m #a cite, #m #a-search cite {
+  text-align: right;
+}
+/* line 105, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget strong, #m #a strong, #m #a-search strong {
+  font-weight: bold;
+}
+/* line 108, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget em, #m #a em, #m #a-search em, #m #s .widget q, #m #a q, #m #a-search q {
+  font-style: italic;
+}
+/* line 114, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget s, #m #a s, #m #a-search s {
+  text-decoration: line-through;
+}
+/* line 120, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m #s .widget img, #m #a img, #m #a-search img,
+#m #s .widget iframe,
+#m #a iframe,
+#m #a-search iframe,
+#m #s .widget figure,
+#m #a figure,
+#m #a-search figure {
+  max-width: 100%;
+}
+
+/* line 5, ../../scss/settings/_extensions.scss */
+#m #s .widget a, #m #a a, #m #a-search a {
+  color: #0088ff;
+}
+/* line 8, ../../scss/settings/_extensions.scss */
+#m #s .widget a:hover, #m #a a:hover, #m #a-search a:hover {
+  color: #4dacff;
+}
+/* line 14, ../../scss/settings/_extensions.scss */
+#m #s .widget h1, #m #a h1, #m #a-search h1,
+#m #s .widget h2,
+#m #a h2,
+#m #a-search h2,
+#m #s .widget h3,
+#m #a h3,
+#m #a-search h3,
+#m #s .widget h4,
+#m #a h4,
+#m #a-search h4,
+#m #s .widget h5,
+#m #a h5,
+#m #a-search h5,
+#m #s .widget h6,
+#m #a h6,
+#m #a-search h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: #333333;
+}
+/* line 30, ../../scss/settings/_extensions.scss */
+#m #s .widget p, #m #a p, #m #a-search p {
+  color: #444444;
+  line-height: 1.625;
+}
+
+/* line 43, ../../scss/settings/_extensions.scss */
+#m #s .widget a {
+  text-decoration: none;
+}
+
+/* line 7, ../../scss/components/singular.scss */
+#m #a, #m #a-search {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-bottom: 10%;
+}
+/* line 13, ../../scss/components/singular.scss */
+#m #a h1:first-of-type, #m #a-search h1:first-of-type, #m #a h1.section-header, #m #a-search h1.section-header,
+#m #a h1:first-child,
+#m #a-search h1:first-child {
+  margin-bottom: 4%;
+}
+/* line 21, ../../scss/components/singular.scss */
+#m #s {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 0;
+  padding: 2%;
+  background: #cccccc;
+}
+/* line 35, ../../scss/components/singular.scss */
+#m #a-search {
+  width: 100%;
+  margin-bottom: 30%;
+}
+/* line 41, ../../scss/components/singular.scss */
+#m #a-search h1 {
+  text-align: center;
+}

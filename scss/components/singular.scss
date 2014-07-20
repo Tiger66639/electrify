@@ -1,0 +1,47 @@
+@import "inc";
+
+#m
+{
+	@include stn-tm-blog( "> .c", "#a", "#s" );
+	
+	#a
+	{
+		@extend %electrify-article;
+		@include prefix( box-sizing, border-box );
+		padding-bottom:10%;
+		
+		h1:first-of-type,
+		h1:first-child
+		{
+			margin-bottom:4%;
+		}
+		
+	}
+
+	#s
+	{
+		@include prefix( box-sizing, border-box );
+		margin-top:0;
+		padding:2%;
+		background:$color-bg-2;
+		
+		.widget
+		{
+			@extend %electrify-widget;
+		}
+		
+	}
+	
+	#a-search
+	{
+		@extend #a;
+		width:100%;
+		margin-bottom:30%;
+		
+		h1
+		{
+			text-align:center;
+		}
+	}
+	
+}

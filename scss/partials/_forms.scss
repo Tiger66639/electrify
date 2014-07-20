@@ -1,0 +1,105 @@
+.form-group
+{
+	margin:1% 0;
+	width:100%;
+	
+	@include stn-mdrn( flexbox )
+	{
+		@include flex;
+	}
+	
+	input,
+	textarea
+	{
+		@include reset-all;
+		background:$color-bg-2;
+		
+		@include stn-mdrn( flexbox )
+		{
+			width:-moz-available;
+			@include prefix( width, fill-available );
+		}
+		
+		@include stn-mdrn-no( flexbox )
+		{
+			width:50%;
+		}
+	}
+	
+	label
+	{
+		@include font-h;
+		background:$color-h;
+		color:$color-bg-2;
+		
+		@include stn-mdrn( flexbox )
+		{
+			@include prefix_( min-width, max-content, value, webkit, moz );
+		}
+		
+		&.required
+		{
+			color:$color-2;
+		}
+		
+		&:hover
+		{
+			cursor:text;
+		}
+	}
+	
+	input,
+	textarea,
+	label
+	{
+		font-size:1.1em;
+		padding:1em;
+		
+		@include stn-mdrn-no( flexbox )
+		{
+			display:inline-block;
+		}
+	}
+	
+	textarea
+	{
+		min-height:10em;
+		max-width:100%;
+	}
+	
+	&.form-group-lg
+	{
+		@include stn-mdrn( flexbox )
+		{
+			@include prefix( flex-direction, column );
+		}
+		
+		@include stn-mdrn-no( flexbox )
+		{
+			input,
+			textarea,
+			label
+			{
+				display:block;
+				width:100%;
+			}
+		}
+	}
+	
+}
+
+input[type="submit"]
+{
+	@include reset-all;
+	@include font-h;
+	padding:1em;
+	font-size:1.1em;
+	color:$color-2;
+	background:$color-h;
+	
+	&:hover
+	{
+		cursor:pointer;
+		background:$color-p;
+	}
+}

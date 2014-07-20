@@ -1,0 +1,279 @@
+/* line 49, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
+html.no-flexbox #m .post-content, #m html.no-flexbox .post-content, html.no-flexbox .f-listing {
+  *zoom: 1;
+}
+/* line 52, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
+html.no-flexbox #m .post-content:before, #m html.no-flexbox .post-content:before, html.no-flexbox .f-listing:before, html.no-flexbox #m .post-content:after, #m html.no-flexbox .post-content:after, html.no-flexbox .f-listing:after {
+  content: " ";
+  display: table;
+}
+/* line 59, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
+html.no-flexbox #m .post-content:after, #m html.no-flexbox .post-content:after, html.no-flexbox .f-listing:after {
+  clear: both;
+}
+
+/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.flexbox #m .post-content, #m html.flexbox .post-content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: wrap;
+  flex-flow: wrap;
+}
+/* line 38, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+#m .post-content > :first-child, #m .post-content > :last-child {
+  margin-left: 1%;
+  margin-right: 1%;
+  position: relative;
+}
+/* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.no-flexbox #m .post-content > :first-child, #m html.no-flexbox .post-content > :first-child, html.no-flexbox #m .post-content > :last-child, #m html.no-flexbox .post-content > :last-child {
+  float: left;
+}
+/* line 49, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+#m .post-content > :first-child, #m .post-content > :first-child:last-child {
+  margin-left: 0;
+}
+/* line 54, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+#m .post-content > :last-child, #m .post-content > :last-child:first-child {
+  margin-right: 0;
+}
+/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.flexbox #m .post-content > :last-child, #m html.flexbox .post-content > :last-child, html.flexbox #m .post-content > :last-child:first-child, #m html.flexbox .post-content > :last-child:first-child {
+  margin-left: auto;
+}
+/* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.no-flexbox #m .post-content > :last-child, #m html.no-flexbox .post-content > :last-child, html.no-flexbox #m .post-content > :last-child:first-child, #m html.no-flexbox .post-content > :last-child:first-child {
+  float: right;
+}
+
+@media (min-width: 1px) {
+  /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+  #m .post-content > :first-child, #m .post-content > :last-child {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+  #m .post-content > :last-child {
+    width: 32%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
+  #m .post-content > :first-child {
+    width: 66%;
+  }
+}
+
+/* line 8, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m h1, #m h2, #m h3, #m h4, #m h5, #m h6 {
+  padding: 2% 0;
+}
+/* line 13, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m > h1:first-of-type, #m > h1.section-header {
+  font-size: 3em;
+}
+/* line 17, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m h1 {
+  font-size: 2em;
+}
+/* line 21, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m h2 {
+  font-size: 1.5em;
+}
+/* line 25, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m h3 {
+  font-size: 1.3em;
+}
+/* line 28, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m h4 {
+  font-size: 1.1em;
+}
+/* line 40, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m p {
+  text-align: justify;
+  line-height: 1.625;
+  font-size: 1rem;
+  padding: 1% 0;
+}
+/* line 48, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m hr {
+  height: 1px;
+  border: 0;
+  background: #000;
+}
+/* line 55, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m blockquote {
+  border-left: 5px solid #888;
+  margin-left: 2%;
+  padding-left: 2%;
+}
+/* line 62, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m ul, #m ol {
+  margin: 2% 0;
+  margin-left: 8%;
+}
+/* line 66, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m ul li, #m ol li {
+  padding: 1.5% 1%;
+}
+/* line 71, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m ul li {
+  list-style: circle;
+}
+/* line 74, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m ol li {
+  list-style-type: decimal;
+}
+/* line 80, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m a {
+  color: #00a;
+  text-decoration: none;
+}
+/* line 84, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m a:hover {
+  text-decoration: underline;
+}
+/* line 88, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m a:active {
+  color: #a00;
+}
+/* line 94, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m small {
+  font-size: 0.5em;
+}
+/* line 101, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m cite {
+  text-align: right;
+}
+/* line 105, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m strong {
+  font-weight: bold;
+}
+/* line 108, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m em, #m q {
+  font-style: italic;
+}
+/* line 114, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m s {
+  text-decoration: line-through;
+}
+/* line 120, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
+#m img,
+#m iframe,
+#m figure {
+  max-width: 100%;
+}
+
+/* line 5, ../../scss/settings/_extensions.scss */
+#m a {
+  color: #0088ff;
+}
+/* line 8, ../../scss/settings/_extensions.scss */
+#m a:hover {
+  color: #4dacff;
+}
+/* line 14, ../../scss/settings/_extensions.scss */
+#m h1,
+#m h2,
+#m h3,
+#m h4,
+#m h5,
+#m h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: #333333;
+}
+/* line 30, ../../scss/settings/_extensions.scss */
+#m p {
+  color: #444444;
+  line-height: 1.625;
+}
+
+/* line 3, ../../scss/components/listing.scss */
+#m {
+  margin-bottom: 2%;
+}
+/* line 10, ../../scss/components/listing.scss */
+#m a:hover {
+  text-decoration: none;
+}
+/* line 15, ../../scss/components/listing.scss */
+#m h1 {
+  width: 100%;
+  font-size: 3em;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+/* line 23, ../../scss/components/listing.scss */
+#m .archive-description {
+  padding: 0;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  color: #919191;
+}
+/* line 32, ../../scss/components/listing.scss */
+#m .post {
+  width: 100%;
+}
+/* line 36, ../../scss/components/listing.scss */
+#m .post h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  padding: 2% 0 1%;
+  font-size: 1.8em;
+}
+/* line 48, ../../scss/components/listing.scss */
+#m .post-meta {
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+}
+/* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.no-flexbox #m .post-meta {
+  vertical-align: top;
+}
+/* line 59, ../../scss/components/listing.scss */
+#m .post-meta li {
+  list-style: none;
+  padding: 3% 0;
+}
+
+/* line 68, ../../scss/components/listing.scss */
+.f-listing {
+  width: 100%;
+}
+/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.flexbox .f-listing {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+/* line 81, ../../scss/components/listing.scss */
+html.no-flexbox .f-listing .posts-older {
+  float: left;
+}
+/* line 85, ../../scss/components/listing.scss */
+html.no-flexbox .f-listing .posts-newer {
+  float: right;
+}
+/* line 92, ../../scss/components/listing.scss */
+.f-listing a {
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  padding: 1em;
+}

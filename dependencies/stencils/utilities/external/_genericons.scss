@@ -1,0 +1,175 @@
+
+//	GENERICONS SUPPORT
+//	Last updated for Genericons v3.0.3
+//
+
+//	CONFIG: GENERICONS
+//	Turns Genericons support on or off.
+//
+$stn-cfg-genericons: false !default;
+
+//	CONFIG: GENERICONS GENERATE RULES
+//	If on, generates rules for Genericons.
+//
+$stn-cfg-genericons-rules: true !default;
+
+@if $stn-cfg-genericons
+{
+	$stn-genericons-slugs:
+		aside,
+		attachment,
+		audio,
+		bold,
+		book,
+		cart,
+		category,
+		chat,
+		checkmark,
+		close,
+		close-alt,
+		cloud,
+		cloud-download,
+		cloud-upload,
+		code,
+		codepen,
+		cog,
+		collapse,
+		comment,
+		day,
+		digg,
+		document,
+		dot,
+		downarrow,
+		draggable,
+		dribble,
+		dropbox,
+		dropdown,
+		dropdown-left,
+		edit,
+		expand,
+		external,
+		facebook,
+		facebook-alt,
+		fastforward,
+		feed,
+		flag,
+		flickr,
+		fullscreen,
+		gallery,
+		github,
+		googleplus,
+		googleplus-alt,
+		heart,
+		help,
+		hide,
+		home,
+		image,
+		info,
+		instagram,
+		italic,
+		key,
+		leftarrow,
+		link,
+		linkedin,
+		linkedin-alt,
+		location,
+		lock,
+		mail,
+		maximize,
+		menu,
+		minimize,
+		month,
+		next,
+		notice,
+		path,
+		pause,
+		phone,
+		picture,
+		pinned,
+		pinterest,
+		pinterest-alt,
+		play,
+		plugin,
+		pocket,
+		polldaddy,
+		portfolio,
+		previous,
+		print,
+		quote,
+		reddit,
+		refresh,
+		reply,
+		reply-alt
+		reply-single,
+		rewind,
+		rightarrow,
+		search,
+		send-to-phone,
+		send-to-tablet,
+		share,
+		show,
+		skip-ahead,
+		skip-back,
+		skype,
+		spam,
+		standard,
+		star,
+		status,
+		stop,
+		stumbleupon,
+		subscribe,
+		subscribed,
+		summary,
+		tablet,
+		tag,
+		time,
+		top,
+		trash,
+		tumblr,
+		twitter,
+		unapprove,
+		unsubscribe,
+		unzoom,
+		uparrow,
+		user,
+		video,
+		vimeo,
+		warning,
+		week,
+		wordpress,
+		youtube,
+		zoom,
+		
+		!global
+	;
+	
+	%stn-icon
+	{
+		@extend .genericon;
+		
+		@each $icon in $stn-genericons-slugs
+		{
+			%stn-icon-#{$icon}
+			{
+				@extend .genericon-#{$icon};
+			}
+		}
+	}
+	
+	@if $stn-cfg-genericons-rules
+	{
+		[data-icon]
+		{
+			@extend %stn-icon;
+			
+			@each $icon in $stn-genericons-slugs
+			{
+				&[data-icon="#{$icon}"]
+				{
+					@extend %stn-icon-#{$icon};
+				}
+			}
+		}
+	}
+	
+}

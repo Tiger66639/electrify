@@ -1,0 +1,46 @@
+//	RESPONSIVE MEDIA
+//	Inspiration from css-tricks.
+//
+//	RESPONSIVE IMAGES/VIDEO (HTML5)
+//
+%video-html5,
+%img
+{
+	max-width:100%;
+	height:auto !important;
+}
+
+%img
+{
+	//	Helps images to look good after scaledown in IE7
+	//
+	-ms-interpolation-mode: bicubic;
+}
+
+//	RESPONSIVE VIDEO (EXTERNAL)
+//
+%video-x
+{
+	//	This is the container for the iframe.
+	//
+	height:0;
+	position:relative;
+	
+	iframe
+	{
+		position:absolute;
+		top:0; right:0; bottom:0; left:0;
+	}
+}
+
+%video-16-9
+{
+	@extend %video-x;
+	padding-bottom:56.25%; // 16:9
+}
+
+%video-4-3
+{
+	@extend %video-x;
+	padding-bottom:75%; // 4:3
+}

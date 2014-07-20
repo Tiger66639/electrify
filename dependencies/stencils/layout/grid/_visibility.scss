@@ -1,0 +1,111 @@
+//	VISIBILITY
+//	Provides fast selectors/modules to quickly show/hide elements based on breakpoints.
+//
+//	TODO
+//	A lot of this code is pretty repetitive; at some point,
+//	I'll try to refactor it into a series of loops that's easier to automate.
+//
+
+//	CONFIG: GENERATE CLASSES
+//	Whether to generate classes for visibility control
+//
+$stn-cfg-visibility-classes: false !default;
+
+
+@each $breakpoint in $stn-breakpoints-slugs
+{
+	
+	//	SHOW SELECTORS
+	//	When applied, these selectors will enforce that the element is displayed
+	//	at the specified breakpoints.
+	//
+	%stn-show-#{$breakpoint}-only
+	{
+		@include stn-breakpoint-only( $breakpoint )
+		{
+			display:initial;
+		}
+		
+		@include stn-breakpoint-except( $breakpoint )
+		{
+			display:none;
+		}
+		
+	}
+	
+	@if $breakpoint != $stn-breakpoint-largest and $breakpoint != $stn-breakpoint-smallest
+	{
+		%stn-show-#{$breakpoint}-up
+		{
+			@include stn-breakpoint-lower( $breakpoint )
+			{
+				display:initial;
+			}
+			
+			@include stn-breakpoint-upper( stn-breakpoint-below( $breakpoint ) )
+			{
+				display:none;
+			}
+		}
+	}
+	
+	//	HIDE SELECTORS
+	//	When applied, these selectors will enforce that the element is hidden
+	//	at the specified breakpoints.
+	//
+	%stn-hide-#{$breakpoint}-only
+	{
+		@include stn-breakpoint-only( $breakpoint )
+		{
+			display:none;
+		}
+		
+		@include stn-breakpoint-except( $breakpoint )
+		{
+			display:initial;
+		}
+		
+	}
+	
+	@if $breakpoint != $stn-breakpoint-largest and $breakpoint != $stn-breakpoint-smallest
+	{
+		%stn-hide-#{$breakpoint}-up
+		{
+			
+			@include stn-breakpoint-lower( $breakpoint )
+			{
+				display:none;
+			}
+			
+			@include stn-breakpoint-upper( stn-breakpoint-below( $breakpoint ) )
+			{
+				display:initial;
+			}
+		}
+	}
+	
+	@if $stn-cfg-visibility-classes
+	{
+		.stn-show-#{$breakpoint}-only
+		{
+			@extend %stn-show-#{$breakpoint}-only;
+		}
+		.stn-hide-#{$breakpoint}-only
+		{
+			@extend %stn-hide-#{$breakpoint}-only;
+		}
+		
+		@if $breakpoint != $stn-breakpoint-largest and $breakpoint != $stn-breakpoint-smallest
+		{
+			.stn-show-#{$breakpoint}-up
+			{
+				@extend %stn-show-#{$breakpoint}-up;
+			}
+			.stn-hide-#{$breakpoint}-up
+			{
+				@extend %stn-hide-#{$breakpoint}-up;
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,143 @@
+
+//	CONFIG: GRID NUMBER OF COLUMNS
+// Number of columns to generate.
+//
+$stn-cfg-grid-num-cols: 12 !default;
+
+//	CONFIG: GRID GUTTER WIDTH
+//	Sets the width of the gutter in-between grid columns.
+//
+$stn-cfg-grid-gutter-width: 2% !default;
+
+//	CONFIG: GRID GENERATE CLASSES
+//	If turned on, will generate grid classes for direct HTML usage.
+//
+$stn-cfg-grid-classes: false !default;
+
+//	GRID COLUMN WIDTH
+// Calculated by multiplying the number of gutters (11 by def) against the gutter width (2%),
+//	then subtracting that number from 100% and dividing the difference by the number of columns (12).
+//	Final answer: 6.5% (by def).
+//
+$stn-grid-col-width: ( 100% - ( $stn-cfg-grid-gutter-width * ( $stn-cfg-grid-num-cols - 1 ) ) ) / $stn-cfg-grid-num-cols;
+
+
+%stn-row
+{
+	@include stn-mdrn( flexbox )
+	{
+		@include flex( $flex-flow: wrap );
+	}
+	
+	@include stn-mdrn-no( flexbox )
+	{
+		@extend %cf;
+	}
+	
+	
+	%stn-col
+	{
+		margin-left:( $stn-cfg-grid-gutter-width / 2 );
+		margin-right:( $stn-cfg-grid-gutter-width / 2 );
+		position:relative;
+		
+		@include stn-mdrn-no( flexbox )
+		{
+			float:left;
+		}
+		
+		&:first-child
+		{
+			margin-left:0;
+		}
+		
+		&:last-child
+		{
+			margin-right:0;
+			
+			@include stn-mdrn( flexbox )
+			{
+				margin-left:auto;
+			}
+			@include stn-mdrn-no( flexbox )
+			{
+				float:right;
+			}
+			
+		}
+		
+	}
+	
+}
+
+//	For every breakpoint, we need to generate a seperate set of selectors.
+//
+@each $breakpoint in $stn-breakpoints-slugs
+{
+	
+	//	The actual breakpoint
+	//
+	@for $i from 1 through $stn-cfg-grid-num-cols
+	{
+			
+		//	The selector, at last
+		//
+		%stn-col-#{$breakpoint}-#{$i}
+		{
+			@extend %stn-col;
+			@include stn-breakpoint-lower( $breakpoint )
+			{
+				width:( $i * $stn-grid-col-width ) + ( ( $i - 1 ) * $stn-cfg-grid-gutter-width );
+			}
+		}
+		
+		//	Generate push/pull selectors
+		//
+		%stn-push-#{$breakpoint}-#{$i}
+		{
+			@include stn-breakpoint-lower( $breakpoint )
+			{
+				left:( $i * $stn-grid-col-width ) + ( ( $i - 1 ) * $stn-cfg-grid-gutter-width );
+			}
+		}
+		
+		%stn-pull-#{$breakpoint}-#{$i}
+		{
+			@include stn-breakpoint-lower( $breakpoint )
+			{
+				right:( $i * $stn-grid-col-width ) + ( ( $i - 1 ) * $stn-cfg-grid-gutter-width );
+			}
+		}
+			
+		//	If classes are enabled, generate classes
+		//
+		@if $stn-cfg-grid-classes
+		{
+			.stn-col-#{$breakpoint}-#{$i}
+			{
+				@extend %stn-col-#{$breakpoint}-#{$i};
+			}
+			.stn-push-#{$breakpoint}-#{$i}
+			{
+				@extend %stn-push-#{$breakpoint}-#{$i};
+			}
+			.stn-pull-#{$breakpoint}-#{$i}
+			{
+				@extend %stn-pull-#{$breakpoint}-#{$i};
+			}
+			
+		}
+		
+	}
+	
+}
+
+//	If classes are enabled, generate a class
+//
+@if $stn-cfg-grid-classes
+{
+	.stn-row
+	{
+		@extend %stn-row;
+	}
+}

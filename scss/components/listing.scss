@@ -1,0 +1,99 @@
+@import "inc";
+
+#m
+{
+	@include stn-tm-listing( ".post-content" );
+	@extend %electrify-article;
+	
+	margin-bottom:2%;
+	
+	a:hover
+	{
+		text-decoration:none;
+	}
+	
+	h1
+	{
+		width:100%;
+		font-size:3em;
+		text-align:center;
+		@include font-h;
+	}
+	
+	.archive-description
+	{
+		@include reset( padding );
+		width:60%;
+		margin:0 auto;
+		text-align:center;
+		color:lighten( $color-p, 30% );
+	}
+	
+	.post
+	{
+		width:100%;
+		
+		h2
+		{
+			@include font-h;
+			padding:2% 0 1%;
+			font-size:1.8em;
+		}
+			
+		&-excerpt p
+		{
+			//line-height:1.625;
+		}
+		
+		&-meta
+		{
+			@include font-h;
+			@include reset( margin, padding );
+			font-size:1.1em;
+			
+			@include stn-mdrn-no( flexbox )
+			{
+				vertical-align:top;
+			}
+			
+			li
+			{
+				list-style:none;
+				padding:3% 0;
+			}
+		}
+	}
+}
+
+.f-listing
+{
+	width:100%;
+	
+	@include stn-mdrn( flexbox )
+	{
+		@include flex( space-between )
+	}
+	
+	@include stn-mdrn-no( flexbox )
+	{
+		@extend %cf;
+		
+		.posts-older
+		{
+			float:left;
+		}
+		.posts-newer
+		{
+			float:right;
+		}
+		
+	}
+	
+	a
+	{
+		display:block;
+		@include font-h;
+		font-size:1.2em;
+		padding:1em;
+	}
+}

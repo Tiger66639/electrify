@@ -190,7 +190,7 @@ html.no-flexbox #m > .c #a:last-child, html.no-flexbox #m > .c #a-search:last-ch
 }
 /* line 8, ../../scss/settings/_extensions.scss */
 #m #s .widget a:hover, #m #a a:hover, #m #a-search a:hover {
-  color: #66b8ff;
+  color: #4dacff;
 }
 /* line 14, ../../scss/settings/_extensions.scss */
 #m #s .widget h1, #m #a h1, #m #a-search h1,
@@ -225,14 +225,20 @@ html.no-flexbox #m > .c #a:last-child, html.no-flexbox #m > .c #a-search:last-ch
   text-decoration: none;
 }
 
-/* line 11, ../../scss/components/singular.scss */
+/* line 7, ../../scss/components/singular.scss */
 #m #a, #m #a-search {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-bottom: 10%;
 }
-/* line 19, ../../scss/components/singular.scss */
+/* line 13, ../../scss/components/singular.scss */
+#m #a h1:first-of-type, #m #a-search h1:first-of-type, #m #a h1.section-header, #m #a-search h1.section-header,
+#m #a h1:first-child,
+#m #a-search h1:first-child {
+  margin-bottom: 4%;
+}
+/* line 21, ../../scss/components/singular.scss */
 #m #s {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -241,12 +247,12 @@ html.no-flexbox #m > .c #a:last-child, html.no-flexbox #m > .c #a-search:last-ch
   padding: 2%;
   background: #cccccc;
 }
-/* line 33, ../../scss/components/singular.scss */
+/* line 35, ../../scss/components/singular.scss */
 #m #a-search {
   width: 100%;
   margin-bottom: 30%;
 }
-/* line 39, ../../scss/components/singular.scss */
+/* line 41, ../../scss/components/singular.scss */
 #m #a-search h1 {
   text-align: center;
 }

@@ -4,15 +4,17 @@
 {
 	@include stn-tm-blog( "> .c", "#a", "#s" );
 	
-	> .c
-	{
-	}
-	
 	#a
 	{
 		@extend %electrify-article;
 		@include prefix( box-sizing, border-box );
 		padding-bottom:10%;
+		
+		h1:first-of-type,
+		h1:first-child
+		{
+			margin-bottom:4%;
+		}
 		
 	}
 

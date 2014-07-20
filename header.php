@@ -18,49 +18,35 @@
 					<h2><?php bloginfo( 'description' ); ?></h2>
 				</hgroup>
 			</a>
-<<<<<<< HEAD
-			<?php
-			
-			if ( current_user_can( 'edit_posts' ) && has_nav_menu( 'nav_admin' ) )
-			{
-				wp_nav_menu( array(
-					'theme_location' => 'nav_admin',
-					'container' => false,
-					'container_class' => false,
-					'container_id' => false,
-					'menu_id' => 'n',
-					'depth' => 2,
-				) );
-			}
-			
-			else
-			{
-				wp_nav_menu( array(
-					'theme_location' => 'nav_primary',
-					'container' => false,
-					'container_class' => false,
-=======
 			<nav class="n-w">
 				<?php
 				
-				wp_nav_menu( array(
-					'theme_location' => 'nav_primary',
-					'container' => 'div',
-					'container_class' => 'n-c',
->>>>>>> master
-					'container_id' => false,
-					'menu_id' => 'n',
-					'depth' => 2,
-				) );
-<<<<<<< HEAD
-			}
-			
-			?>
-=======
+				if ( current_user_can( 'edit_posts' ) && has_nav_menu( 'nav_admin' ) )
+				{
+					wp_nav_menu( array(
+						'theme_location' => 'nav_admin',
+						'container' => false,
+						'container_class' => false,
+						'container_id' => false,
+						'menu_id' => 'n',
+						'depth' => 2,
+					) );
+				}
+				
+				else
+				{
+					wp_nav_menu( array(
+						'theme_location' => 'nav_primary',
+						'container' => 'div',
+						'container_class' => 'n-c',
+						'container_id' => false,
+						'menu_id' => 'n',
+						'depth' => 2,
+					) );
+				}
 				
 				?>
 			</nav>
->>>>>>> master
 		</div>
 		<form role="search" method="get" id="n-search" action="<?php echo home_url( '/' ); ?>">
 			<input type="text" value="" name="s" placeholder="SEARCH" id="n-search-input">

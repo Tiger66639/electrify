@@ -37,7 +37,8 @@ $stn-grid-col-width: ( 100% - ( $stn-cfg-grid-gutter-width * ( $stn-cfg-grid-num
 	
 	%stn-col
 	{
-		margin:auto ( $stn-cfg-grid-gutter-width / 2 );
+		margin-left:( $stn-cfg-grid-gutter-width / 2 );
+		margin-right:( $stn-cfg-grid-gutter-width / 2 );
 		position:relative;
 		
 		@include stn-mdrn-no( flexbox )

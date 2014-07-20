@@ -2,10 +2,219 @@
 
 body
 {
-	background:#000;
+	background:$color-1;
 }
 
-@media screen and ( min-width:$stn-desktop ) {
+.block
+{
+	@include stn-td-block( ".block-headers", ".block-content" );
+	
+	//	BLOCK HEADERS
+	//	Holds headers and occasionally a paragraph.
+	//
+	&-headers
+	{
+		min-width:45%;
+		
+		h1,
+		h2
+		{
+			@include font-h;
+			text-align:center;
+			font-size:2.25em; // Font size for mobile...
+		}
+		
+		//	Font size for tablets+
+		//
+		@include stn-breakpoint-lower( sm )
+		{
+			h1
+			{
+				font-size:3.5em;
+			}
+			
+			h2
+			{
+				font-size:2.5em;
+			}
+		}
+		
+	}
+	
+	//	BLOCK CONTENT
+	//	Holds text, images, video, and more.
+	//
+	&-content
+	{
+		
+		//	Buttons
+		//
+		.btn
+		{
+			display:block;
+			margin:0 auto;
+			@include prefix( width, fit-content );
+			padding:2%;
+			@include font-h;
+			font-size:1.3em;
+			
+			//	Embed buttons replace embeds on xs displays. They're for everything else.
+			//
+			&-embed
+			{
+				@extend %stn-show-xs-only;
+				@include stn-breakpoint-lower( sm )
+				{
+					display:none;
+				}
+			}
+		}
+		
+		//	Images
+		//
+		.img-c
+		{
+			@extend %img;
+			text-align:center;
+			
+			img
+			{
+				width:35%;
+			}
+		}
+		
+		//	Videos
+		//	These things are weird.
+		//
+		.embed-c
+		{
+			@extend %stn-hide-xs-only;
+			
+			@include stn-breakpoint-lower( sm )
+			{
+				display:block;
+				@include reset( padding, margin );
+				text-align:center;
+				
+				iframe
+				{
+					width:60%;
+				}
+			}
+			
+			@include stn-breakpoint-lower( md )
+			{
+				iframe
+				{
+					width:45%;
+				}
+			}
+			
+			@media ( max-height:599px )
+			{
+				iframe
+				{
+					width:100%;
+				}
+			}
+			
+		}
+		
+	}
+	
+	//	Paragraphs (both in headers and in content)
+	//
+	&-headers p,
+	&-content p
+	{
+		text-align:center;
+		line-height:1.625;
+		padding:1.5% 7%;
+	}
+	
+	//	HALF-BLOCKS
+	//	Need a few extra styles to make them work on shorter viewports.
+	//
+	&.half
+	{
+		.block-headers,
+		.block-content
+		{
+			margin:auto inherit;
+		}
+		
+		@include stn-mdrn-no( flexbox )
+		{
+			.block-headers
+			{
+				display:block;
+				float:left;
+				margin-top:8%;
+				width:45%;
+			}
+		}
+		
+		.block-content
+		{
+			padding:2%;
+			
+			@include stn-mdrn-no( flexbox )
+			{
+				display:block;
+				float:right;
+				width:45%;
+			}
+		}
+	}
+	
+	//	Slider blocks always display as whole blocks.
+	//
+	&.slider
+	{
+		@extend .block.whole;
+	}
+	
+	//	A special block option exists to automatically show the latest post from the blog.
+	//	It needs a few extra styles to work properly.
+	//
+	&.block-blog
+	{
+		.post-meta,
+		.post-end
+		{
+			text-align:right;
+			padding:1% 0;
+			@include font-h;
+			font-size:1.2em;
+			
+			a
+			{
+				color:$color-a;
+				
+				&:hover
+				{
+					color:$color-a-hover;
+				}
+			}
+		}
+		
+		p
+		{
+			text-align:left;
+		}
+		
+		.block-content
+		{
+			margin-right:2%;
+		}
+	}
+}
+
+//	SLIDER
+//	Runs on desktops+ only.
+//
+@include stn-breakpoint-lower( md )
+{
 	
 	#slider
 	{
@@ -16,13 +225,12 @@ body
 			width:100%;
 			bottom:0;
 		
-			html.flexbox &
+			@include stn-mdrn( flexbox )
 			{
-				@include prefix( display, flex, value, webkit );
-				@include prefix( justify-content, center, property, webkit );
+				@include flex( center );
 			}
 			
-			html.no-flexbox &
+			@include stn-mdrn-no( flexbox )
 			{
 				text-align:center;
 			}
@@ -30,7 +238,7 @@ body
 			.slidesjs-pagination-item
 			{
 				
-				html.no-flexbox &
+				@include stn-mdrn-no( flexbox )
 				{
 					display:inline-block;
 				}
@@ -38,10 +246,10 @@ body
 				a
 				{
 					display:block;
-					line-height:0;
-					font-size:0;
 					padding:1rem 3.5rem;
 					border-top:1px solid $color-p;
+					line-height:0;
+					font-size:0;
 				
 					&.active
 					{
@@ -66,117 +274,26 @@ body
 	}
 }
 
-.block
-{
-	@extend %stn-l-d-block;
-	
-	.block-headers
-	{
-		@extend %stn-l-d-block-headers;
-		margin-bottom:2%;
-		min-width:45%;
-		
-		h1,
-		h2
-		{
-			@include font-h;
-		}
-	}
-	
-	.block-content
-	{
-		@extend %stn-l-d-block-content;
-		
-		.btn
-		{
-			@include font-h;
-			font-size:1.3em;
-			padding:2%;
-		}
-		
-		embed
-		{
-			border:1px solid white;
-		}
-	}
-	
-	p
-	{
-		line-height:1.5;
-	}
-	
-	&.slider
-	{
-		@extend .block.whole;
-	}
-	
-	&.half
-	{
-		.block-headers,
-		.block-content
-		{
-			margin:auto inherit;
-		}
-		
-		.block-headers
-		{
-			html.no-flexbox &
-			{
-				display:block;
-				float:left;
-				margin-top:8%;
-				width:45%;
-			}
-		}
-		
-		.block-content
-		{
-			padding:2%;
-			
-			html.no-flexbox &
-			{
-				display:block;
-				float:right;
-				width:45%;
-			}
-		}
-	}
-	
-	&.block-blog
-	{
-		.post-meta,
-		.post-end
-		{
-			text-align:right;
-			padding:1% 0;
-			@include font-h;
-			font-size:1.2em;
-			
-			a
-			{
-				color:#08f;
-				
-				&:hover
-				{
-					color:#f80;
-				}
-			}
-		}
-		
-		.block-content
-		{
-			margin-right:2%;
-		}
-	}
-}
-
+//	SLIDER HEADERS
+//	Extra styles are applied to headers to make them display on top of
+//	the blocks.
+//
 #h,
 #h-showcase
 {
-	@extend %stn-l-d-blocks-header;
-	z-index:1000;
+	@include stn-breakpoint-lower( md )
+	{
+		position:absolute;
+		top:0;
+		width:100%;
+		z-index:1000;
+		background:transparent;
+	}
 	
-	@media screen and ( min-width:$stn-desktop ) {
+	//	Only on desktops+, though.
+	//
+	@include stn-breakpoint-lower( md )
+	{
 		&.light
 		{
 			#logo

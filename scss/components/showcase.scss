@@ -5,13 +5,13 @@
 	@include font-h;
 	font-size:1.4em;
 	
-	html.flexbox &
+	@include stn-mdrn( flexbox )
 	{
-		@include prefix( display, flex, value, webkit );
+		@include flex;
 		
 	}
 	
-	html.no-flexbox &
+	@include stn-mdrn-no( flexbox )
 	{
 		@extend %cf;
 	}
@@ -19,7 +19,7 @@
 	.menu-item
 	{
 		
-		html.no-flexbox &
+		@include stn-mdrn-no( flexbox )
 		{
 			display:inline-block;
 		}
@@ -52,7 +52,7 @@
 			}
 		}
 		
-		html.flexbox &
+		@include stn-mdrn( flexbox )
 		{
 			&:nth-child( 2 )
 			{
@@ -60,7 +60,7 @@
 			}
 		}
 		
-		html.no-flexbox &
+		@include stn-mdrn-no( flexbox )
 		{
 			&:first-child,
 			&:nth-child( 2 )

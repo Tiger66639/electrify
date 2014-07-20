@@ -44,11 +44,12 @@ foreach ( $includes as $include )
 /**
  * Lengthens the excerpt.
  *
- * @return void
- * @author Ryan
  **/
-function excerpt_lengthen() {
-	return 100;
+function electrify_excerpt() {
+	if ( is_front_page() )
+		return 60;
+	else
+		return 120;
 }
 
-add_action( 'excerpt_length', 'excerpt_lengthen' );
+add_action( 'excerpt_length', 'electrify_excerpt' );

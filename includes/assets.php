@@ -94,7 +94,7 @@ function electrify_assets()
 	if ( is_front_page() || is_page_template( 'showcase.php' ) )
 	{
 		wp_enqueue_style( 'blocks' );
-		wp_enqueue_script( 'slider' );
+		//wp_enqueue_script( 'slider' );
 	}
 	
 	if ( is_page_template( 'showcase.php' ) )
@@ -102,7 +102,7 @@ function electrify_assets()
 		wp_enqueue_style( 'showcase' );
 	}
 	
-	if ( ( is_singular() && ! is_page_template( 'showcase' ) ) || is_404() )
+	if ( ( is_singular() && ! is_page_template( 'showcase' ) && ! is_front_page() ) || is_404() )
 	{
 		wp_enqueue_style( 'singular' );
 	}

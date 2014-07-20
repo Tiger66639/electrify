@@ -3,29 +3,24 @@
 	margin:1% 0;
 	width:100%;
 	
-	html.flexbox &
+	@include stn-mdrn( flexbox )
 	{
-		@include prefix( display, flex, value, webkit );
-	}
-	
-	html.no-flexbox &
-	{
-		
+		@include flex;
 	}
 	
 	input,
 	textarea
 	{
-		@include reset_;
+		@include reset-all;
 		background:$color-bg-2;
-		width:-moz-available;
 		
-		html.flexbox &
+		@include stn-mdrn( flexbox )
 		{
-			@include prefix( width, fill-available, value, webkit );
+			width:-moz-available;
+			@include prefix( width, fill-available );
 		}
 		
-		html.no-flexbox &
+		@include stn-mdrn-no( flexbox )
 		{
 			width:50%;
 		}
@@ -37,9 +32,9 @@
 		background:$color-h;
 		color:$color-bg-2;
 		
-		html.flexbox &
+		@include stn-mdrn( flexbox )
 		{
-			@include prefix( min-width, max-content, value, webkit, moz );
+			@include prefix_( min-width, max-content, value, webkit, moz );
 		}
 		
 		&.required
@@ -60,7 +55,7 @@
 		font-size:1.1em;
 		padding:1em;
 		
-		html.no-flexbox &
+		@include stn-mdrn-no( flexbox )
 		{
 			display:inline-block;
 		}
@@ -74,12 +69,12 @@
 	
 	&.form-group-lg
 	{
-		html.flexbox &
+		@include stn-mdrn( flexbox )
 		{
-			@include prefix( flex-direction, column, value, webkit );
+			@include prefix( flex-direction, column );
 		}
 		
-		html.no-flexbox &
+		@include stn-mdrn-no( flexbox )
 		{
 			input,
 			textarea,
@@ -95,7 +90,7 @@
 
 input[type="submit"]
 {
-	@include reset_;
+	@include reset-all;
 	@include font-h;
 	padding:1em;
 	font-size:1.1em;

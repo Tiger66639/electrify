@@ -1,1 +1,162 @@
-html.no-flexbox #m #a .comment-meta:before,html.no-flexbox #m #a .comment-meta:after{content:" ";display:table}html.no-flexbox #m #a .comment-meta:after{clear:both}html.no-flexbox #m #a .comment-meta{*zoom:1}#m #a hr.end-content{margin:8% 0 3%;background:#444}#m #a #comments,#m #a .comment-meta{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}#m #a #comments .comment,#m #a #comments>li,#m #a .comment-meta .comment,#m #a .comment-meta>li{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;list-style-type:none}#m #a .comment-meta{background:#333;padding:0 0.4em}html.flexbox #m #a .comment-meta{display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap}#m #a .comment-meta>li{font-family:"Raleway",sans-serif;font-weight:200;text-transform:uppercase;color:#ccc}#m #a .comment-meta>li.comment-author,#m #a .comment-meta>li.comment-date,#m #a .comment-meta>li.comment-time,#m #a .comment-meta>li.comment-reply a,#m #a .comment-meta>li.comment-edit a,#m #a .comment-meta>li.comment-permalink a{display:block;font-size:1.2em;padding:0.8em 0.4em}html.flexbox #m #a .comment-meta>li.comment-time{margin-right:auto}html.no-flexbox #m #a .comment-meta>li.comment-author,html.no-flexbox #m #a .comment-meta>li.comment-date,html.no-flexbox #m #a .comment-meta>li.comment-time{float:left}html.no-flexbox #m #a .comment-meta>li.comment-reply,html.no-flexbox #m #a .comment-meta>li.comment-edit,html.no-flexbox #m #a .comment-meta>li.comment-permalink{float:right}#m #a .comment-meta>li a{color:#fd0}#m #a .comment-meta>li a [data-icon]{color:#fd0}#m #a .comment-meta>li a:hover{text-decoration:none;background:#fd0;color:#333}#m #a .comment-meta>li a:hover [data-icon]{color:#333}#m #a .comments-replies{margin:0;margin:2% 5%;margin-right:0}#m #a .comment-c{margin-top:1%;margin-bottom:3%}#m #a #reply-title,#m #a .section-header{font-size:3em}#m #a #reveal-comments-a{display:none;margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;padding:1em 0;width:100%;text-align:center;font-family:"Raleway",sans-serif;font-weight:200;text-transform:uppercase;background:#333;color:#fd0}#m #a #reveal-comments-a.active,#m #a #reveal-comments-a:hover{text-decoration:none;cursor:pointer;color:#333;background:#fd0}#m #s .post-meta{padding-bottom:6%;margin-bottom:5%;border-bottom:1px solid #444;font-family:"Raleway",sans-serif;font-weight:200;text-transform:uppercase;font-size:1.2em}#m #s .post-meta li{padding:2%}#m #s .post-meta li a:hover{text-decoration:none}#m #s .author-meta{padding-bottom:6%;margin-bottom:5%;border-bottom:1px solid #444}
+/* line 49, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
+html.no-flexbox #m #a .comment-meta {
+  *zoom: 1;
+}
+/* line 52, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
+html.no-flexbox #m #a .comment-meta:before, html.no-flexbox #m #a .comment-meta:after {
+  content: " ";
+  display: table;
+}
+/* line 59, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
+html.no-flexbox #m #a .comment-meta:after {
+  clear: both;
+}
+
+/* line 7, ../../scss/components/single.scss */
+#m #a hr.end-content {
+  margin: 8% 0 3%;
+  background: #444444;
+}
+/* line 13, ../../scss/components/single.scss */
+#m #a #comments,
+#m #a .comment-meta {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* line 18, ../../scss/components/single.scss */
+#m #a #comments .comment,
+#m #a #comments > li,
+#m #a .comment-meta .comment,
+#m #a .comment-meta > li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  list-style-type: none;
+}
+/* line 27, ../../scss/components/single.scss */
+#m #a .comment-meta {
+  background: #333333;
+  padding: 0 0.4em;
+}
+/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
+html.flexbox #m #a .comment-meta {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: wrap;
+  flex-flow: wrap;
+}
+/* line 42, ../../scss/components/single.scss */
+#m #a .comment-meta > li {
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: #cccccc;
+}
+/* line 47, ../../scss/components/single.scss */
+#m #a .comment-meta > li.comment-author, #m #a .comment-meta > li.comment-date, #m #a .comment-meta > li.comment-time, #m #a .comment-meta > li.comment-reply a, #m #a .comment-meta > li.comment-edit a, #m #a .comment-meta > li.comment-permalink a {
+  display: block;
+  font-size: 1.2em;
+  padding: 0.8em 0.4em;
+}
+/* line 62, ../../scss/components/single.scss */
+html.flexbox #m #a .comment-meta > li.comment-time {
+  margin-right: auto;
+}
+/* line 71, ../../scss/components/single.scss */
+html.no-flexbox #m #a .comment-meta > li.comment-author, html.no-flexbox #m #a .comment-meta > li.comment-date, html.no-flexbox #m #a .comment-meta > li.comment-time {
+  float: left;
+}
+/* line 78, ../../scss/components/single.scss */
+html.no-flexbox #m #a .comment-meta > li.comment-reply, html.no-flexbox #m #a .comment-meta > li.comment-edit, html.no-flexbox #m #a .comment-meta > li.comment-permalink {
+  float: right;
+}
+/* line 86, ../../scss/components/single.scss */
+#m #a .comment-meta > li a {
+  color: #ffdd00;
+}
+/* line 90, ../../scss/components/single.scss */
+#m #a .comment-meta > li a [data-icon] {
+  color: #ffdd00;
+}
+/* line 95, ../../scss/components/single.scss */
+#m #a .comment-meta > li a:hover {
+  text-decoration: none;
+  background: #ffdd00;
+  color: #333333;
+}
+/* line 101, ../../scss/components/single.scss */
+#m #a .comment-meta > li a:hover [data-icon] {
+  color: #333333;
+}
+/* line 110, ../../scss/components/single.scss */
+#m #a .comments-replies {
+  margin: 0;
+  margin: 2% 5%;
+  margin-right: 0;
+}
+/* line 117, ../../scss/components/single.scss */
+#m #a .comment-c {
+  margin-top: 1%;
+  margin-bottom: 3%;
+}
+/* line 123, ../../scss/components/single.scss */
+#m #a #reply-title,
+#m #a .section-header {
+  font-size: 3em;
+}
+/* line 129, ../../scss/components/single.scss */
+#m #a #reveal-comments-a {
+  display: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  padding: 1em 0;
+  width: 100%;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  background: #333333;
+  color: #ffdd00;
+}
+/* line 140, ../../scss/components/single.scss */
+#m #a #reveal-comments-a.active, #m #a #reveal-comments-a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #333333;
+  background: #ffdd00;
+}
+/* line 154, ../../scss/components/single.scss */
+#m #s .post-meta {
+  padding-bottom: 6%;
+  margin-bottom: 5%;
+  border-bottom: 1px solid #444444;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+/* line 163, ../../scss/components/single.scss */
+#m #s .post-meta li {
+  padding: 2%;
+}
+/* line 167, ../../scss/components/single.scss */
+#m #s .post-meta li a:hover {
+  text-decoration: none;
+}
+/* line 174, ../../scss/components/single.scss */
+#m #s .author-meta {
+  padding-bottom: 6%;
+  margin-bottom: 5%;
+  border-bottom: 1px solid #444444;
+}

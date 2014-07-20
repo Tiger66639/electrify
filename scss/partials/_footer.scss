@@ -1,11 +1,12 @@
 #f
 {
-	@extend %stn-l-f-tricolumn;
+	@include stn-tf-tricolumn( "> .c", ".col" );
+	padding:2% 0;
 	background:$color-1;
 	
 	.col
 	{
-		@extend %stn-l-f-tricolumn-col;
+		//@extend %stn-l-f-tricolumn-col;
 		
 		p
 		{

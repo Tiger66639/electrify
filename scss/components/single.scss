@@ -13,12 +13,12 @@
 		#comments,
 		.comment-meta
 		{
-			@include reset_;
+			@include reset-all;
 	
 			.comment,
 			> li
 			{
-				@include reset_;
+				@include reset-all;
 				list-style-type:none;
 		
 			}
@@ -29,13 +29,12 @@
 			background:$color-h;
 			padding:0 0.4em;
 		
-			html.flexbox &
+			@include stn-mdrn( flexbox )
 			{
-				@include prefix( display, flex, value, webkit );
-				@include prefix( flex-wrap, wrap, property, webkit );
+				@include flex( $flex-flow: wrap );
 			}
 		
-			html.no-flexbox &
+			@include stn-mdrn-no( flexbox )
 			{
 				@extend %cf;
 			}
@@ -57,7 +56,7 @@
 					padding:0.8em 0.4em;
 				}
 			
-				html.flexbox &
+				@include stn-mdrn( flexbox )
 				{
 				
 					&.comment-time
@@ -66,7 +65,7 @@
 					}
 				}
 			
-				html.no-flexbox &
+				@include stn-mdrn-no( flexbox )
 				{
 				
 					&.comment-author,
@@ -103,7 +102,7 @@
 						{
 							color:$color-h;
 						}
-					}	
+					}
 				}
 			}
 		}
@@ -130,7 +129,7 @@
 		#reveal-comments-a
 		{
 			display:none;
-			@include reset_;
+			@include reset-all;
 			padding:1em 0;
 			width:100%;
 			text-align:center;

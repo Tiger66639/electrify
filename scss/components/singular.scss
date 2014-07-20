@@ -2,23 +2,26 @@
 
 #m
 {
-	@extend %stn-l-m-blog;
+	@include stn-tm-blog( "> .c", "#a", "#s" );
+	
+	> .c
+	{
+	}
 	
 	#a
 	{
-		@extend %stn-l-m-blog-article;
 		@extend %electrify-article;
-		padding:2% inherit;
+		@include prefix( box-sizing, border-box );
 		padding-bottom:10%;
-				
+		
 	}
 
 	#s
 	{
-		@extend %stn-l-m-blog-aside;
-		background:$color-bg-2;
+		@include prefix( box-sizing, border-box );
+		margin-top:0;
 		padding:2%;
-		width:30%;
+		background:$color-bg-2;
 		
 		.widget
 		{

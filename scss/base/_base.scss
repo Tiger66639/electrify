@@ -3,13 +3,13 @@
 
 body
 {
-	font-family:'Helvetica Neue', sans-serif;
-	font-weight:300;
+	@include font;
 	background:$color-bg;
 }
 
 .c // Container
 {
+	@extend %c;
 	width:95%;
 	margin:0 auto;
 }

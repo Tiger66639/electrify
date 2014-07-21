@@ -1,25 +1,23 @@
-@import url(../dependencies/reset.css);
-@import url(http://fonts.googleapis.com/css?family=Raleway:200);
 /* line 49, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
-html.no-flexbox .c, html.no-flexbox #h > .c, html.no-flexbox #f > .c,
-html.no-flexbox #f-bbpress > .c, #h .n-w, html.no-flexbox #h .n-c, html.no-flexbox #h .n-c #n {
+html.no-flexbox .c, html.no-flexbox #f > .c,
+html.no-flexbox #f-bbpress > .c, html.no-flexbox #h-bbpress .interface-left, html.no-flexbox #h-bbpress .interface-left > ul, html.no-flexbox #h-bbpress .interface-right, html.no-flexbox #h-bbpress .interface-right > ul {
   *zoom: 1;
 }
 /* line 52, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
-html.no-flexbox .c:before, html.no-flexbox #h > .c:before, html.no-flexbox #f > .c:before,
-html.no-flexbox #f-bbpress > .c:before, #h .n-w:before, html.no-flexbox #h .n-c:before, html.no-flexbox #h .n-c #n:before, html.no-flexbox .c:after, html.no-flexbox #h > .c:after, html.no-flexbox #f > .c:after,
-html.no-flexbox #f-bbpress > .c:after, #h .n-w:after, html.no-flexbox #h .n-c:after, html.no-flexbox #h .n-c #n:after {
+html.no-flexbox .c:before, html.no-flexbox #f > .c:before,
+html.no-flexbox #f-bbpress > .c:before, html.no-flexbox #h-bbpress .interface-left:before, html.no-flexbox #h-bbpress .interface-left > ul:before, html.no-flexbox #h-bbpress .interface-right:before, html.no-flexbox #h-bbpress .interface-right > ul:before, html.no-flexbox .c:after, html.no-flexbox #f > .c:after,
+html.no-flexbox #f-bbpress > .c:after, html.no-flexbox #h-bbpress .interface-left:after, html.no-flexbox #h-bbpress .interface-left > ul:after, html.no-flexbox #h-bbpress .interface-right:after, html.no-flexbox #h-bbpress .interface-right > ul:after {
   content: " ";
   display: table;
 }
 /* line 59, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/helpers/_helpers.scss */
-html.no-flexbox .c:after, html.no-flexbox #h > .c:after, html.no-flexbox #f > .c:after,
-html.no-flexbox #f-bbpress > .c:after, #h .n-w:after, html.no-flexbox #h .n-c:after, html.no-flexbox #h .n-c #n:after {
+html.no-flexbox .c:after, html.no-flexbox #f > .c:after,
+html.no-flexbox #f-bbpress > .c:after, html.no-flexbox #h-bbpress .interface-left:after, html.no-flexbox #h-bbpress .interface-left > ul:after, html.no-flexbox #h-bbpress .interface-right:after, html.no-flexbox #h-bbpress .interface-right > ul:after {
   clear: both;
 }
 
 /* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.flexbox .c, html.flexbox #h > .c, html.flexbox #f > .c,
+html.flexbox .c, html.flexbox #f > .c,
 html.flexbox #f-bbpress > .c {
   display: -webkit-flex;
   display: flex;
@@ -27,113 +25,101 @@ html.flexbox #f-bbpress > .c {
   flex-flow: wrap;
 }
 /* line 38, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
-.c #h #logo, #h .c #logo, #h > .c #logo, #f > .c #h #logo, #h #f > .c #logo,
-#f-bbpress > .c #h #logo,
-#h #f-bbpress > .c #logo, .c #f .col, #f .c .col, #h > .c #f .col, #f #h > .c .col, #f > .c .col,
+.c #h-bbpress .interface-left, #h-bbpress .c .interface-left, #f > .c #h-bbpress .interface-left, #h-bbpress #f > .c .interface-left,
+#f-bbpress > .c #h-bbpress .interface-left,
+#h-bbpress #f-bbpress > .c .interface-left, .c #h-bbpress .interface-right, #h-bbpress .c .interface-right, #f > .c #h-bbpress .interface-right, #h-bbpress #f > .c .interface-right,
+#f-bbpress > .c #h-bbpress .interface-right,
+#h-bbpress #f-bbpress > .c .interface-right, .c #f .col, #f .c .col, #f > .c .col,
 #f-bbpress > .c #f .col,
 #f #f-bbpress > .c .col,
 .c #f-bbpress .col,
 #f-bbpress .c .col,
-#h > .c #f-bbpress .col,
-#f-bbpress #h > .c .col,
 #f > .c #f-bbpress .col,
 #f-bbpress #f > .c .col,
-#f-bbpress > .c .col, .c #h .n-w, #h .c .n-w, #h > .c .n-w, #f > .c #h .n-w, #h #f > .c .n-w,
-#f-bbpress > .c #h .n-w,
-#h #f-bbpress > .c .n-w {
+#f-bbpress > .c .col {
   margin-left: 1%;
   margin-right: 1%;
   position: relative;
 }
 /* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.no-flexbox .c #h #logo, #h html.no-flexbox .c #logo, html.no-flexbox #h > .c #logo, html.no-flexbox #f > .c #h #logo, #h html.no-flexbox #f > .c #logo,
-html.no-flexbox #f-bbpress > .c #h #logo,
-#h html.no-flexbox #f-bbpress > .c #logo, html.no-flexbox .c #f .col, #f html.no-flexbox .c .col, html.no-flexbox #h > .c #f .col, #f html.no-flexbox #h > .c .col, html.no-flexbox #f > .c .col,
+html.no-flexbox .c #h-bbpress .interface-left, #h-bbpress html.no-flexbox .c .interface-left, html.no-flexbox #f > .c #h-bbpress .interface-left, #h-bbpress html.no-flexbox #f > .c .interface-left,
+html.no-flexbox #f-bbpress > .c #h-bbpress .interface-left,
+#h-bbpress html.no-flexbox #f-bbpress > .c .interface-left, html.no-flexbox .c #h-bbpress .interface-right, #h-bbpress html.no-flexbox .c .interface-right, html.no-flexbox #f > .c #h-bbpress .interface-right, #h-bbpress html.no-flexbox #f > .c .interface-right,
+html.no-flexbox #f-bbpress > .c #h-bbpress .interface-right,
+#h-bbpress html.no-flexbox #f-bbpress > .c .interface-right, html.no-flexbox .c #f .col, #f html.no-flexbox .c .col, html.no-flexbox #f > .c .col,
 html.no-flexbox #f-bbpress > .c #f .col,
 #f html.no-flexbox #f-bbpress > .c .col,
 html.no-flexbox .c #f-bbpress .col,
 #f-bbpress html.no-flexbox .c .col,
-html.no-flexbox #h > .c #f-bbpress .col,
-#f-bbpress html.no-flexbox #h > .c .col,
 html.no-flexbox #f > .c #f-bbpress .col,
 #f-bbpress html.no-flexbox #f > .c .col,
-html.no-flexbox #f-bbpress > .c .col, html.no-flexbox .c #h .n-w, #h html.no-flexbox .c .n-w, html.no-flexbox #h > .c .n-w, html.no-flexbox #f > .c #h .n-w, #h html.no-flexbox #f > .c .n-w,
-html.no-flexbox #f-bbpress > .c #h .n-w,
-#h html.no-flexbox #f-bbpress > .c .n-w {
+html.no-flexbox #f-bbpress > .c .col {
   float: left;
 }
 /* line 49, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
-.c #h #logo:first-child, #h .c #logo:first-child, #h > .c #logo:first-child, #f > .c #h #logo:first-child, #h #f > .c #logo:first-child,
-#f-bbpress > .c #h #logo:first-child,
-#h #f-bbpress > .c #logo:first-child, .c #f .col:first-child, #f .c .col:first-child, #h > .c #f .col:first-child, #f #h > .c .col:first-child, #f > .c .col:first-child,
+.c #h-bbpress .interface-left:first-child, #h-bbpress .c .interface-left:first-child, #f > .c #h-bbpress .interface-left:first-child, #h-bbpress #f > .c .interface-left:first-child,
+#f-bbpress > .c #h-bbpress .interface-left:first-child,
+#h-bbpress #f-bbpress > .c .interface-left:first-child, .c #h-bbpress .interface-right:first-child, #h-bbpress .c .interface-right:first-child, #f > .c #h-bbpress .interface-right:first-child, #h-bbpress #f > .c .interface-right:first-child,
+#f-bbpress > .c #h-bbpress .interface-right:first-child,
+#h-bbpress #f-bbpress > .c .interface-right:first-child, .c #f .col:first-child, #f .c .col:first-child, #f > .c .col:first-child,
 #f-bbpress > .c #f .col:first-child,
 #f #f-bbpress > .c .col:first-child,
 .c #f-bbpress .col:first-child,
 #f-bbpress .c .col:first-child,
-#h > .c #f-bbpress .col:first-child,
-#f-bbpress #h > .c .col:first-child,
 #f > .c #f-bbpress .col:first-child,
 #f-bbpress #f > .c .col:first-child,
-#f-bbpress > .c .col:first-child, .c #h .n-w:first-child, #h .c .n-w:first-child, #h > .c .n-w:first-child, #f > .c #h .n-w:first-child, #h #f > .c .n-w:first-child,
-#f-bbpress > .c #h .n-w:first-child,
-#h #f-bbpress > .c .n-w:first-child {
+#f-bbpress > .c .col:first-child {
   margin-left: 0;
 }
 /* line 54, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
-.c #h #logo:last-child, #h .c #logo:last-child, #h > .c #logo:last-child, #f > .c #h #logo:last-child, #h #f > .c #logo:last-child,
-#f-bbpress > .c #h #logo:last-child,
-#h #f-bbpress > .c #logo:last-child, .c #f .col:last-child, #f .c .col:last-child, #h > .c #f .col:last-child, #f #h > .c .col:last-child, #f > .c .col:last-child,
+.c #h-bbpress .interface-left:last-child, #h-bbpress .c .interface-left:last-child, #f > .c #h-bbpress .interface-left:last-child, #h-bbpress #f > .c .interface-left:last-child,
+#f-bbpress > .c #h-bbpress .interface-left:last-child,
+#h-bbpress #f-bbpress > .c .interface-left:last-child, .c #h-bbpress .interface-right:last-child, #h-bbpress .c .interface-right:last-child, #f > .c #h-bbpress .interface-right:last-child, #h-bbpress #f > .c .interface-right:last-child,
+#f-bbpress > .c #h-bbpress .interface-right:last-child,
+#h-bbpress #f-bbpress > .c .interface-right:last-child, .c #f .col:last-child, #f .c .col:last-child, #f > .c .col:last-child,
 #f-bbpress > .c #f .col:last-child,
 #f #f-bbpress > .c .col:last-child,
 .c #f-bbpress .col:last-child,
 #f-bbpress .c .col:last-child,
-#h > .c #f-bbpress .col:last-child,
-#f-bbpress #h > .c .col:last-child,
 #f > .c #f-bbpress .col:last-child,
 #f-bbpress #f > .c .col:last-child,
-#f-bbpress > .c .col:last-child, .c #h .n-w:last-child, #h .c .n-w:last-child, #h > .c .n-w:last-child, #f > .c #h .n-w:last-child, #h #f > .c .n-w:last-child,
-#f-bbpress > .c #h .n-w:last-child,
-#h #f-bbpress > .c .n-w:last-child {
+#f-bbpress > .c .col:last-child {
   margin-right: 0;
 }
 /* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.flexbox .c #h #logo:last-child, #h html.flexbox .c #logo:last-child, html.flexbox #h > .c #logo:last-child, html.flexbox #f > .c #h #logo:last-child, #h html.flexbox #f > .c #logo:last-child,
-html.flexbox #f-bbpress > .c #h #logo:last-child,
-#h html.flexbox #f-bbpress > .c #logo:last-child, html.flexbox .c #f .col:last-child, #f html.flexbox .c .col:last-child, html.flexbox #h > .c #f .col:last-child, #f html.flexbox #h > .c .col:last-child, html.flexbox #f > .c .col:last-child,
+html.flexbox .c #h-bbpress .interface-left:last-child, #h-bbpress html.flexbox .c .interface-left:last-child, html.flexbox #f > .c #h-bbpress .interface-left:last-child, #h-bbpress html.flexbox #f > .c .interface-left:last-child,
+html.flexbox #f-bbpress > .c #h-bbpress .interface-left:last-child,
+#h-bbpress html.flexbox #f-bbpress > .c .interface-left:last-child, html.flexbox .c #h-bbpress .interface-right:last-child, #h-bbpress html.flexbox .c .interface-right:last-child, html.flexbox #f > .c #h-bbpress .interface-right:last-child, #h-bbpress html.flexbox #f > .c .interface-right:last-child,
+html.flexbox #f-bbpress > .c #h-bbpress .interface-right:last-child,
+#h-bbpress html.flexbox #f-bbpress > .c .interface-right:last-child, html.flexbox .c #f .col:last-child, #f html.flexbox .c .col:last-child, html.flexbox #f > .c .col:last-child,
 html.flexbox #f-bbpress > .c #f .col:last-child,
 #f html.flexbox #f-bbpress > .c .col:last-child,
 html.flexbox .c #f-bbpress .col:last-child,
 #f-bbpress html.flexbox .c .col:last-child,
-html.flexbox #h > .c #f-bbpress .col:last-child,
-#f-bbpress html.flexbox #h > .c .col:last-child,
 html.flexbox #f > .c #f-bbpress .col:last-child,
 #f-bbpress html.flexbox #f > .c .col:last-child,
-html.flexbox #f-bbpress > .c .col:last-child, html.flexbox .c #h .n-w:last-child, #h html.flexbox .c .n-w:last-child, html.flexbox #h > .c .n-w:last-child, html.flexbox #f > .c #h .n-w:last-child, #h html.flexbox #f > .c .n-w:last-child,
-html.flexbox #f-bbpress > .c #h .n-w:last-child,
-#h html.flexbox #f-bbpress > .c .n-w:last-child {
+html.flexbox #f-bbpress > .c .col:last-child {
   margin-left: auto;
 }
 /* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.no-flexbox .c #h #logo:last-child, #h html.no-flexbox .c #logo:last-child, html.no-flexbox #h > .c #logo:last-child, html.no-flexbox #f > .c #h #logo:last-child, #h html.no-flexbox #f > .c #logo:last-child,
-html.no-flexbox #f-bbpress > .c #h #logo:last-child,
-#h html.no-flexbox #f-bbpress > .c #logo:last-child, html.no-flexbox .c #f .col:last-child, #f html.no-flexbox .c .col:last-child, html.no-flexbox #h > .c #f .col:last-child, #f html.no-flexbox #h > .c .col:last-child, html.no-flexbox #f > .c .col:last-child,
+html.no-flexbox .c #h-bbpress .interface-left:last-child, #h-bbpress html.no-flexbox .c .interface-left:last-child, html.no-flexbox #f > .c #h-bbpress .interface-left:last-child, #h-bbpress html.no-flexbox #f > .c .interface-left:last-child,
+html.no-flexbox #f-bbpress > .c #h-bbpress .interface-left:last-child,
+#h-bbpress html.no-flexbox #f-bbpress > .c .interface-left:last-child, html.no-flexbox .c #h-bbpress .interface-right:last-child, #h-bbpress html.no-flexbox .c .interface-right:last-child, html.no-flexbox #f > .c #h-bbpress .interface-right:last-child, #h-bbpress html.no-flexbox #f > .c .interface-right:last-child,
+html.no-flexbox #f-bbpress > .c #h-bbpress .interface-right:last-child,
+#h-bbpress html.no-flexbox #f-bbpress > .c .interface-right:last-child, html.no-flexbox .c #f .col:last-child, #f html.no-flexbox .c .col:last-child, html.no-flexbox #f > .c .col:last-child,
 html.no-flexbox #f-bbpress > .c #f .col:last-child,
 #f html.no-flexbox #f-bbpress > .c .col:last-child,
 html.no-flexbox .c #f-bbpress .col:last-child,
 #f-bbpress html.no-flexbox .c .col:last-child,
-html.no-flexbox #h > .c #f-bbpress .col:last-child,
-#f-bbpress html.no-flexbox #h > .c .col:last-child,
 html.no-flexbox #f > .c #f-bbpress .col:last-child,
 #f-bbpress html.no-flexbox #f > .c .col:last-child,
-html.no-flexbox #f-bbpress > .c .col:last-child, html.no-flexbox .c #h .n-w:last-child, #h html.no-flexbox .c .n-w:last-child, html.no-flexbox #h > .c .n-w:last-child, html.no-flexbox #f > .c #h .n-w:last-child, #h html.no-flexbox #f > .c .n-w:last-child,
-html.no-flexbox #f-bbpress > .c #h .n-w:last-child,
-#h html.no-flexbox #f-bbpress > .c .n-w:last-child {
+html.no-flexbox #f-bbpress > .c .col:last-child {
   float: right;
 }
 
 @media (min-width: 1px) {
   /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
-  #h #logo, #f .col,
+  #h-bbpress .interface-left, #h-bbpress .interface-right, #f .col,
   #f-bbpress .col {
     width: 100%;
   }
@@ -141,7 +127,7 @@ html.no-flexbox #f-bbpress > .c #h .n-w:last-child,
 
 @media (min-width: 768px) {
   /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
-  #f .col,
+  #h-bbpress .interface-left, #f .col,
   #f-bbpress .col {
     width: 32%;
   }
@@ -149,69 +135,9 @@ html.no-flexbox #f-bbpress > .c #h .n-w:last-child,
 
 @media (min-width: 768px) {
   /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
-  #h .n-w {
-    width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
-  #h #logo {
-    width: 32%;
-  }
-}
-
-@media (min-width: 992px) {
-  /* line 85, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_grid.scss */
-  #h .n-w {
+  #h-bbpress .interface-right {
     width: 66%;
   }
-}
-
-@media (min-width: 1px) and (max-width: 767px) {
-  /* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_visibility.scss */
-  #n-reveal {
-    display: initial;
-  }
-}
-@media (min-width: 768px) {
-  /* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_visibility.scss */
-  #n-reveal {
-    display: none;
-  }
-}
-
-@media (min-width: 1px) and (max-width: 767px) {
-  /* line 56, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_visibility.scss */
-  #h .n-w {
-    display: none;
-  }
-}
-@media (min-width: 768px) {
-  /* line 56, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_visibility.scss */
-  #h .n-w {
-    display: initial;
-  }
-}
-
-@media (min-width: 768px) {
-  /* line 72, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_visibility.scss */
-  #h #n-mobile {
-    display: none;
-  }
-}
-@media (max-width: 767px) {
-  /* line 72, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/grid/_visibility.scss */
-  #h #n-mobile {
-    display: initial;
-  }
-}
-
-/* line 16, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/helpers/_base.scss */
-.c {
-  margin: 0 auto;
-  width: 95%;
-  max-width: 1500px;
 }
 
 /* line 8, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/utilities/typography/_article.scss */
@@ -347,17 +273,17 @@ html.no-flexbox #f-bbpress > .c #h .n-w:last-child,
   max-width: 100%;
 }
 
-/* line 5, ../scss/settings/_extensions.scss */
+/* line 5, ../../scss/settings/_extensions.scss */
 #f .widget a,
 #f-bbpress .widget a {
   color: #0088ff;
 }
-/* line 8, ../scss/settings/_extensions.scss */
+/* line 8, ../../scss/settings/_extensions.scss */
 #f .widget a:hover,
 #f-bbpress .widget a:hover {
   color: #4dacff;
 }
-/* line 14, ../scss/settings/_extensions.scss */
+/* line 14, ../../scss/settings/_extensions.scss */
 #f .widget h1,
 #f-bbpress .widget h1,
 #f .widget h2,
@@ -375,440 +301,17 @@ html.no-flexbox #f-bbpress > .c #h .n-w:last-child,
   text-transform: uppercase;
   color: #333333;
 }
-/* line 30, ../scss/settings/_extensions.scss */
+/* line 30, ../../scss/settings/_extensions.scss */
 #f .widget p,
 #f-bbpress .widget p {
   color: #444444;
   line-height: 1.625;
 }
 
-/* line 43, ../scss/settings/_extensions.scss */
+/* line 43, ../../scss/settings/_extensions.scss */
 #f .widget a,
 #f-bbpress .widget a {
   text-decoration: none;
-}
-
-/* line 4, ../scss/base/_base.scss */
-body {
-  font-family: "Helvetica Neue", "Helvetica", sans-serif;
-  font-weight: 300;
-  background: #eeeeee;
-}
-
-/* line 10, ../scss/base/_base.scss */
-.c {
-  width: 95%;
-  margin: 0 auto;
-}
-
-/* line 17, ../scss/base/_base.scss */
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* line 1, ../scss/partials/_header.scss */
-#h {
-  background: black;
-}
-@media (min-width: 768px) and (max-width: 1199px) {
-  /* line 120, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
-  html.flexbox #h .n-c #n {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
-    -webkit-flex-flow: wrap;
-    flex-flow: wrap;
-  }
-  /* line 147, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
-  html.no-flexbox #h .n-c #n {
-    float: left;
-  }
-  /* line 156, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
-  html.no-flexbox #h .n-c #n li {
-    float: left;
-  }
-}
-@media (min-width: 992px) {
-  /* line 120, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
-  html.flexbox #h .n-c #n {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: flex-end;
-    justify-content: flex-end;
-    -webkit-flex-flow: wrap;
-    flex-flow: wrap;
-  }
-  /* line 147, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
-  html.no-flexbox #h .n-c #n {
-    float: right;
-  }
-  /* line 156, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
-  html.no-flexbox #h .n-c #n li {
-    float: left;
-  }
-}
-/* line 53, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/templates/headernav/_singular.scss */
-#h .n-c li a {
-  display: block;
-  width: -moz-available;
-  width: -webkit-fill-available;
-  width: fill-available;
-}
-/* line 60, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/templates/headernav/_singular.scss */
-#h .n-c li .sub-menu {
-  display: none;
-  position: absolute;
-}
-/* line 68, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/templates/headernav/_singular.scss */
-#h .n-c li:hover .sub-menu {
-  display: block;
-}
-@media (min-width: 768px) and (max-width: 1199px) {
-  /* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-  html.flexbox #h .n-c {
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
-  }
-  /* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-  html.no-flexbox #h .n-c {
-    float: left;
-  }
-}
-/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.flexbox #h #n-mobile {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: column;
-  flex-flow: column;
-}
-/* line 103, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/templates/headernav/_singular.scss */
-#h #n-mobile a {
-  width: 100%;
-}
-
-/* line 7, ../scss/partials/_header.scss */
-#logo {
-  font-family: "Raleway", sans-serif;
-  font-weight: 200;
-  text-transform: uppercase;
-  margin-top: 1%;
-  margin-bottom: 1%;
-}
-/* line 13, ../scss/partials/_header.scss */
-#logo h1,
-#logo h2 {
-  text-align: center;
-}
-/* line 19, ../scss/partials/_header.scss */
-#logo h1 {
-  font-size: 2em;
-  color: #ffdd00;
-}
-/* line 24, ../scss/partials/_header.scss */
-#logo h2 {
-  font-size: 1.3em;
-  color: #cccccc;
-}
-@media (min-width: 992px) {
-  /* line 7, ../scss/partials/_header.scss */
-  #logo {
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-  /* line 36, ../scss/partials/_header.scss */
-  #logo .logo-c {
-    display: inline-block;
-  }
-  /* line 41, ../scss/partials/_header.scss */
-  #logo h1,
-  #logo h2 {
-    text-align: right;
-  }
-}
-
-/* line 50, ../scss/partials/_header.scss */
-#n {
-  font-family: "Raleway", sans-serif;
-  font-weight: 200;
-  text-transform: uppercase;
-  font-size: 1.4em;
-  color: #ffdd00;
-}
-/* line 56, ../scss/partials/_header.scss */
-#n .sub-menu {
-  margin-top: 4px;
-  z-index: 1000;
-  background: black;
-  box-shadow: 0 0 15px black;
-}
-@media (min-width: 992px) {
-  /* line 64, ../scss/partials/_header.scss */
-  #n .menu-item {
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-  }
-  /* line 71, ../scss/partials/_header.scss */
-  #n .menu-item .menu-item {
-    border-left: 6px solid transparent;
-    border-top: 0;
-    border-bottom: 0;
-  }
-  /* line 78, ../scss/partials/_header.scss */
-  #n .menu-item.current-page-parent, #n .menu-item.current-menu-item {
-    border-top-color: #ffdd00;
-    border-left-color: #ffdd00;
-  }
-}
-/* line 86, ../scss/partials/_header.scss */
-#n .menu-item a {
-  padding: 0.85em 0.5em;
-}
-/* line 91, ../scss/partials/_header.scss */
-#n .menu-item:hover, #n .menu-item.active {
-  border-color: #ffdd00;
-}
-/* line 96, ../scss/partials/_header.scss */
-#n .menu-item:hover > a, #n .menu-item.active > a {
-  background: #ffdd00;
-  color: black;
-}
-
-/* line 106, ../scss/partials/_header.scss */
-#n-search {
-  display: none;
-}
-
-/* line 110, ../scss/partials/_header.scss */
-#n-search-input {
-  display: block;
-  width: 100%;
-  margin: 0;
-  border: 0;
-  padding: 1%;
-  font-family: "Raleway", sans-serif;
-  font-weight: 200;
-  text-transform: uppercase;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  outline: none;
-  background: #ffdd00;
-  color: black;
-}
-/* line 123, ../scss/partials/_header.scss */
-#h.light #n-search-input {
-  background: #333333;
-  color: white;
-}
-
-/* line 130, ../scss/partials/_header.scss */
-#n-mobile {
-  font-family: "Raleway", sans-serif;
-  font-weight: 200;
-  text-transform: uppercase;
-  text-align: center;
-}
-/* line 135, ../scss/partials/_header.scss */
-#n-mobile li a {
-  display: block;
-  padding: 0.75em 0;
-  font-size: 1.2em;
-  color: #ffdd00;
-}
-/* line 142, ../scss/partials/_header.scss */
-#n-mobile li a:hover {
-  background: #ffdd00;
-  color: black;
-}
-
-/* line 150, ../scss/partials/_header.scss */
-#n-reveal {
-  padding: 0.1em;
-  font-family: 'Times', serif;
-  font-size: 2.5em;
-  text-align: center;
-  background: #444444;
-  color: #ffdd00;
-}
-/* line 160, ../scss/partials/_header.scss */
-#n-reveal:active {
-  background: #6a6a6a;
-}
-
-/* line 1, ../scss/partials/_footer.scss */
-#f,
-#f-bbpress {
-  padding: 2% 0;
-  background: black;
-}
-/* line 12, ../scss/partials/_footer.scss */
-#f .col p,
-#f-bbpress .col p {
-  color: #cccccc;
-}
-/* line 21, ../scss/partials/_footer.scss */
-#f .widget h5,
-#f-bbpress .widget h5 {
-  color: #ffdd00;
-  font-family: "Raleway", sans-serif;
-  font-weight: 200;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 1.5em;
-  padding: 3% 0;
-}
-
-/* line 32, ../scss/partials/_footer.scss */
-#login-secret {
-  position: fixed;
-  display: block;
-  bottom: 0;
-  right: 0;
-  height: 40px;
-  width: 40px;
-  background: transparent;
-  transition: background 0.5s ease 1s;
-}
-/* line 43, ../scss/partials/_footer.scss */
-#login-secret [data-icon] {
-  display: block;
-  background: transparent;
-  color: transparent;
-  font-size: 40px;
-  text-align: center;
-  transition-property: background, color;
-  transition-duration: 0.5s, 0.5s;
-  transition-timing-function: ease, ease;
-  transition-delay: 1s, 1s;
-}
-/* line 56, ../scss/partials/_footer.scss */
-#login-secret:hover {
-  background: black;
-}
-/* line 59, ../scss/partials/_footer.scss */
-#login-secret:hover [data-icon] {
-  color: #ffdd00;
-}
-
-/* line 66, ../scss/partials/_footer.scss */
-#copyright {
-  font-size: 0.8em;
-  text-align: center;
-  background: black;
-  color: #cccccc;
-}
-/* line 73, ../scss/partials/_footer.scss */
-#copyright p {
-  padding: 1.5em;
-}
-
-/* line 1, ../scss/partials/_forms.scss */
-.form-group {
-  margin: 1% 0;
-  width: 100%;
-}
-/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.flexbox .form-group {
-  display: -webkit-flex;
-  display: flex;
-}
-/* line 11, ../scss/partials/_forms.scss */
-.form-group input,
-.form-group textarea {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  background: #cccccc;
-}
-/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.flexbox .form-group input, html.flexbox
-.form-group textarea {
-  width: -moz-available;
-  width: -webkit-fill-available;
-  width: fill-available;
-}
-/* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.no-flexbox .form-group input, html.no-flexbox
-.form-group textarea {
-  width: 50%;
-}
-/* line 29, ../scss/partials/_forms.scss */
-.form-group label {
-  font-family: "Raleway", sans-serif;
-  font-weight: 200;
-  text-transform: uppercase;
-  background: #333333;
-  color: #cccccc;
-}
-/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.flexbox .form-group label {
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
-}
-/* line 40, ../scss/partials/_forms.scss */
-.form-group label.required {
-  color: #ffdd00;
-}
-/* line 45, ../scss/partials/_forms.scss */
-.form-group label:hover {
-  cursor: text;
-}
-/* line 51, ../scss/partials/_forms.scss */
-.form-group input,
-.form-group textarea,
-.form-group label {
-  font-size: 1.1em;
-  padding: 1em;
-}
-/* line 22, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.no-flexbox .form-group input, html.no-flexbox
-.form-group textarea, html.no-flexbox
-.form-group label {
-  display: inline-block;
-}
-/* line 64, ../scss/partials/_forms.scss */
-.form-group textarea {
-  min-height: 10em;
-  max-width: 100%;
-}
-/* line 11, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/core/modernizr/_modernizr.scss */
-html.flexbox .form-group.form-group-lg {
-  -webkit-flex-direction: column;
-  flex-direction: column;
-}
-/* line 79, ../scss/partials/_forms.scss */
-html.no-flexbox .form-group.form-group-lg input,
-html.no-flexbox .form-group.form-group-lg textarea,
-html.no-flexbox .form-group.form-group-lg label {
-  display: block;
-  width: 100%;
-}
-
-/* line 91, ../scss/partials/_forms.scss */
-input[type="submit"] {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  font-family: "Raleway", sans-serif;
-  font-weight: 200;
-  text-transform: uppercase;
-  padding: 1em;
-  font-size: 1.1em;
-  color: #ffdd00;
-  background: #333333;
-}
-/* line 100, ../scss/partials/_forms.scss */
-input[type="submit"]:hover {
-  cursor: pointer;
-  background: #444444;
 }
 
 /**
@@ -832,7 +335,7 @@ input[type="submit"]:hover {
 /**
  * All Genericons
  */
-/* line 31, ../dependencies/genericons/_genericons.scss */
+/* line 31, ../../dependencies/genericons/_genericons.scss */
 .genericon, [data-icon] {
   display: inline-block;
   width: 16px;
@@ -851,7 +354,7 @@ input[type="submit"]:hover {
 /**
  * IE7 and IE6 hacks
  */
-/* line 50, ../dependencies/genericons/_genericons.scss */
+/* line 50, ../../dependencies/genericons/_genericons.scss */
 .genericon, [data-icon] {
   *overflow: auto;
   *zoom: 1;
@@ -862,635 +365,796 @@ input[type="submit"]:hover {
  * Individual icons
  */
 /* Post formats */
-/* line 61, ../dependencies/genericons/_genericons.scss */
+/* line 61, ../../dependencies/genericons/_genericons.scss */
 .genericon-standard:before {
   content: '\f100';
 }
 
-/* line 62, ../dependencies/genericons/_genericons.scss */
+/* line 62, ../../dependencies/genericons/_genericons.scss */
 .genericon-aside:before {
   content: '\f101';
 }
 
-/* line 63, ../dependencies/genericons/_genericons.scss */
+/* line 63, ../../dependencies/genericons/_genericons.scss */
 .genericon-image:before {
   content: '\f102';
 }
 
-/* line 64, ../dependencies/genericons/_genericons.scss */
+/* line 64, ../../dependencies/genericons/_genericons.scss */
 .genericon-gallery:before {
   content: '\f103';
 }
 
-/* line 65, ../dependencies/genericons/_genericons.scss */
+/* line 65, ../../dependencies/genericons/_genericons.scss */
 .genericon-video:before {
   content: '\f104';
 }
 
-/* line 66, ../dependencies/genericons/_genericons.scss */
+/* line 66, ../../dependencies/genericons/_genericons.scss */
 .genericon-status:before {
   content: '\f105';
 }
 
-/* line 67, ../dependencies/genericons/_genericons.scss */
+/* line 67, ../../dependencies/genericons/_genericons.scss */
 .genericon-quote:before {
   content: '\f106';
 }
 
-/* line 68, ../dependencies/genericons/_genericons.scss */
+/* line 68, ../../dependencies/genericons/_genericons.scss */
 .genericon-link:before, [data-icon="link"]:before {
   content: '\f107';
 }
 
-/* line 69, ../dependencies/genericons/_genericons.scss */
+/* line 69, ../../dependencies/genericons/_genericons.scss */
 .genericon-chat:before {
   content: '\f108';
 }
 
-/* line 70, ../dependencies/genericons/_genericons.scss */
+/* line 70, ../../dependencies/genericons/_genericons.scss */
 .genericon-audio:before {
   content: '\f109';
 }
 
 /* Social icons */
-/* line 73, ../dependencies/genericons/_genericons.scss */
+/* line 73, ../../dependencies/genericons/_genericons.scss */
 .genericon-github:before {
   content: '\f200';
 }
 
-/* line 74, ../dependencies/genericons/_genericons.scss */
+/* line 74, ../../dependencies/genericons/_genericons.scss */
 .genericon-dribbble:before {
   content: '\f201';
 }
 
-/* line 75, ../dependencies/genericons/_genericons.scss */
+/* line 75, ../../dependencies/genericons/_genericons.scss */
 .genericon-twitter:before {
   content: '\f202';
 }
 
-/* line 76, ../dependencies/genericons/_genericons.scss */
+/* line 76, ../../dependencies/genericons/_genericons.scss */
 .genericon-facebook:before {
   content: '\f203';
 }
 
-/* line 77, ../dependencies/genericons/_genericons.scss */
+/* line 77, ../../dependencies/genericons/_genericons.scss */
 .genericon-facebook-alt:before {
   content: '\f204';
 }
 
-/* line 78, ../dependencies/genericons/_genericons.scss */
+/* line 78, ../../dependencies/genericons/_genericons.scss */
 .genericon-wordpress:before {
   content: '\f205';
 }
 
-/* line 79, ../dependencies/genericons/_genericons.scss */
+/* line 79, ../../dependencies/genericons/_genericons.scss */
 .genericon-googleplus:before {
   content: '\f206';
 }
 
-/* line 80, ../dependencies/genericons/_genericons.scss */
+/* line 80, ../../dependencies/genericons/_genericons.scss */
 .genericon-linkedin:before {
   content: '\f207';
 }
 
-/* line 81, ../dependencies/genericons/_genericons.scss */
+/* line 81, ../../dependencies/genericons/_genericons.scss */
 .genericon-linkedin-alt:before {
   content: '\f208';
 }
 
-/* line 82, ../dependencies/genericons/_genericons.scss */
+/* line 82, ../../dependencies/genericons/_genericons.scss */
 .genericon-pinterest:before {
   content: '\f209';
 }
 
-/* line 83, ../dependencies/genericons/_genericons.scss */
+/* line 83, ../../dependencies/genericons/_genericons.scss */
 .genericon-pinterest-alt:before {
   content: '\f210';
 }
 
-/* line 84, ../dependencies/genericons/_genericons.scss */
+/* line 84, ../../dependencies/genericons/_genericons.scss */
 .genericon-flickr:before {
   content: '\f211';
 }
 
-/* line 85, ../dependencies/genericons/_genericons.scss */
+/* line 85, ../../dependencies/genericons/_genericons.scss */
 .genericon-vimeo:before {
   content: '\f212';
 }
 
-/* line 86, ../dependencies/genericons/_genericons.scss */
+/* line 86, ../../dependencies/genericons/_genericons.scss */
 .genericon-youtube:before {
   content: '\f213';
 }
 
-/* line 87, ../dependencies/genericons/_genericons.scss */
+/* line 87, ../../dependencies/genericons/_genericons.scss */
 .genericon-tumblr:before {
   content: '\f214';
 }
 
-/* line 88, ../dependencies/genericons/_genericons.scss */
+/* line 88, ../../dependencies/genericons/_genericons.scss */
 .genericon-instagram:before {
   content: '\f215';
 }
 
-/* line 89, ../dependencies/genericons/_genericons.scss */
+/* line 89, ../../dependencies/genericons/_genericons.scss */
 .genericon-codepen:before {
   content: '\f216';
 }
 
-/* line 90, ../dependencies/genericons/_genericons.scss */
+/* line 90, ../../dependencies/genericons/_genericons.scss */
 .genericon-polldaddy:before {
   content: '\f217';
 }
 
-/* line 91, ../dependencies/genericons/_genericons.scss */
+/* line 91, ../../dependencies/genericons/_genericons.scss */
 .genericon-googleplus-alt:before {
   content: '\f218';
 }
 
-/* line 92, ../dependencies/genericons/_genericons.scss */
+/* line 92, ../../dependencies/genericons/_genericons.scss */
 .genericon-path:before {
   content: '\f219';
 }
 
-/* line 93, ../dependencies/genericons/_genericons.scss */
+/* line 93, ../../dependencies/genericons/_genericons.scss */
 .genericon-skype:before {
   content: '\f220';
 }
 
-/* line 94, ../dependencies/genericons/_genericons.scss */
+/* line 94, ../../dependencies/genericons/_genericons.scss */
 .genericon-digg:before {
   content: '\f221';
 }
 
-/* line 95, ../dependencies/genericons/_genericons.scss */
+/* line 95, ../../dependencies/genericons/_genericons.scss */
 .genericon-reddit:before {
   content: '\f222';
 }
 
-/* line 96, ../dependencies/genericons/_genericons.scss */
+/* line 96, ../../dependencies/genericons/_genericons.scss */
 .genericon-stumbleupon:before {
   content: '\f223';
 }
 
-/* line 97, ../dependencies/genericons/_genericons.scss */
+/* line 97, ../../dependencies/genericons/_genericons.scss */
 .genericon-pocket:before {
   content: '\f224';
 }
 
-/* line 98, ../dependencies/genericons/_genericons.scss */
+/* line 98, ../../dependencies/genericons/_genericons.scss */
 .genericon-dropbox:before {
   content: '\f225';
 }
 
 /* Meta icons */
-/* line 101, ../dependencies/genericons/_genericons.scss */
+/* line 101, ../../dependencies/genericons/_genericons.scss */
 .genericon-comment:before, [data-icon="comment"]:before {
   content: '\f300';
 }
 
-/* line 102, ../dependencies/genericons/_genericons.scss */
+/* line 102, ../../dependencies/genericons/_genericons.scss */
 .genericon-category:before, [data-icon="category"]:before {
   content: '\f301';
 }
 
-/* line 103, ../dependencies/genericons/_genericons.scss */
+/* line 103, ../../dependencies/genericons/_genericons.scss */
 .genericon-tag:before, [data-icon="tag"]:before {
   content: '\f302';
 }
 
-/* line 104, ../dependencies/genericons/_genericons.scss */
+/* line 104, ../../dependencies/genericons/_genericons.scss */
 .genericon-time:before {
   content: '\f303';
 }
 
-/* line 105, ../dependencies/genericons/_genericons.scss */
+/* line 105, ../../dependencies/genericons/_genericons.scss */
 .genericon-user:before, [data-icon="user"]:before {
   content: '\f304';
 }
 
-/* line 106, ../dependencies/genericons/_genericons.scss */
+/* line 106, ../../dependencies/genericons/_genericons.scss */
 .genericon-day:before {
   content: '\f305';
 }
 
-/* line 107, ../dependencies/genericons/_genericons.scss */
+/* line 107, ../../dependencies/genericons/_genericons.scss */
 .genericon-week:before {
   content: '\f306';
 }
 
-/* line 108, ../dependencies/genericons/_genericons.scss */
+/* line 108, ../../dependencies/genericons/_genericons.scss */
 .genericon-month:before, [data-icon="month"]:before {
   content: '\f307';
 }
 
-/* line 109, ../dependencies/genericons/_genericons.scss */
+/* line 109, ../../dependencies/genericons/_genericons.scss */
 .genericon-pinned:before {
   content: '\f308';
 }
 
 /* Other icons */
-/* line 112, ../dependencies/genericons/_genericons.scss */
+/* line 112, ../../dependencies/genericons/_genericons.scss */
 .genericon-search:before, [data-icon="search"]:before {
   content: '\f400';
 }
 
-/* line 113, ../dependencies/genericons/_genericons.scss */
+/* line 113, ../../dependencies/genericons/_genericons.scss */
 .genericon-unzoom:before {
   content: '\f401';
 }
 
-/* line 114, ../dependencies/genericons/_genericons.scss */
+/* line 114, ../../dependencies/genericons/_genericons.scss */
 .genericon-zoom:before {
   content: '\f402';
 }
 
-/* line 115, ../dependencies/genericons/_genericons.scss */
+/* line 115, ../../dependencies/genericons/_genericons.scss */
 .genericon-show:before {
   content: '\f403';
 }
 
-/* line 116, ../dependencies/genericons/_genericons.scss */
+/* line 116, ../../dependencies/genericons/_genericons.scss */
 .genericon-hide:before {
   content: '\f404';
 }
 
-/* line 117, ../dependencies/genericons/_genericons.scss */
+/* line 117, ../../dependencies/genericons/_genericons.scss */
 .genericon-close:before {
   content: '\f405';
 }
 
-/* line 118, ../dependencies/genericons/_genericons.scss */
+/* line 118, ../../dependencies/genericons/_genericons.scss */
 .genericon-close-alt:before {
   content: '\f406';
 }
 
-/* line 119, ../dependencies/genericons/_genericons.scss */
+/* line 119, ../../dependencies/genericons/_genericons.scss */
 .genericon-trash:before {
   content: '\f407';
 }
 
-/* line 120, ../dependencies/genericons/_genericons.scss */
+/* line 120, ../../dependencies/genericons/_genericons.scss */
 .genericon-star:before {
   content: '\f408';
 }
 
-/* line 121, ../dependencies/genericons/_genericons.scss */
+/* line 121, ../../dependencies/genericons/_genericons.scss */
 .genericon-home:before, [data-icon="home"]:before {
   content: '\f409';
 }
 
-/* line 122, ../dependencies/genericons/_genericons.scss */
+/* line 122, ../../dependencies/genericons/_genericons.scss */
 .genericon-mail:before {
   content: '\f410';
 }
 
-/* line 123, ../dependencies/genericons/_genericons.scss */
+/* line 123, ../../dependencies/genericons/_genericons.scss */
 .genericon-edit:before, [data-icon="edit"]:before {
   content: '\f411';
 }
 
-/* line 124, ../dependencies/genericons/_genericons.scss */
+/* line 124, ../../dependencies/genericons/_genericons.scss */
 .genericon-reply:before {
   content: '\f412';
 }
 
-/* line 125, ../dependencies/genericons/_genericons.scss */
+/* line 125, ../../dependencies/genericons/_genericons.scss */
 .genericon-feed:before {
   content: '\f413';
 }
 
-/* line 126, ../dependencies/genericons/_genericons.scss */
+/* line 126, ../../dependencies/genericons/_genericons.scss */
 .genericon-warning:before {
   content: '\f414';
 }
 
-/* line 127, ../dependencies/genericons/_genericons.scss */
+/* line 127, ../../dependencies/genericons/_genericons.scss */
 .genericon-share:before {
   content: '\f415';
 }
 
-/* line 128, ../dependencies/genericons/_genericons.scss */
+/* line 128, ../../dependencies/genericons/_genericons.scss */
 .genericon-attachment:before {
   content: '\f416';
 }
 
-/* line 129, ../dependencies/genericons/_genericons.scss */
+/* line 129, ../../dependencies/genericons/_genericons.scss */
 .genericon-location:before {
   content: '\f417';
 }
 
-/* line 130, ../dependencies/genericons/_genericons.scss */
+/* line 130, ../../dependencies/genericons/_genericons.scss */
 .genericon-checkmark:before {
   content: '\f418';
 }
 
-/* line 131, ../dependencies/genericons/_genericons.scss */
+/* line 131, ../../dependencies/genericons/_genericons.scss */
 .genericon-menu:before {
   content: '\f419';
 }
 
-/* line 132, ../dependencies/genericons/_genericons.scss */
+/* line 132, ../../dependencies/genericons/_genericons.scss */
 .genericon-refresh:before {
   content: '\f420';
 }
 
-/* line 133, ../dependencies/genericons/_genericons.scss */
+/* line 133, ../../dependencies/genericons/_genericons.scss */
 .genericon-minimize:before {
   content: '\f421';
 }
 
-/* line 134, ../dependencies/genericons/_genericons.scss */
+/* line 134, ../../dependencies/genericons/_genericons.scss */
 .genericon-maximize:before {
   content: '\f422';
 }
 
-/* line 135, ../dependencies/genericons/_genericons.scss */
+/* line 135, ../../dependencies/genericons/_genericons.scss */
 .genericon-404:before {
   content: '\f423';
 }
 
-/* line 136, ../dependencies/genericons/_genericons.scss */
+/* line 136, ../../dependencies/genericons/_genericons.scss */
 .genericon-spam:before {
   content: '\f424';
 }
 
-/* line 137, ../dependencies/genericons/_genericons.scss */
+/* line 137, ../../dependencies/genericons/_genericons.scss */
 .genericon-summary:before {
   content: '\f425';
 }
 
-/* line 138, ../dependencies/genericons/_genericons.scss */
+/* line 138, ../../dependencies/genericons/_genericons.scss */
 .genericon-cloud:before {
   content: '\f426';
 }
 
-/* line 139, ../dependencies/genericons/_genericons.scss */
+/* line 139, ../../dependencies/genericons/_genericons.scss */
 .genericon-key:before {
   content: '\f427';
 }
 
-/* line 140, ../dependencies/genericons/_genericons.scss */
+/* line 140, ../../dependencies/genericons/_genericons.scss */
 .genericon-dot:before {
   content: '\f428';
 }
 
-/* line 141, ../dependencies/genericons/_genericons.scss */
+/* line 141, ../../dependencies/genericons/_genericons.scss */
 .genericon-next:before, [data-icon="next"]:before {
   content: '\f429';
 }
 
-/* line 142, ../dependencies/genericons/_genericons.scss */
+/* line 142, ../../dependencies/genericons/_genericons.scss */
 .genericon-previous:before, [data-icon="previous"]:before {
   content: '\f430';
 }
 
-/* line 143, ../dependencies/genericons/_genericons.scss */
+/* line 143, ../../dependencies/genericons/_genericons.scss */
 .genericon-expand:before {
   content: '\f431';
 }
 
-/* line 144, ../dependencies/genericons/_genericons.scss */
+/* line 144, ../../dependencies/genericons/_genericons.scss */
 .genericon-collapse:before {
   content: '\f432';
 }
 
-/* line 145, ../dependencies/genericons/_genericons.scss */
+/* line 145, ../../dependencies/genericons/_genericons.scss */
 .genericon-dropdown:before {
   content: '\f433';
 }
 
-/* line 146, ../dependencies/genericons/_genericons.scss */
+/* line 146, ../../dependencies/genericons/_genericons.scss */
 .genericon-dropdown-left:before {
   content: '\f434';
 }
 
-/* line 147, ../dependencies/genericons/_genericons.scss */
+/* line 147, ../../dependencies/genericons/_genericons.scss */
 .genericon-top:before {
   content: '\f435';
 }
 
-/* line 148, ../dependencies/genericons/_genericons.scss */
+/* line 148, ../../dependencies/genericons/_genericons.scss */
 .genericon-draggable:before {
   content: '\f436';
 }
 
-/* line 149, ../dependencies/genericons/_genericons.scss */
+/* line 149, ../../dependencies/genericons/_genericons.scss */
 .genericon-phone:before {
   content: '\f437';
 }
 
-/* line 150, ../dependencies/genericons/_genericons.scss */
+/* line 150, ../../dependencies/genericons/_genericons.scss */
 .genericon-send-to-phone:before {
   content: '\f438';
 }
 
-/* line 151, ../dependencies/genericons/_genericons.scss */
+/* line 151, ../../dependencies/genericons/_genericons.scss */
 .genericon-plugin:before {
   content: '\f439';
 }
 
-/* line 152, ../dependencies/genericons/_genericons.scss */
+/* line 152, ../../dependencies/genericons/_genericons.scss */
 .genericon-cloud-download:before {
   content: '\f440';
 }
 
-/* line 153, ../dependencies/genericons/_genericons.scss */
+/* line 153, ../../dependencies/genericons/_genericons.scss */
 .genericon-cloud-upload:before {
   content: '\f441';
 }
 
-/* line 154, ../dependencies/genericons/_genericons.scss */
+/* line 154, ../../dependencies/genericons/_genericons.scss */
 .genericon-external:before {
   content: '\f442';
 }
 
-/* line 155, ../dependencies/genericons/_genericons.scss */
+/* line 155, ../../dependencies/genericons/_genericons.scss */
 .genericon-document:before, [data-icon="document"]:before {
   content: '\f443';
 }
 
-/* line 156, ../dependencies/genericons/_genericons.scss */
+/* line 156, ../../dependencies/genericons/_genericons.scss */
 .genericon-book:before {
   content: '\f444';
 }
 
-/* line 157, ../dependencies/genericons/_genericons.scss */
+/* line 157, ../../dependencies/genericons/_genericons.scss */
 .genericon-cog:before {
   content: '\f445';
 }
 
-/* line 158, ../dependencies/genericons/_genericons.scss */
+/* line 158, ../../dependencies/genericons/_genericons.scss */
 .genericon-unapprove:before {
   content: '\f446';
 }
 
-/* line 159, ../dependencies/genericons/_genericons.scss */
+/* line 159, ../../dependencies/genericons/_genericons.scss */
 .genericon-cart:before {
   content: '\f447';
 }
 
-/* line 160, ../dependencies/genericons/_genericons.scss */
+/* line 160, ../../dependencies/genericons/_genericons.scss */
 .genericon-pause:before {
   content: '\f448';
 }
 
-/* line 161, ../dependencies/genericons/_genericons.scss */
+/* line 161, ../../dependencies/genericons/_genericons.scss */
 .genericon-stop:before {
   content: '\f449';
 }
 
-/* line 162, ../dependencies/genericons/_genericons.scss */
+/* line 162, ../../dependencies/genericons/_genericons.scss */
 .genericon-skip-back:before {
   content: '\f450';
 }
 
-/* line 163, ../dependencies/genericons/_genericons.scss */
+/* line 163, ../../dependencies/genericons/_genericons.scss */
 .genericon-skip-ahead:before {
   content: '\f451';
 }
 
-/* line 164, ../dependencies/genericons/_genericons.scss */
+/* line 164, ../../dependencies/genericons/_genericons.scss */
 .genericon-play:before {
   content: '\f452';
 }
 
-/* line 165, ../dependencies/genericons/_genericons.scss */
+/* line 165, ../../dependencies/genericons/_genericons.scss */
 .genericon-tablet:before {
   content: '\f453';
 }
 
-/* line 166, ../dependencies/genericons/_genericons.scss */
+/* line 166, ../../dependencies/genericons/_genericons.scss */
 .genericon-send-to-tablet:before {
   content: '\f454';
 }
 
-/* line 167, ../dependencies/genericons/_genericons.scss */
+/* line 167, ../../dependencies/genericons/_genericons.scss */
 .genericon-info:before {
   content: '\f455';
 }
 
-/* line 168, ../dependencies/genericons/_genericons.scss */
+/* line 168, ../../dependencies/genericons/_genericons.scss */
 .genericon-notice:before {
   content: '\f456';
 }
 
-/* line 169, ../dependencies/genericons/_genericons.scss */
+/* line 169, ../../dependencies/genericons/_genericons.scss */
 .genericon-help:before {
   content: '\f457';
 }
 
-/* line 170, ../dependencies/genericons/_genericons.scss */
+/* line 170, ../../dependencies/genericons/_genericons.scss */
 .genericon-fastforward:before {
   content: '\f458';
 }
 
-/* line 171, ../dependencies/genericons/_genericons.scss */
+/* line 171, ../../dependencies/genericons/_genericons.scss */
 .genericon-rewind:before {
   content: '\f459';
 }
 
-/* line 172, ../dependencies/genericons/_genericons.scss */
+/* line 172, ../../dependencies/genericons/_genericons.scss */
 .genericon-portfolio:before {
   content: '\f460';
 }
 
-/* line 173, ../dependencies/genericons/_genericons.scss */
+/* line 173, ../../dependencies/genericons/_genericons.scss */
 .genericon-heart:before {
   content: '\f461';
 }
 
-/* line 174, ../dependencies/genericons/_genericons.scss */
+/* line 174, ../../dependencies/genericons/_genericons.scss */
 .genericon-code:before {
   content: '\f462';
 }
 
-/* line 175, ../dependencies/genericons/_genericons.scss */
+/* line 175, ../../dependencies/genericons/_genericons.scss */
 .genericon-subscribe:before {
   content: '\f463';
 }
 
-/* line 176, ../dependencies/genericons/_genericons.scss */
+/* line 176, ../../dependencies/genericons/_genericons.scss */
 .genericon-unsubscribe:before {
   content: '\f464';
 }
 
-/* line 177, ../dependencies/genericons/_genericons.scss */
+/* line 177, ../../dependencies/genericons/_genericons.scss */
 .genericon-subscribed:before {
   content: '\f465';
 }
 
-/* line 178, ../dependencies/genericons/_genericons.scss */
+/* line 178, ../../dependencies/genericons/_genericons.scss */
 .genericon-reply-alt:before {
   content: '\f466';
 }
 
-/* line 179, ../dependencies/genericons/_genericons.scss */
+/* line 179, ../../dependencies/genericons/_genericons.scss */
 .genericon-reply-single:before, [data-icon="reply-single"]:before {
   content: '\f467';
 }
 
-/* line 180, ../dependencies/genericons/_genericons.scss */
+/* line 180, ../../dependencies/genericons/_genericons.scss */
 .genericon-flag:before {
   content: '\f468';
 }
 
-/* line 181, ../dependencies/genericons/_genericons.scss */
+/* line 181, ../../dependencies/genericons/_genericons.scss */
 .genericon-print:before {
   content: '\f469';
 }
 
-/* line 182, ../dependencies/genericons/_genericons.scss */
+/* line 182, ../../dependencies/genericons/_genericons.scss */
 .genericon-lock:before {
   content: '\f470';
 }
 
-/* line 183, ../dependencies/genericons/_genericons.scss */
+/* line 183, ../../dependencies/genericons/_genericons.scss */
 .genericon-bold:before {
   content: '\f471';
 }
 
-/* line 184, ../dependencies/genericons/_genericons.scss */
+/* line 184, ../../dependencies/genericons/_genericons.scss */
 .genericon-italic:before {
   content: '\f472';
 }
 
-/* line 185, ../dependencies/genericons/_genericons.scss */
+/* line 185, ../../dependencies/genericons/_genericons.scss */
 .genericon-picture:before {
   content: '\f473';
 }
 
-/* line 186, ../dependencies/genericons/_genericons.scss */
+/* line 186, ../../dependencies/genericons/_genericons.scss */
 .genericon-fullscreen:before {
   content: '\f474';
 }
 
 /* Generic shapes */
-/* line 189, ../dependencies/genericons/_genericons.scss */
+/* line 189, ../../dependencies/genericons/_genericons.scss */
 .genericon-uparrow:before {
   content: '\f500';
 }
 
-/* line 190, ../dependencies/genericons/_genericons.scss */
+/* line 190, ../../dependencies/genericons/_genericons.scss */
 .genericon-rightarrow:before {
   content: '\f501';
 }
 
-/* line 191, ../dependencies/genericons/_genericons.scss */
+/* line 191, ../../dependencies/genericons/_genericons.scss */
 .genericon-downarrow:before {
   content: '\f502';
 }
 
-/* line 192, ../dependencies/genericons/_genericons.scss */
+/* line 192, ../../dependencies/genericons/_genericons.scss */
 .genericon-leftarrow:before {
   content: '\f503';
 }
 
-/* line 3, ../scss/partials/_icons.scss */
+/* line 3, ../../scss/partials/_icons.scss */
 [data-icon] {
   color: #444444;
   font-size: 1em;
   width: 1em;
   height: 1em;
   margin-right: 0.15em;
+}
+
+/* line 7, ../../scss/_bbpress/partials/_header.scss */
+#h-bbpress {
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  background: black;
+  color: #ffdd00;
+}
+/* line 14, ../../scss/_bbpress/partials/_header.scss */
+#h-bbpress a {
+  display: block;
+  padding: 0.85em 0.5em;
+  font-size: 1.4em;
+}
+/* line 20, ../../scss/_bbpress/partials/_header.scss */
+#h-bbpress a span {
+  color: #ffdd00;
+  margin-right: 0;
+}
+/* line 26, ../../scss/_bbpress/partials/_header.scss */
+#h-bbpress a:hover, #h-bbpress a.active {
+  background: #ffdd00;
+  color: black;
+}
+/* line 32, ../../scss/_bbpress/partials/_header.scss */
+#h-bbpress a:hover span, #h-bbpress a.active span {
+  color: black;
+}
+/* line 120, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
+html.flexbox #h-bbpress .interface-left > ul {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: wrap;
+  flex-flow: wrap;
+}
+/* line 147, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
+html.no-flexbox #h-bbpress .interface-left > ul {
+  float: left;
+}
+/* line 156, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
+html.no-flexbox #h-bbpress .interface-left > ul > li {
+  float: left;
+}
+/* line 120, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
+html.flexbox #h-bbpress .interface-right > ul {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-flex-flow: wrap;
+  flex-flow: wrap;
+}
+/* line 147, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
+html.no-flexbox #h-bbpress .interface-right > ul {
+  float: right;
+}
+/* line 156, /Applications/MAMP/htdocs/wp-content/themes/electrify/dependencies/stencils/layout/interface/_list.scss */
+html.no-flexbox #h-bbpress .interface-right > ul > li {
+  float: left;
+}
+/* line 58, ../../scss/_bbpress/partials/_header.scss */
+#h-bbpress .bbp-search a {
+  text-align: center;
+}
+
+/* line 66, ../../scss/_bbpress/partials/_header.scss */
+#bbp-search-form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  display: none;
+}
+
+/* line 72, ../../scss/_bbpress/partials/_header.scss */
+#bbp-search-input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  display: block;
+  width: 100%;
+  font-size: 1.4em;
+  padding: 1%;
+  outline: none;
+  text-transform: uppercase;
+  background: #ffdd00;
+  color: black;
+}
+
+/* line 1, ../../scss/partials/_footer.scss */
+#f,
+#f-bbpress {
+  padding: 2% 0;
+  background: black;
+}
+/* line 12, ../../scss/partials/_footer.scss */
+#f .col p,
+#f-bbpress .col p {
+  color: #cccccc;
+}
+/* line 21, ../../scss/partials/_footer.scss */
+#f .widget h5,
+#f-bbpress .widget h5 {
+  color: #ffdd00;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 3% 0;
+}
+
+/* line 32, ../../scss/partials/_footer.scss */
+#login-secret {
+  position: fixed;
+  display: block;
+  bottom: 0;
+  right: 0;
+  height: 40px;
+  width: 40px;
+  background: transparent;
+  transition: background 0.5s ease 1s;
+}
+/* line 43, ../../scss/partials/_footer.scss */
+#login-secret [data-icon] {
+  display: block;
+  background: transparent;
+  color: transparent;
+  font-size: 40px;
+  text-align: center;
+  transition-property: background, color;
+  transition-duration: 0.5s, 0.5s;
+  transition-timing-function: ease, ease;
+  transition-delay: 1s, 1s;
+}
+/* line 56, ../../scss/partials/_footer.scss */
+#login-secret:hover {
+  background: black;
+}
+/* line 59, ../../scss/partials/_footer.scss */
+#login-secret:hover [data-icon] {
+  color: #ffdd00;
+}
+
+/* line 66, ../../scss/partials/_footer.scss */
+#copyright {
+  font-size: 0.8em;
+  text-align: center;
+  background: black;
+  color: #cccccc;
+}
+/* line 73, ../../scss/partials/_footer.scss */
+#copyright p {
+  padding: 1.5em;
 }

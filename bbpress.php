@@ -3,14 +3,9 @@
 <?php the_post(); ?>
 
 <div class="c">
-	<article id="a-forums" <?php post_class(); ?>>
-		
-		<h1><?php the_title(); ?></h1>
-		
-		<?php the_content(); ?>
-		
-	</article>
+	
+	<?php the_content(); ?>
+	
 </div>
 
 <?php get_footer( 'bbpress' ); ?>
-

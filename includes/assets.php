@@ -74,6 +74,17 @@ function electrify_assets()
 	//
 	wp_register_style( 'showcase', $el_dir . '/_css/components/showcase.css', array( 'master' ) );
 	
+	
+	//	bbPress navigation (JS)
+	//	Adds JavaScript for navigation interactivity.
+	//
+	wp_register_script( 'bbp_navigation', $el_dir . '/_js/_bbpress/nav.js', array( 'jquery' ), '', true );
+	
+	//	bbPress Master (CSS)
+	//
+	wp_register_style( 'bbp_master', $el_dir . '/_css/_bbpress/bbpress.css', array( 'master' ) );
+	
+	
 	//	Shame (CSS)
 	//	A file for any changes developers want to make to the theme. Also for my own hacks.
 	//	Acts like the theme's normal stylesheet, so it can be edited inside of WordPress.
@@ -116,6 +127,8 @@ function electrify_assets()
 	if ( is_bbpress() )
 	{
 		wp_dequeue_style( 'bbp-default' );
+		wp_enqueue_style( 'bbp_master' );
+		wp_enqueue_script( 'bbp_navigation' );
 	}
 	
 	wp_enqueue_style( 'shame' );

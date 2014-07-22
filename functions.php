@@ -38,6 +38,7 @@ $includes = array(
 	'plugins',
 	'post-types',
 	'post-meta',
+	'bbpress',
 	'sidebars',
 	'assets',
 );

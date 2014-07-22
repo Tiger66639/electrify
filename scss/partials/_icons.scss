@@ -1,4 +1,4 @@
-@import "../../dependencies/genericons/genericons";
+@import "../../dependencies/genericons/genericons/genericons";
 
 [data-icon]
 {
@@ -10,7 +10,7 @@
 	margin-right:0.15em;
 }
 
-$icons:user, month, category, tag, document, edit, reply-single, link, comment, previous, next, search, home;
+$icons:user, month, category, tag, document, edit, reply-single, link, comment, previous, next, search, home, subscribe, unsubscribe, star, checkmark, chat, trash, close, refresh, xpost, pinned, attachment, unapprove, close-alt, close, heart, flag;
 
 @each $icon in $icons
 {

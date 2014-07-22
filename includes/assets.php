@@ -124,11 +124,25 @@ function electrify_assets()
 		wp_enqueue_script( 'comments_reveal' );
 	}
 	
-	if ( is_bbpress() )
+	if ( function_exists( 'is_bbpress' ) )
 	{
-		wp_dequeue_style( 'bbp-default' );
-		wp_enqueue_style( 'bbp_master' );
-		wp_enqueue_script( 'bbp_navigation' );
+		if ( is_bbpress() )
+		{
+			//	Because I don't want bbPress messing with my style.
+			//
+			wp_dequeue_style( 'bbp-default' );
+			
+			//	Because the Ajax in bbPress 2.5.4 is buggy as heck.
+			//
+			wp_dequeue_script( 'bbpress-topic' );
+			wp_dequeue_script( 'bbpress-reply' );
+			wp_dequeue_script( 'bbpress-user' );
+			
+			//	At last, my stuff.
+			//
+			wp_enqueue_style( 'bbp_master' );
+			wp_enqueue_script( 'bbp_navigation' );
+		}
 	}
 	
 	wp_enqueue_style( 'shame' );

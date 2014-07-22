@@ -14,8 +14,9 @@
 	a
 	{
 		display:block;
-		padding:0.85em 0.5em;
-		font-size:1.4em;
+		padding:0.45em 0.3em;
+		font-size:2em;
+		color:$color-2;
 		
 		span
 		{
@@ -40,7 +41,7 @@
 	.interface-left
 	{
 		@extend %stn-col-xs-12;
-		@extend %stn-col-sm-4;
+		@extend %stn-col-sm-8;
 		
 		@include stn-list( row, left, $sel-c: "> ul", $sel-itms: "> li" );
 		
@@ -49,7 +50,7 @@
 	.interface-right
 	{
 		@extend %stn-col-xs-12;
-		@extend %stn-col-sm-8;
+		@extend %stn-col-sm-4;
 		
 		@include stn-list( row, right, $sel-c: "> ul", $sel-itms: "> li" );
 		

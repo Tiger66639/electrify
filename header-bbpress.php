@@ -14,35 +14,56 @@
 		<div class="c">
 			<nav class="interface-left">
 				<ul>
-					<li class="bbp-back">
-						<a href="<?php bloginfo( 'url' ); ?>">
-							<span data-icon="previous"></span>
-						</a>
-					</li>
-					<li class="bbp-title">
-						<a href="<?php bbp_forums_url(); ?>">
-							<span data-icon="home"></span>
-						</a>
-					</li>
+					<?php if ( bbp_is_single_forum() ): ?>
+						<li class="bbp-single-forum-subscribe">
+							<?php bbp_forum_subscription_link(); ?>
+						</li>
+					<?php endif; ?>
+					<?php if ( bbp_is_single_topic() ): ?>
+						<li class="bbp-single-topic-subscribe">
+							<?php bbp_topic_subscription_link(); ?>
+						</li>
+						<li class="bbp-single-topic-favorite">
+							<?php bbp_topic_favorite_link( ); ?>
+						</li>
+						
+						<?php bbp_topic_admin_links(); ?>
+						
+					<?php endif; ?>
 				</ul>
 			</nav>
 			<nav class="interface-right">
 				<ul>
+					<li class="bbp-home">
+						<a href="<?php bloginfo( 'url' ); ?>">
+							<span data-icon="home"></span>
+						</a>
+					</li>
+					<li class="bbp-forums">
+						<a href="<?php bbp_forums_url(); ?>">
+							<span data-icon="chat"></span>
+						</a>
+					</li>
 					<li>
 						<a href="<?php bbp_user_profile_url( wp_get_current_user()->ID ); ?>">
-							<?php echo wp_get_current_user()->user_firstname; ?>
+							<span data-icon="user"></span>
 						</a>
+						<?php //echo wp_get_current_user()->user_firstname; ?>
 					</li>
-					<li class="bbp-search">
-						<a href="#">
-							<span data-icon="search"></span>
-						</a>
-					</li>
+					<?php if ( bbp_allow_search() ): ?>
+						<li class="bbp-search">
+							<a href="#">
+								<span data-icon="search"></span>
+							</a>
+						</li>
+					<?php endif; ?>
 				</ul>
 			</nav>
 		</div>
 		
-		<?php bbp_get_template_part( 'form', 'search' ); ?>
+		<?php if ( bbp_allow_search() ): ?>
+			<?php bbp_get_template_part( 'form', 'search' ); ?>
+		<?php endif; ?>
 		
 	</header>
 	

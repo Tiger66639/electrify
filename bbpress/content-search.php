@@ -29,13 +29,8 @@
 
 		 <?php bbp_get_template_part( 'feedback',   'no-search' ); ?>
 
-	<?php else : ?>
-
-		<?php bbp_get_template_part( 'form', 'search' ); ?>
-
 	<?php endif; ?>
 
 	<?php do_action( 'bbp_template_after_search_results' ); ?>
 
 </div>
-

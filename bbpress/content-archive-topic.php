@@ -9,38 +9,24 @@
 
 ?>
 
-<div id="bbpress-forums">
+<?php bbp_breadcrumb(); ?>
 
-	<?php if ( bbp_allow_search() ) : ?>
+<?php if ( bbp_is_topic_tag() ) bbp_topic_tag_description(); ?>
 
-		<div class="bbp-search-form">
+<?php do_action( 'bbp_template_before_topics_index' ); ?>
 
-			<?php bbp_get_template_part( 'form', 'search' ); ?>
+<?php if ( bbp_has_topics() ) : ?>
 
-		</div>
+	<?php //bbp_get_template_part( 'pagination', 'topics'    ); ?>
 
-	<?php endif; ?>
+	<?php bbp_get_template_part( 'loop',       'topics'    ); ?>
 
-	<?php bbp_breadcrumb(); ?>
+	<?php bbp_get_template_part( 'pagination', 'topics'    ); ?>
 
-	<?php if ( bbp_is_topic_tag() ) bbp_topic_tag_description(); ?>
+<?php else : ?>
 
-	<?php do_action( 'bbp_template_before_topics_index' ); ?>
+	<?php bbp_get_template_part( 'feedback',   'no-topics' ); ?>
 
-	<?php if ( bbp_has_topics() ) : ?>
+<?php endif; ?>
 
-		<?php bbp_get_template_part( 'pagination', 'topics'    ); ?>
-
-		<?php bbp_get_template_part( 'loop',       'topics'    ); ?>
-
-		<?php bbp_get_template_part( 'pagination', 'topics'    ); ?>
-
-	<?php else : ?>
-
-		<?php bbp_get_template_part( 'feedback',   'no-topics' ); ?>
-
-	<?php endif; ?>
-
-	<?php do_action( 'bbp_template_after_topics_index' ); ?>
-
-</div>
+<?php do_action( 'bbp_template_after_topics_index' ); ?>

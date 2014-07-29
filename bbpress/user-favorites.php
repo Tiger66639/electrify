@@ -17,7 +17,7 @@
 
 			<?php if ( bbp_get_user_favorites() ) : ?>
 
-				<?php bbp_get_template_part( 'pagination', 'topics' ); ?>
+				<?php //bbp_get_template_part( 'pagination', 'topics' ); ?>
 
 				<?php bbp_get_template_part( 'loop',       'topics' ); ?>
 

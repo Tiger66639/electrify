@@ -20,22 +20,22 @@
 
 		<?php do_action( 'bbp_user_edit_before_name' ); ?>
 
-		<div>
+		<div class="form-group">
 			<label for="first_name"><?php _e( 'First Name', 'bbpress' ) ?></label>
 			<input type="text" name="first_name" id="first_name" value="<?php bbp_displayed_user_field( 'first_name', 'edit' ); ?>" class="regular-text" tabindex="<?php bbp_tab_index(); ?>" />
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="last_name"><?php _e( 'Last Name', 'bbpress' ) ?></label>
 			<input type="text" name="last_name" id="last_name" value="<?php bbp_displayed_user_field( 'last_name', 'edit' ); ?>" class="regular-text" tabindex="<?php bbp_tab_index(); ?>" />
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="nickname"><?php _e( 'Nickname', 'bbpress' ); ?></label>
 			<input type="text" name="nickname" id="nickname" value="<?php bbp_displayed_user_field( 'nickname', 'edit' ); ?>" class="regular-text" tabindex="<?php bbp_tab_index(); ?>" />
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="display_name"><?php _e( 'Display Name', 'bbpress' ) ?></label>
 
 			<?php bbp_edit_user_display_name(); ?>
@@ -53,7 +53,7 @@
 
 		<?php do_action( 'bbp_user_edit_before_contact' ); ?>
 
-		<div>
+		<div class="form-group">
 			<label for="url"><?php _e( 'Website', 'bbpress' ) ?></label>
 			<input type="text" name="url" id="url" value="<?php bbp_displayed_user_field( 'user_url', 'edit' ); ?>" class="regular-text code" tabindex="<?php bbp_tab_index(); ?>" />
 		</div>
@@ -78,7 +78,7 @@
 
 		<?php do_action( 'bbp_user_edit_before_about' ); ?>
 
-		<div>
+		<div class="form-group form-group-lg">
 			<label for="description"><?php _e( 'Biographical Info', 'bbpress' ); ?></label>
 			<textarea name="description" id="description" rows="5" cols="30" tabindex="<?php bbp_tab_index(); ?>"><?php bbp_displayed_user_field( 'description', 'edit' ); ?></textarea>
 		</div>
@@ -94,14 +94,13 @@
 
 		<?php do_action( 'bbp_user_edit_before_account' ); ?>
 
-		<div>
-			<label for="user_login"><?php _e( 'Username', 'bbpress' ); ?></label>
+		<div class="form-group">
+			<label for="user_login" class="req"><?php _e( 'Username', 'bbpress' ); ?></label>
 			<input type="text" name="user_login" id="user_login" value="<?php bbp_displayed_user_field( 'user_login', 'edit' ); ?>" disabled="disabled" class="regular-text" tabindex="<?php bbp_tab_index(); ?>" />
 		</div>
 
-		<div>
-			<label for="email"><?php _e( 'Email', 'bbpress' ); ?></label>
-
+		<div class="form-group">
+			<label for="email" class="req"><?php _e( 'Email', 'bbpress' ); ?></label>
 			<input type="text" name="email" id="email" value="<?php bbp_displayed_user_field( 'user_email', 'edit' ); ?>" class="regular-text" tabindex="<?php bbp_tab_index(); ?>" />
 
 			<?php
@@ -121,13 +120,29 @@
 		</div>
 
 		<div id="password">
-			<label for="pass1"><?php _e( 'New Password', 'bbpress' ); ?></label>
+			
+		<h2 class="entry-title"><?php _e( 'Change Password', 'bbpress' ); ?></h2>
 			<fieldset class="bbp-form password">
-				<input type="password" name="pass1" id="pass1" size="16" value="" autocomplete="off" tabindex="<?php bbp_tab_index(); ?>" />
-				<span class="description"><?php _e( 'If you would like to change the password type a new one. Otherwise leave this blank.', 'bbpress' ); ?></span>
-
-				<input type="password" name="pass2" id="pass2" size="16" value="" autocomplete="off" tabindex="<?php bbp_tab_index(); ?>" />
-				<span class="description"><?php _e( 'Type your new password again.', 'bbpress' ); ?></span><br />
+				
+				<legend>
+					<?php _e( 'New Password', 'bbpress' ); ?>
+				</legend>
+				
+				<div class="form-group">
+					
+					<label for="pass1"><?php _e( 'Password', 'bbpress' ); ?></label>
+					<input type="password" name="pass1" id="pass1" size="16" value="" placeholder="To leave your password unchanged, leave this box empty." autocomplete="off" tabindex="<?php bbp_tab_index(); ?>" />
+					<!-- <span class="description"><?php _e( 'If you would like to change the password type a new one. Otherwise leave this blank.', 'bbpress' ); ?></span> -->
+					
+				</div>
+				
+				<div class="form-group">
+					
+					<label for="pass2"><?php _e( 'Confirm', 'bbpress' ); ?></label>
+					<input type="password" name="pass2" id="pass2" size="16" value="" autocomplete="off" tabindex="<?php bbp_tab_index(); ?>" />
+					<!-- <span class="description"><?php _e( 'Type your new password again.', 'bbpress' ); ?></span><br /> -->
+					
+				</div>
 
 				<div id="pass-strength-result"></div>
 				<span class="description indicator-hint"><?php _e( 'Your password should be at least ten characters long. Use upper and lower case letters, numbers, and symbols to make it even stronger.', 'bbpress' ); ?></span>
@@ -149,7 +164,7 @@
 
 			<?php if ( is_multisite() && is_super_admin() && current_user_can( 'manage_network_options' ) ) : ?>
 
-				<div>
+				<div class="form-group">
 					<label for="super_admin"><?php _e( 'Network Role', 'bbpress' ); ?></label>
 					<label>
 						<input class="checkbox" type="checkbox" id="super_admin" name="super_admin"<?php checked( is_super_admin( bbp_get_displayed_user_id() ) ); ?> tabindex="<?php bbp_tab_index(); ?>" />
@@ -168,10 +183,9 @@
 	<?php endif; ?>
 
 	<?php do_action( 'bbp_user_edit_after' ); ?>
-
-	<fieldset class="submit">
-		<legend><?php _e( 'Save Changes', 'bbpress' ); ?></legend>
-		<div>
+	
+	<fieldset class="bbp-form submit">
+		<div class="form-group">
 
 			<?php bbp_edit_user_form_fields(); ?>
 

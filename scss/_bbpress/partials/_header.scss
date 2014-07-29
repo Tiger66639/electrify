@@ -38,6 +38,11 @@
 		}
 	}
 	
+	li.active a
+	{
+		@extend a.active;
+	}
+	
 	.interface-left
 	{
 		@extend %stn-col-xs-12;

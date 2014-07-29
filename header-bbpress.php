@@ -30,6 +30,63 @@
 						<?php bbp_topic_admin_links(); ?>
 						
 					<?php endif; ?>
+					<?php if ( bbp_is_single_user() ): ?>
+						
+						<li>
+							<a href="<?php bbp_user_profile_url(); ?>"
+								class="<?php if ( bbp_is_single_user_profile() ) echo 'active'; ?>">
+								<span data-icon="hierarchy"></span>
+							</a>
+						</li>
+						
+						<li>
+							<a href="<?php bbp_user_topics_created_url(); ?>"
+								class="<?php if ( bbp_is_single_user_topics() ) echo 'active'; ?>">
+								<span data-icon="standard"></span>
+							</a>
+						</li>
+						
+						<li>
+							<a href="<?php bbp_user_replies_created_url(); ?>"
+								class="<?php if ( bbp_is_single_user_replies() ) echo 'active'; ?>">
+								<span data-icon="comment"></span>
+							</a>
+						</li>
+						
+						<?php if ( bbp_is_favorites_active() ): ?>
+							
+							<li>
+								<a href="<?php bbp_favorites_permalink(); ?>"
+									class="<?php if ( bbp_is_favorites() ) echo 'active'; ?>">
+									<span data-icon="heart"></span>
+								</a>
+							</li>
+							
+						<?php endif; ?>
+						
+						<?php if ( bbp_is_user_home() || current_user_can( 'edit_users' ) ): ?>
+							
+							<?php if ( bbp_is_subscriptions_active() ): ?>
+								
+								<li>
+									<a href="<?php bbp_subscriptions_permalink(); ?>"
+										class="<?php if ( bbp_is_subscriptions() ) echo 'active'; ?>">
+										<span data-icon="subscribed"></span>
+									</a>
+								</li>
+								
+								<li>
+									<a href="<?php bbp_user_profile_edit_url(); ?>"
+										class="<?php if ( bbp_is_single_user_edit() ) echo 'active'; ?>">
+										<span data-icon="edit"></span>
+									</a>
+								</li>
+								
+							<?php endif; ?>
+							
+						<?php endif; ?>
+						
+					<?php endif; ?>
 				</ul>
 			</nav>
 			<nav class="interface-right">
@@ -48,7 +105,7 @@
 						<a href="<?php bbp_user_profile_url( wp_get_current_user()->ID ); ?>">
 							<span data-icon="user"></span>
 						</a>
-						<?php //echo wp_get_current_user()->user_firstname; ?>
+						<!-- <?php //echo wp_get_current_user()->user_firstname; ?> -->
 					</li>
 					<?php if ( bbp_allow_search() ): ?>
 						<li class="bbp-search">

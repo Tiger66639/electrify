@@ -19,9 +19,17 @@
 					<?php echo get_avatar( bbp_get_displayed_user_field( 'user_email', 'raw' ), apply_filters( 'bbp_single_user_details_avatar_size', 150 ) ); ?>
 				</a>
 			</span>
+			
+			<div class="email">
+				<a href="<?php bbp_displayed_user_field( 'user_email' ); ?>">
+					<?php bbp_displayed_user_field( 'user_email' ); ?>
+				</a>
+			</div>
 
 		</div><!-- #author-avatar -->
-
+		
+		<?php if ( false ): ?>
+		
 		<div id="bbp-user-navigation">
 			<ul>
 				<li class="<?php if ( bbp_is_single_user_profile() ) :?>current<?php endif; ?>">
@@ -70,6 +78,9 @@
 
 			</ul>
 		</div><!-- #bbp-user-navigation -->
+		
+		<?php endif; ?>
+		
 	</div><!-- #bbp-single-user-details -->
 
 	<?php do_action( 'bbp_template_after_user_details' ); ?>

@@ -109,3 +109,68 @@ a
 	}
 	
 }
+
+.c #bbpress-user
+{
+	width:100%;
+	@extend %stn-col-xs-12;
+	@extend %stn-row;
+	
+	&-history
+	{
+		@extend %stn-col-xs-12;
+		@extend %stn-col-sm-8;
+		@extend %stn-col-md-9;
+	}
+	
+	&-details
+	{
+		@extend %stn-col-xs-12;
+		@extend %stn-col-sm-4;
+		@extend %stn-col-md-3;
+		
+		#bbp-user-avatar
+		{
+			margin:5% 0;
+			text-align:right;
+			
+			img
+			{
+				border:3px solid $color-2;
+			}
+			
+		}
+		
+	}
+	
+}
+
+.bbp-form
+{
+	//border-top:1px solid $color-bg-2;
+	margin:4% 0;
+	//padding:2% 0 0;
+	
+	legend
+	{
+		display:none;
+		// @include font-h;
+		// color:$color-2;
+		// font-size:1.5em;
+	}
+	
+}
+
+.bbp-user-section
+{
+	margin:1% 0 3%;
+}
+
+.entry-title
+{
+	// display:none;
+	@include font-h;
+	color:$color-2;
+	font-size:2em;
+	margin:4% 0 0;
+}

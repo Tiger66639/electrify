@@ -32,6 +32,15 @@ function electrify_bbp_topic_admin()
 		'before' => '',
 		'after' => '',
 		'sep' => '',
+		'links' => array(
+			// 'edit' => electrify_bbp_topic_admin_edit(),
+			// 'merge' => electrify_bbp_topic_admin_merge(),
+			// 'sticky' => electrify_bbp_topic_admin_sticky(),
+			// 'close' => electrify_bbp_topic_admin_close(),
+			// 'trash' => electrify_bbp_topic_admin_trash(),
+			// 'spam' => electrify_bbp_topic_admin_spam(),
+			// 'reply' => electrify_bbp_topic_admin_reply(),
+		)
 	);
 }
 add_filter( 'bbp_before_get_topic_admin_links_parse_args', 'electrify_bbp_topic_admin' );
@@ -116,3 +125,93 @@ function electrify_bbp_topic_admin_reply()
 	);
 }
 add_filter( 'bbp_before_get_topic_reply_link_parse_args', 'electrify_bbp_topic_admin_reply' );
+
+
+//	REPLY ADMIN LINKS
+//
+
+function electrify_bbp_reply_edit()
+{
+	return array(
+		'link_before' => '<li class="reply-toolbar-edit">',
+		'link_after' => '</li>',
+		'edit_text' => '<span data-icon="edit"></span>',
+	);
+}
+add_filter( 'bbp_before_get_reply_edit_link_parse_args', 'electrify_bbp_reply_edit' );
+
+function electrify_bbp_reply_move()
+{
+	return array(
+		'link_before' => '<li class="reply-toolbar-move">',
+		'link_after' => '</li>',
+		'split_text' => '<span data-icon="reply"></span>',
+	);
+}
+add_filter( 'bbp_before_get_reply_move_link_parse_args', 'electrify_bbp_reply_move' );
+
+function electrify_bbp_reply_split()
+{
+	return array(
+		'link_before' => '<li class="reply-toolbar-split">',
+		'link_after' => '</li>',
+		'split_text' => '<span data-icon="xpost"></span>',
+	);
+}
+add_filter( 'bbp_before_get_topic_split_link_parse_args', 'electrify_bbp_reply_split' );
+
+function electrify_bbp_reply_trash()
+{
+	return array(
+		'link_before' => '<li class="reply-toolbar-trash">',
+		'link_after' => '</li>',
+		'sep' => '',
+		'trash_text' => '<span data-icon="trash"></span>',
+		'delete_text' => '<span data-icon="unapprove"></span>',
+		'restore_text' => '<span data-icon="refresh"></span>',
+	);
+}
+add_filter( 'bbp_before_get_reply_trash_link_parse_args', 'electrify_bbp_reply_trash' );
+
+function electrify_bbp_reply_spam()
+{
+	return array(
+		'link_before' => '<li class="reply-toolbar-spam">',
+		'link_after' => '</li>',
+		'spam_text' => '<span data-icon="flag"></span>',
+		'unspam_text' => '<span data-icon="close-alt"></span>',
+	);
+}
+add_filter( 'bbp_before_get_reply_spam_link_parse_args', 'electrify_bbp_reply_spam' );
+
+
+function electrify_bbp_reply_to()
+{
+	return array(
+		'link_before' => '<li class="reply-toolbar-reply-to">',
+		'link_after' => '</li>',
+		'reply_text' => __( 'Reply', 'bbpress' ),
+	);
+}
+add_filter( 'bbp_before_get_reply_to_link_parse_args', 'electrify_bbp_reply_to' );
+
+
+function electrify_bbp_reply_admin()
+{
+	return array(
+		'before' => '<ul class="reply-toolbar">',
+		'after' => '</ul>',
+		'sep' => '',
+	);
+}
+add_filter( 'bbp_before_get_reply_admin_links_parse_args', 'electrify_bbp_reply_admin' );
+
+//	WALKER REPLY GENERATION
+//
+function electrify_bbp_reply_walker()
+{
+	return array(
+		'style' => 'div',
+	);
+}
+add_filter( 'bbp_before_list_replies_parse_args', 'electrify_bbp_reply_walker' );

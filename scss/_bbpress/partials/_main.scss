@@ -160,6 +160,86 @@ a
 	}
 	
 }
+.bbp-replies
+{
+	max-width:950px;
+	margin:0 auto;
+	
+	.bbp-reply
+	{
+		line-height:1.5;
+		margin:2em 0;
+		
+		&-header
+		{
+			@include stn-list( row, space-between, $sel-c: "> div", $sel-itms: "> hgroup,> div" );
+			background:#222;
+			padding-left:0.5em;
+			line-height:1;
+			
+		}
+		
+		&-meta
+		{
+			@include stn-list( row, left, $sel-c: "> ul", $sel-itms: "li" );
+			margin:auto 0;
+			
+			li
+			{
+				vertical-align:middle;
+				margin-right:1em;
+			}
+			
+			img
+			{
+				vertical-align:middle;
+			}
+			
+			.bbp-author-role
+			{
+				display:inline;
+			}
+			
+		}
+		
+		&-interface
+		{
+			@include stn-list( row, right, $sel-c: "> div", $sel-itms: "> li, > a" );
+			
+			.reply-toolbar li
+			{
+				display:inline-block;
+			}
+			
+			a
+			{
+				display:block;
+				
+				text-decoration:none;
+				&:hover
+				{
+					background:$color-2;
+					[data-icon] { color:$color-1; }
+				}
+				
+				[data-icon]
+				{
+					font-size:1.5em;
+					padding:0.2em 0.1em;
+				}
+				
+			}
+			
+		}
+		
+		p
+		{
+			margin:0.7em 0;
+		}
+		
+	}
+	
+}
 
 .bbp-user-section
 {

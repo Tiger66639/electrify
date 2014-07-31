@@ -9,13 +9,56 @@
 
 ?>
 
+<section id="reply-<?php bbp_reply_id(); ?>" class="bbp-reply">
+	
+	<header class="bbp-reply-header">
+		<div>
+			<hgroup class="bbp-reply-meta">
+				<ul>
+					<li class="bbp-reply-author">
+						<?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
+						<?php bbp_reply_author_link( array( 'size' => 14, 'show_role' => true, ) ); ?>
+						<?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
+					</li>
+					<?php if ( bbp_is_user_keymaster() ) : ?>
+						<?php do_action( 'bbp_theme_before_reply_author_admin_details' ); ?>
+						<li class="bbp-reply-ip">
+							<?php bbp_author_ip( bbp_get_reply_id() ); ?>
+						</li>
+						<?php do_action( 'bbp_theme_after_reply_author_admin_details' ); ?>
+					<?php endif; ?>
+					<li class="bp-reply-age">
+						<?php bbp_reply_post_date( 0, true ); ?>
+					</li>
+				</ul>
+			</hgroup>
+			<div class="bbp-reply-interface">
+				<div>
+					<?php do_action( 'bbp_theme_before_reply_admin_links' ); ?>
+					<?php bbp_reply_admin_links(); ?>
+					<?php do_action( 'bbp_theme_after_reply_admin_links' ); ?>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<article <?php bbp_reply_class( 'bbp-reply-content' ); ?>>
+		<?php do_action( 'bbp_theme_before_reply_content' ); ?>
+		<?php bbp_reply_content(); ?>
+		<?php do_action( 'bbp_theme_after_reply_content' ); ?>
+	</article>
+	
+</section>
+
+<?php if ( false ): ?>
+
 <div id="post-<?php bbp_reply_id(); ?>" class="bbp-reply-header">
 
 	<div class="bbp-meta">
 
 		<span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
 
-		<?php if ( bbp_is_single_user_replies() ) : ?>
+		<?php if ( false && bbp_is_single_user_replies() ) : ?>
 
 			<span class="bbp-header">
 				<?php _e( 'in reply to: ', 'bbpress' ); ?>
@@ -33,16 +76,12 @@
 		<?php do_action( 'bbp_theme_after_reply_admin_links' ); ?>
 
 	</div><!-- .bbp-meta -->
-
-</div><!-- #post-<?php bbp_reply_id(); ?> -->
-
-<div <?php bbp_reply_class(); ?>>
-
+	
 	<div class="bbp-reply-author">
 
 		<?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
 
-		<?php bbp_reply_author_link( array( 'sep' => '<br />', 'show_role' => true ) ); ?>
+		<?php bbp_reply_author_link( array( 'show_role' => true, 'size' => 14, ) ); ?>
 
 		<?php if ( bbp_is_user_keymaster() ) : ?>
 
@@ -58,6 +97,10 @@
 
 	</div><!-- .bbp-reply-author -->
 
+</div><!-- #post-<?php bbp_reply_id(); ?> -->
+
+<div <?php bbp_reply_class(); ?>>
+
 	<div class="bbp-reply-content">
 
 		<?php do_action( 'bbp_theme_before_reply_content' ); ?>
@@ -69,3 +112,5 @@
 	</div><!-- .bbp-reply-content -->
 
 </div><!-- .reply -->
+
+<?php endif; ?>

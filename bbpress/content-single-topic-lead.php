@@ -41,7 +41,7 @@
 
 				<?php do_action( 'bbp_theme_before_topic_admin_links' ); ?>
 
-				<?php bbp_topic_admin_links(); ?>
+				<?php //bbp_topic_admin_links(); ?>
 
 				<?php do_action( 'bbp_theme_after_topic_admin_links' ); ?>
 

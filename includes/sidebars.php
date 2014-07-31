@@ -12,6 +12,7 @@ function electrify_nav_menus()
 	register_nav_menus( array(
 		'nav_primary' => __( 'Primary Navigation' ),
 		'nav_mobile' => __( 'Mobile Navigation' ),
+		'nav_admin' => __( 'Admin Navigation' ),
 	) );
 
 }

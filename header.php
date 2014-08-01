@@ -25,8 +25,8 @@
 				{
 					wp_nav_menu( array(
 						'theme_location' => 'nav_admin',
-						'container' => false,
-						'container_class' => false,
+						'container' => 'div',
+						'container_class' => 'n-c',
 						'container_id' => false,
 						'menu_id' => 'n',
 						'depth' => 2,

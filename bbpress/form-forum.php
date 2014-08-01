@@ -13,7 +13,7 @@
 
 <div id="bbpress-forums">
 
-	<?php bbp_breadcrumb(); ?>
+	
 
 	<?php bbp_single_forum_description( array( 'forum_id' => bbp_get_forum_id() ) ); ?>
 

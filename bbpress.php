@@ -18,6 +18,7 @@ if ( ! is_user_logged_in() )
 
 <div class="c">
 	
+	<?php bbp_breadcrumb(); ?>
 	<?php the_content(); ?>
 	
 </div>

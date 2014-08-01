@@ -21,7 +21,7 @@
 
 	<?php endif; ?>
 
-	<?php bbp_breadcrumb(); ?>
+	
 
 	<?php bbp_forum_subscription_link(); ?>
 

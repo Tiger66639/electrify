@@ -9,38 +9,66 @@
 
 ?>
 
-<section id="reply-<?php bbp_reply_id(); ?>" class="bbp-reply">
-	
-	<header class="bbp-reply-header">
-		<div>
-			<hgroup class="bbp-reply-meta">
-				<ul>
-					<li class="bbp-reply-author">
-						<?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
-						<?php bbp_reply_author_link( array( 'size' => 14, 'show_role' => true, ) ); ?>
-						<?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
-					</li>
-					<?php if ( bbp_is_user_keymaster() ) : ?>
-						<?php do_action( 'bbp_theme_before_reply_author_admin_details' ); ?>
-						<li class="bbp-reply-ip">
-							<?php bbp_author_ip( bbp_get_reply_id() ); ?>
+<section id="post-<?php bbp_reply_id(); ?>" class="bbp-reply">
+	<?php if ( ! bbp_is_topic( bbp_get_reply_id() ) ): ?>
+		<header class="bbp-reply-header">
+			<div>
+				<hgroup class="bbp-reply-meta">
+					<ul>
+						<li class="bbp-reply-author">
+							<?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
+							<?php bbp_reply_author_link( array( 'size' => 16, 'show_role' => true, ) ); ?>
+							<?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
 						</li>
-						<?php do_action( 'bbp_theme_after_reply_author_admin_details' ); ?>
-					<?php endif; ?>
-					<li class="bp-reply-age">
-						<?php bbp_reply_post_date( 0, true ); ?>
-					</li>
-				</ul>
-			</hgroup>
-			<div class="bbp-reply-interface">
-				<div>
-					<?php do_action( 'bbp_theme_before_reply_admin_links' ); ?>
-					<?php bbp_reply_admin_links(); ?>
-					<?php do_action( 'bbp_theme_after_reply_admin_links' ); ?>
+						<?php if ( bbp_is_user_keymaster() ) : ?>
+							<?php do_action( 'bbp_theme_before_reply_author_admin_details' ); ?>
+							<li class="bbp-reply-ip">
+								<?php bbp_author_ip( bbp_get_reply_id() ); ?>
+							</li>
+							<?php do_action( 'bbp_theme_after_reply_author_admin_details' ); ?>
+						<?php endif; ?>
+						<li class="bp-reply-age">
+							<a href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink">
+								<?php bbp_reply_post_date( 0, true ); ?>
+							</a>
+						</li>
+					</ul>
+				</hgroup>
+				<div class="bbp-reply-interface">
+					<div class="bbp-reply-interface-c">
+						<?php do_action( 'bbp_theme_before_reply_admin_links' ); ?>
+						<?php bbp_reply_admin_links(); ?>
+						<?php do_action( 'bbp_theme_after_reply_admin_links' ); ?>
+					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
+	<?php else: ?>
+		<header class="bbp-topic-header">
+			<ul class="bbp-topic-header-c">
+				<li class="bbp-topic-title">
+					<?php bbp_reply_title(); ?>
+				</li>
+				<li class="bbp-topic-author">
+					<?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
+					<?php bbp_reply_author_link( array( 'size' => 24, 'show_role' => true, ) ); ?>
+					<?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
+				</li>
+				<?php if ( bbp_is_user_keymaster() ) : ?>
+					<?php do_action( 'bbp_theme_before_reply_author_admin_details' ); ?>
+					<li class="bbp-topic-ip">
+						<?php bbp_author_ip( bbp_get_reply_id() ); ?>
+					</li>
+					<?php do_action( 'bbp_theme_after_reply_author_admin_details' ); ?>
+				<?php endif; ?>
+				<li class="bp-topic-age">
+					<a href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink">
+						<?php bbp_reply_post_date( 0, true ); ?>
+					</a>
+				</li>
+			</ul>
+		</header>
+	<?php endif; ?>
 	
 	<article <?php bbp_reply_class( 'bbp-reply-content' ); ?>>
 		<?php do_action( 'bbp_theme_before_reply_content' ); ?>

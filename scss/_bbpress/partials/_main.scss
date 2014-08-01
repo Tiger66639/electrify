@@ -25,6 +25,12 @@ a
 	
 	@include font-h;
 	background:#222;
+	
+	a:hover
+	{
+		text-decoration:underline;
+	}
+	
 }
 
 .c
@@ -173,9 +179,9 @@ a
 		&-header
 		{
 			@include stn-list( row, space-between, $sel-c: "> div", $sel-itms: "> hgroup,> div" );
-			background:#222;
-			padding-left:0.5em;
+			padding:0.5em;
 			line-height:1;
+			background:#222;
 			
 		}
 		
@@ -239,6 +245,12 @@ a
 		
 	}
 	
+}
+
+.bbp-topic-header
+{
+	@include font-h;
+	font-size:1.5em;
 }
 
 .bbp-user-section

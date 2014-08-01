@@ -71,10 +71,10 @@
 
 					<?php do_action( 'bbp_theme_before_topic_form_title' ); ?>
 
-					<p>
-						<label for="bbp_topic_title"><?php printf( __( 'Topic Title (Maximum Length: %d):', 'bbpress' ), bbp_get_title_max_length() ); ?></label><br />
-						<input type="text" id="bbp_topic_title" value="<?php bbp_form_topic_title(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_title" maxlength="<?php bbp_title_max_length(); ?>" />
-					</p>
+					<div class="form-group">
+						<label for="bbp_topic_title" class="req"><?php _e( 'Topic Title', 'bbpress' ); ?></label>
+						<input type="text" id="bbp_topic_title" value="<?php bbp_form_topic_title(); ?>" placeholder="<?php bbp_get_title_max_length(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_title" maxlength="<?php bbp_title_max_length(); ?>" />
+					</div>
 
 					<?php do_action( 'bbp_theme_after_topic_form_title' ); ?>
 
@@ -97,10 +97,10 @@
 
 						<?php do_action( 'bbp_theme_before_topic_form_tags' ); ?>
 
-						<p>
-							<label for="bbp_topic_tags"><?php _e( 'Topic Tags:', 'bbpress' ); ?></label><br />
+						<div class="form-group">
+							<label for="bbp_topic_tags"><?php _e( 'Topic Tags', 'bbpress' ); ?></label><br />
 							<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
-						</p>
+						</div>
 
 						<?php do_action( 'bbp_theme_after_topic_form_tags' ); ?>
 
@@ -110,15 +110,15 @@
 
 						<?php do_action( 'bbp_theme_before_topic_form_forum' ); ?>
 
-						<p>
-							<label for="bbp_forum_id"><?php _e( 'Forum:', 'bbpress' ); ?></label><br />
+						<div class="form-group">
+							<label for="bbp_forum_id"><?php _e( 'Forum', 'bbpress' ); ?></label>
 							<?php
 								bbp_dropdown( array(
 									'show_none' => __( '(No Forum)', 'bbpress' ),
 									'selected'  => bbp_get_form_topic_forum()
 								) );
 							?>
-						</p>
+						</div>
 
 						<?php do_action( 'bbp_theme_after_topic_form_forum' ); ?>
 
@@ -128,25 +128,24 @@
 
 						<?php do_action( 'bbp_theme_before_topic_form_type' ); ?>
 
-						<p>
+						<div class="form-group">
 
-							<label for="bbp_stick_topic"><?php _e( 'Topic Type:', 'bbpress' ); ?></label><br />
-
+							<label for="bbp_stick_topic"><?php _e( 'Topic Type', 'bbpress' ); ?></label>
 							<?php bbp_form_topic_type_dropdown(); ?>
 
-						</p>
+						</div>
 
 						<?php do_action( 'bbp_theme_after_topic_form_type' ); ?>
 
 						<?php do_action( 'bbp_theme_before_topic_form_status' ); ?>
 
-						<p>
+						<div class="form-group">
 
-							<label for="bbp_topic_status"><?php _e( 'Topic Status:', 'bbpress' ); ?></label><br />
+							<label for="bbp_topic_status"><?php _e( 'Topic Status', 'bbpress' ); ?></label>
 
 							<?php bbp_form_topic_status_dropdown(); ?>
 
-						</p>
+						</div>
 
 						<?php do_action( 'bbp_theme_after_topic_form_status' ); ?>
 
@@ -184,9 +183,9 @@
 								<label for="bbp_log_topic_edit"><?php _e( 'Keep a log of this edit:', 'bbpress' ); ?></label><br />
 							</legend>
 
-							<div>
-								<label for="bbp_topic_edit_reason"><?php printf( __( 'Optional reason for editing:', 'bbpress' ), bbp_get_current_user_name() ); ?></label><br />
-								<input type="text" value="<?php bbp_form_topic_edit_reason(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_edit_reason" id="bbp_topic_edit_reason" />
+							<div class="form-group">
+								<label for="bbp_topic_edit_reason"><?php printf( __( 'Reason for Editing', 'bbpress' ), bbp_get_current_user_name() ); ?></label>
+								<input type="text" value="<?php bbp_form_topic_edit_reason(); ?>" placeholder="(optional)" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_edit_reason" id="bbp_topic_edit_reason" />
 							</div>
 						</fieldset>
 

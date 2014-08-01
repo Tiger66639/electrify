@@ -63,10 +63,10 @@
 
 					<?php do_action( 'bbp_theme_before_forum_form_title' ); ?>
 
-					<p>
+					<div class="form-group">
 						<label for="bbp_forum_title"><?php printf( __( 'Forum Name (Maximum Length: %d):', 'bbpress' ), bbp_get_title_max_length() ); ?></label><br />
 						<input type="text" id="bbp_forum_title" value="<?php bbp_form_forum_title(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_forum_title" maxlength="<?php bbp_title_max_length(); ?>" />
-					</p>
+					</div>
 
 					<?php do_action( 'bbp_theme_after_forum_form_title' ); ?>
 
@@ -87,34 +87,34 @@
 
 					<?php do_action( 'bbp_theme_before_forum_form_type' ); ?>
 
-					<p>
+					<div class="form-group">
 						<label for="bbp_forum_type"><?php _e( 'Forum Type:', 'bbpress' ); ?></label><br />
 						<?php bbp_form_forum_type_dropdown(); ?>
-					</p>
+					</div>
 
 					<?php do_action( 'bbp_theme_after_forum_form_type' ); ?>
 
 					<?php do_action( 'bbp_theme_before_forum_form_status' ); ?>
 
-					<p>
+					<div class="form-group">
 						<label for="bbp_forum_status"><?php _e( 'Status:', 'bbpress' ); ?></label><br />
 						<?php bbp_form_forum_status_dropdown(); ?>
-					</p>
+					</div>
 
 					<?php do_action( 'bbp_theme_after_forum_form_status' ); ?>
 
 					<?php do_action( 'bbp_theme_before_forum_form_status' ); ?>
 
-					<p>
+					<div class="form-group">
 						<label for="bbp_forum_visibility"><?php _e( 'Visibility:', 'bbpress' ); ?></label><br />
 						<?php bbp_form_forum_visibility_dropdown(); ?>
-					</p>
+					</div>
 
 					<?php do_action( 'bbp_theme_after_forum_visibility_status' ); ?>
 
 					<?php do_action( 'bbp_theme_before_forum_form_parent' ); ?>
 
-					<p>
+					<div class="form-group">
 						<label for="bbp_forum_parent_id"><?php _e( 'Parent Forum:', 'bbpress' ); ?></label><br />
 
 						<?php
@@ -125,7 +125,7 @@
 								'exclude'   => bbp_get_forum_id()
 							) );
 						?>
-					</p>
+					</div>
 
 					<?php do_action( 'bbp_theme_after_forum_form_parent' ); ?>
 

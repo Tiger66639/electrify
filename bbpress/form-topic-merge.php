@@ -36,11 +36,16 @@
 
 						<fieldset class="bbp-form">
 							<legend><?php _e( 'Destination', 'bbpress' ); ?></legend>
-							<div>
-								<?php if ( bbp_has_topics( array( 'show_stickies' => false, 'post_parent' => bbp_get_topic_forum_id( bbp_get_topic_id() ), 'post__not_in' => array( bbp_get_topic_id() ) ) ) ) : ?>
-
-									<label for="bbp_destination_topic"><?php _e( 'Merge with this topic:', 'bbpress' ); ?></label>
-
+							
+							<?php if ( bbp_has_topics( array(
+								'show_stickies' => false,
+								'post_parent' => bbp_get_topic_forum_id( bbp_get_topic_id() ),
+								'post__not_in' => array( bbp_get_topic_id() )
+							) ) ): ?>
+								<div class="form-group">
+									<label for="bbp_destination_topic">
+										<?php _e( 'Merge with this topic:', 'bbpress' ); ?>
+									</label>
 									<?php
 										bbp_dropdown( array(
 											'post_type'   => bbp_get_topic_post_type(),
@@ -50,37 +55,44 @@
 											'select_id'   => 'bbp_destination_topic'
 										) );
 									?>
-
-								<?php else : ?>
-
-									<label><?php _e( 'There are no other topics in this forum to merge with.', 'bbpress' ); ?></label>
-
-								<?php endif; ?>
-
-							</div>
+								</div>
+								
+							<?php else : ?>
+								
+									<p>
+										<?php _e( 'There are no other topics in this forum to merge with.', 'bbpress' ); ?>
+									</p>
+							<?php endif; ?>
+							
 						</fieldset>
 
 						<fieldset class="bbp-form">
-							<legend><?php _e( 'Topic Extras', 'bbpress' ); ?></legend>
+							<legend>
+								<?php _e( 'Topic Extras', 'bbpress' ); ?>
+							</legend>
 
-							<div>
-
-								<?php if ( bbp_is_subscriptions_active() ) : ?>
-
+							<?php if ( bbp_is_subscriptions_active() ) : ?>
+								
+								<div class="form-group">
 									<input name="bbp_topic_subscribers" id="bbp_topic_subscribers" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
 									<label for="bbp_topic_subscribers"><?php _e( 'Merge topic subscribers', 'bbpress' ); ?></label><br />
-
-								<?php endif; ?>
-
+								</div>
+								
+							<?php endif; ?>
+							
+							<div class="form-group">
 								<input name="bbp_topic_favoriters" id="bbp_topic_favoriters" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
 								<label for="bbp_topic_favoriters"><?php _e( 'Merge topic favoriters', 'bbpress' ); ?></label><br />
-
-								<?php if ( bbp_allow_topic_tags() ) : ?>
-
+							</div>
+							
+							<?php if ( bbp_allow_topic_tags() ) : ?>
+								
+								<div class="form-group">
 									<input name="bbp_topic_tags" id="bbp_topic_tags" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
 									<label for="bbp_topic_tags"><?php _e( 'Merge topic tags', 'bbpress' ); ?></label><br />
-
-								<?php endif; ?>
+								</div>
+								
+							<?php endif; ?>
 
 							</div>
 						</fieldset>

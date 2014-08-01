@@ -26,7 +26,7 @@
 			<?php do_action( 'bbp_theme_before_reply_form' ); ?>
 
 			<fieldset class="bbp-form">
-				<legend><?php printf( __( 'Reply To: %s', 'bbpress' ), bbp_get_topic_title() ); ?></legend>
+				<legend><?php printf( __( 'Reply to %s', 'bbpress' ), bbp_get_topic_title() ); ?></legend>
 
 				<?php do_action( 'bbp_theme_before_reply_form_notices' ); ?>
 
@@ -71,10 +71,10 @@
 
 						<?php do_action( 'bbp_theme_before_reply_form_tags' ); ?>
 
-						<p>
-							<label for="bbp_topic_tags"><?php _e( 'Tags:', 'bbpress' ); ?></label><br />
+						<div class="form-group">
+							<label for="bbp_topic_tags"><?php _e( 'Tags', 'bbpress' ); ?></label><br />
 							<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
-						</p>
+						</div>
 
 						<?php do_action( 'bbp_theme_after_reply_form_tags' ); ?>
 
@@ -114,9 +114,9 @@
 								<label for="bbp_log_reply_edit"><?php _e( 'Keep a log of this edit:', 'bbpress' ); ?></label><br />
 							</legend>
 
-							<div>
-								<label for="bbp_reply_edit_reason"><?php printf( __( 'Optional reason for editing:', 'bbpress' ), bbp_get_current_user_name() ); ?></label><br />
-								<input type="text" value="<?php bbp_form_reply_edit_reason(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_reply_edit_reason" id="bbp_reply_edit_reason" />
+							<div class="form-group">
+								<label for="bbp_reply_edit_reason"><?php printf( __( 'Reason for editing', 'bbpress' ), bbp_get_current_user_name() ); ?></label><br />
+								<input type="text" value="<?php bbp_form_reply_edit_reason(); ?>" placeholder="(optional)" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_reply_edit_reason" id="bbp_reply_edit_reason" />
 							</div>
 						</fieldset>
 

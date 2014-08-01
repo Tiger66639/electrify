@@ -36,7 +36,7 @@
 						<fieldset class="bbp-form">
 							<legend><?php _e( 'Split Method', 'bbpress' ); ?></legend>
 
-							<div>
+							<div class="form-group">
 								<input name="bbp_topic_split_option" id="bbp_topic_split_option_reply" type="radio" checked="checked" value="reply" tabindex="<?php bbp_tab_index(); ?>" />
 								<label for="bbp_topic_split_option_reply"><?php printf( __( 'New topic in <strong>%s</strong> titled:', 'bbpress' ), bbp_get_forum_title( bbp_get_topic_forum_id( bbp_get_topic_id() ) ) ); ?></label>
 								<input type="text" id="bbp_topic_split_destination_title" value="<?php printf( __( 'Split: %s', 'bbpress' ), bbp_get_topic_title() ); ?>" tabindex="<?php bbp_tab_index(); ?>" size="35" name="bbp_topic_split_destination_title" />
@@ -44,7 +44,7 @@
 
 							<?php if ( bbp_has_topics( array( 'show_stickies' => false, 'post_parent' => bbp_get_topic_forum_id( bbp_get_topic_id() ), 'post__not_in' => array( bbp_get_topic_id() ) ) ) ) : ?>
 
-								<div>
+								<div class="form-group">
 									<input name="bbp_topic_split_option" id="bbp_topic_split_option_existing" type="radio" value="existing" tabindex="<?php bbp_tab_index(); ?>" />
 									<label for="bbp_topic_split_option_existing"><?php _e( 'Use an existing topic in this forum:', 'bbpress' ); ?></label>
 
@@ -67,26 +67,25 @@
 						<fieldset class="bbp-form">
 							<legend><?php _e( 'Topic Extras', 'bbpress' ); ?></legend>
 
-							<div>
-
-								<?php if ( bbp_is_subscriptions_active() ) : ?>
-
+							<?php if ( bbp_is_subscriptions_active() ) : ?>
+								<div class="form-group">
 									<input name="bbp_topic_subscribers" id="bbp_topic_subscribers" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
 									<label for="bbp_topic_subscribers"><?php _e( 'Copy subscribers to the new topic', 'bbpress' ); ?></label><br />
-
-								<?php endif; ?>
-
+								</div>
+							<?php endif; ?>
+							
+							<div class="form-group">
 								<input name="bbp_topic_favoriters" id="bbp_topic_favoriters" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
 								<label for="bbp_topic_favoriters"><?php _e( 'Copy favoriters to the new topic', 'bbpress' ); ?></label><br />
-
-								<?php if ( bbp_allow_topic_tags() ) : ?>
-
+							</div>
+							
+							<?php if ( bbp_allow_topic_tags() ) : ?>
+								<div class="form-group">
 									<input name="bbp_topic_tags" id="bbp_topic_tags" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
 									<label for="bbp_topic_tags"><?php _e( 'Copy topic tags to the new topic', 'bbpress' ); ?></label><br />
+								</div>
+							<?php endif; ?>
 
-								<?php endif; ?>
-
-							</div>
 						</fieldset>
 
 						<div class="bbp-template-notice error">

@@ -140,6 +140,7 @@ function electrify_assets()
 			
 			//	At last, my stuff.
 			//
+			wp_dequeue_script( 'navigation' ); // bbPress pages and regular pages use different scripts
 			wp_enqueue_style( 'bbp_master' );
 			wp_enqueue_script( 'bbp_navigation' );
 		}

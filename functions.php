@@ -23,11 +23,6 @@ if ( ! function_exists( 'electrify_setup' ) )
 		
 	}
 	
-	if ( is_bbpress() )
-	{
-		wp_dequeue_style( 'bbp-default' );
-	}
-	
 }
 add_action( 'after_setup_theme', 'electrify_setup' );
 

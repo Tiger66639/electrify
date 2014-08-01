@@ -7,6 +7,7 @@
 if ( ! is_user_logged_in() )
 {
 	wp_redirect( home_url(), 302 );
+	exit;
 }
 
 ?>

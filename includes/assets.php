@@ -105,7 +105,7 @@ function electrify_assets()
 	if ( is_front_page() || is_page_template( 'showcase.php' ) )
 	{
 		wp_enqueue_style( 'blocks' );
-		//wp_enqueue_script( 'slider' );
+		wp_enqueue_script( 'slider' );
 	}
 	
 	if ( is_page_template( 'showcase.php' ) )

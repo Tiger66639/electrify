@@ -215,3 +215,16 @@ function electrify_bbp_reply_walker()
 	);
 }
 add_filter( 'bbp_before_list_replies_parse_args', 'electrify_bbp_reply_walker' );
+
+
+//	BREADCRUMBS
+//
+function electrify_bbp_breadcrumb()
+{
+	return array(
+		// 'sep' => ( ! is_rtl() ? '/' : '\\' ),
+		// 'pad_sep' => 2,
+		'include_home' => false,
+	);
+}
+add_filter( 'bbp_before_get_breadcrumb_parse_args', 'electrify_bbp_breadcrumb' );

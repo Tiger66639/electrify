@@ -9,9 +9,11 @@
 	}
 	
 	input,
-	textarea
+	textarea,
+	select
 	{
 		@include reset-all;
+		border-radius:0;
 		background:$color-bg-2;
 		
 		@include stn-mdrn( flexbox )
@@ -26,6 +28,12 @@
 		}
 	}
 	
+	select::after
+	{
+		font-family:"Genericons";
+		content:"\f502";
+	}
+	
 	label
 	{
 		@include font-h;
@@ -37,7 +45,8 @@
 			@include prefix_( min-width, max-content, value, webkit, moz );
 		}
 		
-		&.required
+		&.required,
+		&.req
 		{
 			color:$color-2;
 		}
@@ -50,15 +59,22 @@
 	
 	input,
 	textarea,
-	label
+	label,
+	select
 	{
 		font-size:1.1em;
 		padding:1em;
+		@include prefix_( appearance, none, property, webkit, moz );
 		
 		@include stn-mdrn-no( flexbox )
 		{
 			display:inline-block;
 		}
+	}
+	
+	[disabled]
+	{
+		background:darken( $color-bg-2, 30% );
 	}
 	
 	textarea
@@ -88,7 +104,8 @@
 	
 }
 
-input[type="submit"]
+input[type="submit"],
+button[type="submit"]
 {
 	@include reset-all;
 	@include font-h;

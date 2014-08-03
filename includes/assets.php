@@ -74,6 +74,17 @@ function electrify_assets()
 	//
 	wp_register_style( 'showcase', $el_dir . '/_css/components/showcase.css', array( 'master' ) );
 	
+	
+	//	bbPress navigation (JS)
+	//	Adds JavaScript for navigation interactivity.
+	//
+	wp_register_script( 'bbp_navigation', $el_dir . '/_js/_bbpress/nav.js', array( 'jquery' ), '', true );
+	
+	//	bbPress Master (CSS)
+	//
+	wp_register_style( 'bbp_master', $el_dir . '/_css/_bbpress/bbpress.css', array( 'master' ) );
+	
+	
 	//	Shame (CSS)
 	//	A file for any changes developers want to make to the theme. Also for my own hacks.
 	//	Acts like the theme's normal stylesheet, so it can be edited inside of WordPress.
@@ -113,9 +124,26 @@ function electrify_assets()
 		wp_enqueue_script( 'comments_reveal' );
 	}
 	
-	if ( is_bbpress() )
+	if ( function_exists( 'is_bbpress' ) )
 	{
-		wp_dequeue_style( 'bbp-default' );
+		if ( is_bbpress() )
+		{
+			//	Because I don't want bbPress messing with my style.
+			//
+			wp_dequeue_style( 'bbp-default' );
+			
+			//	Because the Ajax in bbPress 2.5.4 is buggy as heck.
+			//
+			wp_dequeue_script( 'bbpress-topic' );
+			wp_dequeue_script( 'bbpress-reply' );
+			wp_dequeue_script( 'bbpress-user' );
+			
+			//	At last, my stuff.
+			//
+			wp_dequeue_script( 'navigation' ); // bbPress pages and regular pages use different scripts
+			wp_enqueue_style( 'bbp_master' );
+			wp_enqueue_script( 'bbp_navigation' );
+		}
 	}
 	
 	wp_enqueue_style( 'shame' );

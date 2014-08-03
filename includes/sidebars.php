@@ -12,6 +12,7 @@ function electrify_nav_menus()
 	register_nav_menus( array(
 		'nav_primary' => __( 'Primary Navigation' ),
 		'nav_mobile' => __( 'Mobile Navigation' ),
+		'nav_admin' => __( 'Admin Navigation' ),
 	) );
 
 }
@@ -63,19 +64,19 @@ function electrify_sidebars()
 		),
 		
 		array(
-			'footer_bbpress_left',
+			'footer_bbp_left',
 			'Forums footer - left column',
 			'Displays in the forums footer, in the left column.',
 		),
 		
 		array(
-			'footer_bbpress_center',
+			'footer_bbp_center',
 			'Forums footer - center column',
 			'Displays in the forums footer, in the center column.',
 		),
 		
 		array(
-			'footer_bbpress_right',
+			'footer_bbp_right',
 			'Forums footer - right column',
 			'Displays in the forums footer, in the right column.',
 		),
@@ -84,7 +85,7 @@ function electrify_sidebars()
 			'sidebar',
 			'Main Sidebar',
 			'Displays in the sidebar on most posts.',
-		)
+		),
 		
 	);
 	

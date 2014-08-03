@@ -288,6 +288,12 @@ body
 		width:100%;
 		z-index:1000;
 		background:transparent;
+		
+		body.admin-bar &
+		{
+			top:32px;
+		}
+		
 	}
 	
 	//	Only on desktops+, though.

@@ -22,6 +22,7 @@ if ( ! function_exists( 'electrify_setup' ) )
 		) );
 		
 	}
+	
 }
 add_action( 'after_setup_theme', 'electrify_setup' );
 
@@ -32,6 +33,7 @@ $includes = array(
 	'plugins',
 	'post-types',
 	'post-meta',
+	'bbpress',
 	'sidebars',
 	'assets',
 );
@@ -51,5 +53,4 @@ function electrify_excerpt() {
 	else
 		return 120;
 }
-
 add_action( 'excerpt_length', 'electrify_excerpt' );

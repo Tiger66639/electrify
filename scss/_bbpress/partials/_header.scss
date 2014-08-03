@@ -1,0 +1,90 @@
+
+.c
+{
+	@extend %stn-row;
+}
+
+#h-bbpress
+{
+	
+	@include font-h;
+	background:$color-1;
+	color:$color-2;
+	
+	a
+	{
+		display:block;
+		padding:0.45em 0.3em;
+		font-size:2em;
+		color:$color-2;
+		
+		span
+		{
+			color:$color-2;
+			margin-right:0;
+		}
+		
+		&:hover,
+		&.active
+		{
+			background:$color-2;
+			color:$color-1;
+			
+			span
+			{
+				color:$color-1;
+			}
+			
+		}
+	}
+	
+	li.active a
+	{
+		@extend a.active;
+	}
+	
+	.interface-left
+	{
+		@extend %stn-col-xs-12;
+		@extend %stn-col-sm-8;
+		
+		@include stn-list( row, left, $sel-c: "> ul", $sel-itms: "> li" );
+		
+	}
+	
+	.interface-right
+	{
+		@extend %stn-col-xs-12;
+		@extend %stn-col-sm-4;
+		
+		@include stn-list( row, right, $sel-c: "> ul", $sel-itms: "> li" );
+		
+	}
+	
+	.bbp-search a
+	{
+		text-align:center;
+		
+	}
+	
+}
+
+#bbp-search-form
+{
+	@include reset-all;
+	display:none;
+}
+
+#bbp-search-input
+{
+	@include reset-all;
+	display:block;
+	width:100%;
+	font-size:1.4em;
+	padding:1%;
+	outline:none;
+	text-transform:uppercase;
+	background:$color-2;
+	color:$color-1;
+	
+}

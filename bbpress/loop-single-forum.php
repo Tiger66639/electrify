@@ -9,6 +9,49 @@
 
 ?>
 
+<section id="bbp-forum-<?php bbp_forum_id(); ?>" <?php bbp_forum_class(); ?>>
+	
+	<hgroup class="forum-title">
+		
+		<?php do_action( 'bbp_theme_before_forum_title' ); ?>
+		<h1>
+			<a href="<?php bbp_forum_permalink(); ?>">
+				<?php bbp_forum_title(); ?>
+			</a>
+		</h1>
+		<?php do_action( 'bbp_theme_after_forum_title' ); ?>
+		
+	</hgroup>
+	
+	<div class="forum-meta">
+		<ul class="forum-meta-c">
+			
+			<li class="forum-description">
+				<?php do_action( 'bbp_theme_before_forum_description' ); ?>
+				<?php bbp_forum_content(); ?>
+				<?php do_action( 'bbp_theme_after_forum_description' ); ?>
+			</li>
+			
+			<?php
+			
+			//	May reimplement this later...
+			//
+			if ( false ):
+			?>
+				<li class="forum-subforums">
+					<?php do_action( 'bbp_theme_before_forum_sub_forums' ); ?>
+					<?php bbp_list_forums(); ?>
+					<?php do_action( 'bbp_theme_after_forum_sub_forums' ); ?>
+				</li>
+			<?php endif; ?>
+			
+		</ul>
+	</div>
+	
+</section>
+
+<?php if ( false ): ?>
+
 <ul id="bbp-forum-<?php bbp_forum_id(); ?>" <?php bbp_forum_class(); ?>>
 
 	<li class="bbp-forum-info">
@@ -73,3 +116,5 @@
 	</li>
 
 </ul><!-- #bbp-forum-<?php bbp_forum_id(); ?> -->
+
+<?php endif; ?>

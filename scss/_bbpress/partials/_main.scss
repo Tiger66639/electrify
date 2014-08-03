@@ -54,55 +54,6 @@ a
 		text-decoration:underline;
 	}
 	
-	.topic
-	{
-		padding:1%;
-		border-top:1px solid $color-bg-2;
-		//border-left:3px solid transparent;
-		
-		&:first-child
-		{
-			border-top:0;
-		}
-		
-		.bbp-topic-title,
-		.bbp-topic-interface
-		{
-			width:100%;
-			padding:0.5% 0;
-		}
-		
-		h1
-		{
-			@include font-h;
-			color:$color-h;
-			font-size:1.5em;
-			
-			a
-			{
-				display:block;
-			}
-			
-		}
-		
-		.bbp-topic-interface
-		{
-			@include stn-list( row, left, $sel-c: ".bbp-topic-interface-c", $sel-itms: "> li" );
-			
-			li
-			{
-				margin:0 0.5%;
-			}
-			
-		}
-		
-		.bbp-author-avatar
-		{
-			vertical-align:middle;
-		}
-		
-	}
-	
 }
 
 .c #bbpress-forums
@@ -112,6 +63,92 @@ a
 	a:hover
 	{
 		text-decoration:underline;
+	}
+	
+}
+
+body .topic,
+body .forum
+{
+	border-top:1px solid $color-bg-2;
+	
+	&:first-child
+	{
+		border-top:0;
+	}
+	
+	h1,
+	h2
+	{
+		width:100%;
+		@include font-h;
+		color:$color-h;
+		font-size:1.5em;
+		padding:0.5em 0;
+		
+		a
+		{
+			display:block;
+		}
+		
+	}
+	
+	// h1
+	// {
+	// 	padding:0.75% 0;
+	// 	font-size:1.75em;
+	// }
+	//
+	// h2
+	// {
+	// 	padding:0.4% 0;
+	// 	font-size:1.4em;
+	// }
+	
+}
+
+body .topic
+{
+	padding:1em 0;
+	
+	.bbp-topic-interface
+	{
+		@include stn-list( row, left, $sel-c: ".bbp-topic-interface-c", $sel-itms: "> li" );
+		
+		li
+		{
+			margin:0 0.5%;
+		}
+		
+	}
+	
+	.bbp-author-avatar
+	{
+		vertical-align:middle;
+	}
+	
+}
+
+body .forum
+{
+	//font-size:1.5em;
+	padding:0.75em 0;
+	
+	&-meta
+	{
+		@include stn-list( row, left, $sel-c: "> .forum-meta-c", $sel-itms: "> li" );
+		
+		li
+		{
+			margin:0 0.5%;
+			
+			&:first-child
+			{
+				margin-left:0;
+			}
+			
+		}
+		
 	}
 	
 }
@@ -137,7 +174,7 @@ a
 		
 		#bbp-user-avatar
 		{
-			margin:5% 0;
+			margin:2em 0;
 			text-align:right;
 			
 			img
@@ -154,7 +191,7 @@ a
 .bbp-form
 {
 	//border-top:1px solid $color-bg-2;
-	margin:4% 0;
+	margin:2em 0;
 	//padding:2% 0 0;
 	
 	legend
@@ -255,14 +292,13 @@ a
 
 .bbp-user-section
 {
-	margin:1% 0 3%;
+	margin:0.5em 0 1.5em;
 }
 
 .entry-title
 {
-	// display:none;
 	@include font-h;
 	color:$color-2;
 	font-size:2em;
-	margin:4% 0 0;
+	margin:0.75em 0;
 }

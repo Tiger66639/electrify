@@ -44,11 +44,11 @@
 	<?php do_action( 'bbp_theme_before_topic_title' ); ?>
 	
 	<hgroup class="bbp-topic-title">
-		<h1>
+		<h2>
 			<a class="bbp-topic-permalink" href="<?php bbp_topic_permalink(); ?>">
 				<?php bbp_topic_title(); ?>
 			</a>
-		</h1>
+		</h2>
 	</hgroup>
 
 	<?php do_action( 'bbp_theme_after_topic_title' ); ?>

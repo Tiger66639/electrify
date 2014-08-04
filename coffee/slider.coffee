@@ -64,6 +64,12 @@
 			# Set the current scheme to the new scheme.
 			#
 			currentScheme = scheme
+			
+			# And if the slide has a background image,
+			# add a background shadow to the header.
+			#
+			if ( findSlideBkImgById slideNum ) isnt $h.hasClass 'shadow'
+				$h.toggleClass 'shadow'
 		
 		# Called at the end of each fade animation betwen slides
 		#

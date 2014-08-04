@@ -33,7 +33,10 @@
         scheme = findSlideSchemeById(slideNum);
         $h.addClass(scheme);
         $slider.addClass(scheme);
-        return currentScheme = scheme;
+        currentScheme = scheme;
+        if ((findSlideBkImgById(slideNum)) !== $h.hasClass('shadow')) {
+          return $h.toggleClass('shadow');
+        }
       };
       sliderFinish = function(slideNum) {
         var newScheme;

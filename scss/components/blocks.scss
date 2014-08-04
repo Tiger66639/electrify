@@ -278,28 +278,22 @@ body
 //	Extra styles are applied to headers to make them display on top of
 //	the blocks.
 //
-#h,
-#h-showcase
+
+@include stn-breakpoint-lower( md )
 {
-	@include stn-breakpoint-lower( md )
+	#h,
+	#h-showcase
 	{
+	
 		position:absolute;
 		top:0;
+		body.admin-bar & { top:32px; } // Offset against the WP admin bar
 		width:100%;
 		z-index:1000;
 		background:transparent;
 		
-		body.admin-bar &
-		{
-			top:32px;
-		}
-		
-	}
-	
-	//	Only on desktops+, though.
-	//
-	@include stn-breakpoint-lower( md )
-	{
+		//	For light slides
+		//
 		&.light
 		{
 			#logo
@@ -349,5 +343,17 @@ body
 			}
 			
 		}
+		
+		//	Use a gradient background on the header for blocks with background images.
+		//	PHP will apply .shadow by itself.
+		//
+		@include stn-mdrn( cssgradients )
+		{
+			&.shadow
+			{
+				@include prefix_( background, linear-gradient( to top, transparent, rgba( 0, 0, 0, 0.75 ) ), value, webkit, moz, o );
+			}
+		}
+		
 	}
 }

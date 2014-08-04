@@ -1,11 +1,17 @@
 (($) ->
 	$ ->
+		
+		# Mobile navigation functionality
+		#
+		
 		$nav = $ '#n-mobile'
 		$reveal = $ '#n-reveal'
 		
 		$nav.hide()
 		$nav.addClass 'collapsed'
 		
+		# Called when navigation reveal is clicked
+		#
 		toggleNav = ->
 			$reveal.blur()
 			if $nav.hasClass 'collapsed'
@@ -20,10 +26,15 @@
 		
 		$reveal.click toggleNav
 		
+		# Search drop-down functionality
+		#
+		
 		$search = $ '#n .menu-item [title="Search"]'
 		$searchParent = $search.parent()
 		$form = $ '#n-search'
 		
+		# Called when search button is clicked
+		#
 		toggleSearch = ->
 			$searchParent.toggleClass 'active'
 			

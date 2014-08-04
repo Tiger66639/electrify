@@ -1,151 +1,233 @@
 ( ( $ ) ->
 	$ ->
 		
-		$window = $ window
-		$doc = $ document
+		# Basic selector storage
+		#
 		
-		width = $window.width()
-		mobile = width < 950
+		$win = $ window
+		$doc = $ document
 		
 		$slider =		$ '#slider'
 		$h =				$ '#h,#h-showcase'
 		$b =				$ 'body'
 		$html =			$ 'html'
 		
-		numSlides = $slider.children().length
+		# Checks to see if we're on a mobile device.
+		#
+		width = $win.width()
+		mobile = width < 950
 		
-		$window.resize ->
-			width = $window.width()
+		# On resize, check to see if still on mobile screen
+		#
+		$win.resize ->
+			width = $win.width()
 			mobile = width < 950
 		
+		# Number of slides in the slider
+		#
+		numSlides = $slider.children().length
+		
+		# Stores the current slide scheme
+		#
 		currentScheme = null
 		
+		# Returns the jQuery object for a slide by its ID
+		#param slideID (int) the ID of the slide
+		#
 		findSlideById = ( slideId ) ->
-			slideId--
-			return $ '#slider .slidesjs-slide[slidesjs-index="' + slideId.toString() + '"]'
+			$slider.find '.slidesjs-slide[slidesjs-index="' + ( slideId - 1 ).toString() + '"]'
 		
+		# Returns the slide scheme for a specific slide
+		#param slideId (int) the ID of the slide
+		#
 		findSlideSchemeById = ( slideId ) ->
-			return findSlideById( slideId ).attr 'data-scheme'
+			findSlideById( slideId ).attr 'data-scheme'
 		
+		# Returns whether or not a slide has a background
+		#param slideId (int)	the ID of the slide
+		#
 		findSlideBkImgById = ( slideId ) ->
-			return findSlideById( slideId ).hasClass 'bg-img'
+			findSlideById( slideId ).hasClass 'bg-img'
 		
+		# Called when the slider is loaded by the browser
+		#
 		sliderInit = ( slideNum ) ->
+			# Get the scheme
+			#
 			scheme = findSlideSchemeById slideNum
-			$h.addClass scheme
-			$slider.addClass scheme
+			
+			# Set the scheme on...
+			#
+			$h.addClass scheme			# the header
+			$slider.addClass scheme		# the slider (mostly the pagination)
+			
+			# Set the current scheme to the new scheme.
+			#
 			currentScheme = scheme
 		
+		# Called at the end of each fade animation betwen slides
+		#
 		sliderFinish = ( slideNum ) ->
+			# Get the new scheme
+			#
 			newScheme = findSlideSchemeById slideNum
+			
+			# If the current scheme and the new scheme are the same...
+			#
 			if currentScheme isnt newScheme
-				currentScheme = newScheme
+				# Toggle all the classes
+				# ALL THE CLASSES
+				#
 				$h.toggleClass 'light'
 				$h.toggleClass 'dark'
 				$slider.toggleClass 'light'
 				$slider.toggleClass 'dark'
+				
+				# And set the current scheme to the new scheme.
+				#
+				currentScheme = newScheme
 			
-			if findSlideBkImgById slideNum isnt $h.hasClass 'shadow'
+			# And if the slide has a background image,
+			# add a background shadow to the header.
+			#
+			if ( findSlideBkImgById slideNum ) isnt $h.hasClass 'shadow'
 				$h.toggleClass 'shadow'
 			
-		
+		# Called to initialize slider
+		#param interval (int)	ms between slide changes
+		#
 		doSlider = ( interval = 5000 ) ->
+			
+			# Stores arguments to pass to slider initializer
+			# For more information, read SlidesJS's docs.
+			#
 			args =
-				width: width
-				height: $( window ).height()
-				navigation:
-					active: false
-				pagination:
-					active: true
-					effect: "fade"
-				play:
-					active: false
-					effect: "fade"
-					interval: interval
-					auto: true
-					pauseOnHover: false
-				fade:
-					speed: 10000
-					crossfade: true
-				callback:
+				width: width # slider width
+				height: $( window ).height() # slider height
+				navigation: # next/previous buttons
+					active: false # disabled
+				pagination: # pagination buttons
+					active: true # enabled
+					effect: "fade" # color changes fade
+				play: # play/pause buttons
+					active: false # disabled
+					effect: "fade" # slide transition effect
+					interval: interval # number of ms between slides, defaults to 5000ms/5s
+					auto: true # start
+					pauseOnHover: false # keep the slider running if I hover over it
+				fade: # fade animation settings
+					speed: 10000 # speed of fade in ms
+					crossfade: true # crossfades between slides
+				callback: #callbacks to run when certain actions are finished
+					# sliderInit is called when slider loaded.
+					# It is passed the starting slide ID.
+					#
 					loaded: sliderInit
-					complete: sliderFinish
 					
+					# sliderFinish is called when slide transition complete.
+					# It is passed the new slide ID.
+					#
+					complete: sliderFinish
+			
+			# The actual slider call.
 			$slider.slidesjs args
 		
+		# Initial properties of animated elements
+		#
+		propsInit =
+			opacity: 0
+			'-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"'
+		
+		# Final properties of animated elements
+		#
+		propsFinal =
+			opacity: 1
+			'-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"'
+		
+		# Called at the start of animations
+		#
+		fadeStart = ($sels...) -> # this is why I use CoffeeScript
+			# Sets initial styling
+			for $sel in $sels # and this
+				$sel.css propsInit
+			
+			# Sets a one-time callback on the document object for the dblclick event
+			# to force-finish animations on all passed selectors.
+			#
+			# For noobs, this will cancel the fade on all passed selectors
+			# when the user double-clicks the page, but will not affect
+			# any further double-clicks.
+			#
+			$doc.one 'dblclick', ->
+				for $sel in $sels # and this
+					$sel.stop true, true
+					$sel.css propsFinal
+				fadeFinish()
+			
+			#coffeescriptIsAwesome
+			#inlineHashtagsYo
+			
+			# Adds a class
+			#
+			$b.addClass 'fade-in-progress'
+			
+			# Prevents scrolling
+			#
+			$b.css 'position', 'fixed'
+		
+		# Called at the end of animations
+		#
 		fadeFinish = ->
-			$b.removeClass 'fade-in-progress'
-			$b.css 'position', 'static'
-				
+			$b.removeClass 'fade-in-progress'	# Removes a class
+			$b.css 'position', 'static'			# Allows scrolling again
+			
+		# Stores the block
+		#
 		$block = null;
 		
+		# If there are no slides in the slider,
+		# the slider must be empty.
+		#
 		if numSlides is 0
-			$block = $ '#a .block:first-of-type'
+			$block = $ '#m .block:first'
 			
-			if $block.hasClass 'fade' and not mobile
-				# We need to fade in on this block
-				#
+			# If we're not on a mobile device
+			# and the block we're interested has fade set on it,
+			# begin the fade operation.
+			#
+			if not mobile and $block.hasClass 'fade'
+				# We need to fade in on this block.
 				# Make some new selectors...
 				#
-				$b							= $ 'body'
-				$blockh1				= $ '#a .block:first-of-type h1'
-				$blockh2				= $ '#a .block:first-of-type h2'
-				$blockp					= $ '#a .block:first-of-type p'
-				$blockContent		= $ '#a .block:first-of-type .content'
-				#
+				$blockh1				= $block.find 'h1'
+				$blockh2				= $block.find 'h2'
+				$blockp				= $block.find 'p'
+				$blockContent		= $block.find '.block-content'
+				
 				# Set initial styling...
 				#
-				$b.css 'position', 'fixed'
-				$b.addClass 'fade-in-progress'
-				#
-				propsInit =
-					opacity: 0
-					'-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"'
-				#
-				$block					.css propsInit
-				$h							.css propsInit
-				$blockh1				.css propsInit
-				$blockh2				.css propsInit
-				$blockp					.css propsInit
-				$blockContent		.css propsInit
-				#
-				# Allow the user to skip the animation by double-clicking...
-				#
-				$doc.one 'dblclick', ->
-					$block				.stop true, true
-					$h						.stop true, true
-					$blockh1			.stop true, true
-					$blockh2			.stop true, true
-					$blockp				.stop true, true
-					$blockContent	.stop true, true
-					
-					$block				.css propsFinal
-					$h						.css propsFinal
-					$blockh1			.css propsFinal
-					$blockh2			.css propsFinal
-					$blockp				.css propsFinal
-					$blockContent	.css propsFinal
-					
-					fadeFinish()
-					
+				fadeStart $block, $h, $blockh1, $blockh2, $blockp, $blockContent
+				
 				#
 				# Begin to animate the fade
 				#
-				propsFinal =
-					opacity: 1
-					'-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"'
-				#
-				$block					.delay( 1500 ).animate( propsFinal, 3000 )
-				$blockh1				.delay( 5000 )												.animate( propsFinal, 1500 )
-				$blockh2				.delay( 8000 )																								.animate( propsFinal, 1500 )
-				$blockp					.delay( 11000 )																																				.animate( propsFinal, 1500 )
-				$blockContent		.delay( 11000 )																																				.animate( propsFinal, 1500 )
-				$h							.delay( 11000 )																																				.animate( propsFinal, 1500, 'swing', fadeFinish )
+				$block				.delay( 1500 ).animate( propsFinal, 3000 )
+				$blockh1				.delay( 5000 )		.animate( propsFinal, 1500 )
+				$blockh2				.delay( 8000 )			.animate( propsFinal, 1500 )
+				$blockp				.delay( 11000 )			.animate( propsFinal, 1500 )
+				$blockContent		.delay( 11000 )			.animate( propsFinal, 1500 )
+				$h						.delay( 11000 )			.animate( propsFinal, 1500, 'swing', fadeFinish ) # fadeFinish as a callback
 				#
 			
 		else
-			$block = $ '#slider .block:first-of-type'
+			# The slider exists.
 			
+			$block = $slider.find '.block:first'
+			
+			# If we're not on a mobile device
+			# and the block we're interested has fade set on it,
+			# begin the fade operation.
+			#
 			if not mobile and $block.hasClass 'fade'
 				# We need to fade in on this block
 				#
@@ -155,67 +237,31 @@
 				#
 				# Make some new selectors...
 				#
-				$b							= $ 'body'
-				$pag						= $ '#slider .slidesjs-pagination'
-				$blockh1				= $ '#slider .block:first-of-type h1'
-				$blockh2				= $ '#slider .block:first-of-type h2'
-				$blockp					= $ '#slider .block:first-of-type p'
-				$blockContent		= $ '#slider .block:first-of-type .content'
-				#
+				$pag					= $slider.find '.slidesjs-pagination'
+				$blockh1				= $block.find 'h1'
+				$blockh2				= $block.find 'h2'
+				$blockp				= $block.find 'p'
+				$blockContent		= $block.find '.block-content'
+				
 				# Set initial styling...
 				#
-				$b.css 'position', 'fixed'
-				$b.addClass 'fade-in-progress'
-				#
-				propsInit =
-					opacity: 0
-					'-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"'
-				#		
-				$block					.css propsInit
-				$h							.css propsInit
-				$pag						.css propsInit
-				$blockh1				.css propsInit
-				$blockh2				.css propsInit
-				$blockp					.css propsInit
-				$blockContent		.css propsInit
-				#
-				# Allow the user to skip the animation by double-clicking...
-				#
-				$doc.one 'dblclick', ->
-					$block				.stop true, true
-					$h						.stop true, true
-					$pag					.stop true, true
-					$blockh1			.stop true, true
-					$blockh2			.stop true, true
-					$blockp				.stop true, true
-					$blockContent	.stop true, true
-					
-					$block				.css propsFinal
-					$h						.css propsFinal
-					$pag					.css propsFinal
-					$blockh1			.css propsFinal
-					$blockh2			.css propsFinal
-					$blockp				.css propsFinal
-					$blockContent	.css propsFinal
-					
-					fadeFinish()
-					
-				#
+				fadeStart $block, $h, $pag, $blockh1, $blockh2, $blockp, $blockContent
+				
 				# Begin to animate the fade
 				#
-				propsFinal =
-					opacity: 1
-					'-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"'
-				#
-				$block					.delay( 1500 ).animate( propsFinal, 3000 )
-				$blockh1				.delay( 5000 )												.animate( propsFinal, 1500 )
-				$blockh2				.delay( 8000 )																								.animate( propsFinal, 1500 )
-				$blockp					.delay( 11000 )																																				.animate( propsFinal, 1500 )
-				$blockContent		.delay( 11000 )																																				.animate( propsFinal, 1500 )
-				$pag						.delay( 11000 )																																				.animate( propsFinal, 1500 )
-				$h							.delay( 11000 )																																				.animate( propsFinal, 1500, 'swing', fadeFinish )
+				$block				.delay( 1500 ).animate( propsFinal, 3000 )
+				$blockh1				.delay( 5000 )			.animate( propsFinal, 1500 )
+				$blockh2				.delay( 8000 )					.animate( propsFinal, 1500 )
+				$blockp				.delay( 11000 )						.animate( propsFinal, 1500 )
+				$blockContent		.delay( 11000 )						.animate( propsFinal, 1500 )
+				$pag					.delay( 11000 )						.animate( propsFinal, 1500 )
+				$h						.delay( 11000 )						.animate( propsFinal, 1500, 'swing', fadeFinish ) # fadeFinish as a callback
 				#
 			
+			# If the block doesn't have fade enabled
+			# and we're not on mobile,
+			# then just do the slider with its default settings.
+			#
 			else if not mobile then doSlider()
 		
 ) jQuery

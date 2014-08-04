@@ -6,8 +6,6 @@
 		width = $window.width()
 		mobile = width < 950
 		
-		console.log 'Present!'
-		
 		$comReveal = $ '#reveal-comments'
 		$comTrigger = $ '#reveal-comments-a'
 		

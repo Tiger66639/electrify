@@ -5,7 +5,7 @@
 <?php else: ?>
 	
 	<?php
-	$background_image_;
+	$background_image_ = false;
 	$background = 'background-color:' . get_field( 'background_color' ) . ';';
 	if ( $background_image = get_field( 'background_image' ) )
 	{
@@ -65,7 +65,7 @@
 				
 					</div>
 			
-				</section>		
+				</section>
 				
 			<?php endwhile; ?>
 			

@@ -56,6 +56,7 @@ class Electrify
 		add_action( 'excerpt_length',			array( $this, 'excerpt'			) );
 		add_action( 'widgets_init',			array( $this, 'sidebars'		) );
 		add_action( 'init',						array( $this, 'menus'			) );
+		add_action( 'wp_enqueue_script',		array( $this, 'assets'			) );
 		
 		//$this->a->style( 'master', $this::$dir . '/_css/master.css' );
 		
@@ -245,6 +246,152 @@ class Electrify
 			'nav_admin' => __( 'Admin Navigation' ),
 		) );
 		
+	}
+	
+	/**
+	 * Registers and enqueues Electrify assets
+	 *
+	 **/
+	public function assets()
+	{
+		//	Modernizr (dependency - JavaScript)
+		//	Adds classes to <html> based on the features that a browser supports.
+		//
+		wp_register_script( 'modernizr', $this::$dir . '/dependencies/modernizr-2.8.2.min.js', array(), '2.8.3', false );
+		
+		//	GSAP (dependency - JavaScript)
+		//	Animation library that's a whole lot more efficient than jQuery.
+		//
+		wp_register_script( 'gsap', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.12.1/TweenMax.min.js', array(), '1.12.1', true );
+		wp_register_script( 'jquery_gsap', $this::$dir . '/dependencies/jquery.gsap.min.js', array( 'jquery', 'gsap' ), '1.12.1', true );
+		
+		//	SlidesJS (dependency - JavaScript)
+		//	A small, hackable slider library.
+		//
+		wp_register_script( 'slidesjs', $this::$dir . '/dependencies/jquery.slidesjs.min.js', array( 'jquery' ), '3.0.4', true );
+		
+		
+		
+		//	Navigation (JavaScript)
+		//	Progressively enhances the navigation components.
+		//
+		wp_register_script( 'navigation', $this::$dir . '/_js/nav.js', array( 'jquery' ), '', true );
+		
+		//	Slider (JavaScript)
+		//	Runs the slider for the homepage and showcase pages.
+		//
+		wp_register_script( 'slider', $this::$dir . '/_js/slider.js', array( 'jquery', 'slidesjs', 'gsap', 'jquery_gsap' ), '', true );
+		
+		//	Comments reveal (JavaScript)
+		//	Progressively enhances the commenting experience.
+		//
+		wp_register_script( 'comments_reveal', $this::$dir . '/_js/comments-reveal.js', array( 'jquery' ), '', true );
+		
+		
+		
+		//	Master Stylesheet (CSS)
+		//	Applies general styling, as well as styling for elements that appear on all pages.
+		//
+		wp_register_style( 'master', $this::$dir . '/_css/style.css', array() );
+		
+		//	Listing (CSS)
+		//	Styles blog landing page, archives, and search results.
+		//
+		wp_register_style( 'listing', $this::$dir . '/_css/components/listing.css', array( 'master' ) );
+		
+		//	Singular (CSS)
+		//	Styles single pages/posts and the 404 page.
+		//
+		wp_register_style( 'singular', $this::$dir . '/_css/components/singular.css', array( 'master' ) );
+		
+		// Single (CSS)
+		//	Styles single posts.
+		//
+		wp_register_style( 'single', $this::$dir . '/_css/components/single.css', array( 'master' ) );
+		
+		//	Blocks (CSS)
+		// Styles blocks on the homepage and showcase pages.
+		//
+		wp_register_style( 'blocks', $this::$dir . '/_css/components/blocks.css', array( 'master' ) );
+		
+		//	Showcase (CSS)
+		//	Styles showcase pages.
+		//
+		wp_register_style( 'showcase', $this::$dir . '/_css/components/showcase.css', array( 'master' ) );
+		
+		
+		//	bbPress navigation (JS)
+		//	Adds JavaScript for navigation interactivity.
+		//
+		wp_register_script( 'bbp_navigation', $this::$dir . '/_js/_bbpress/nav.js', array( 'jquery' ), '', true );
+		
+		//	bbPress Master (CSS)
+		//
+		wp_register_style( 'bbp_master', $this::$dir . '/_css/_bbpress/bbpress.css', array( 'master' ) );
+		
+		
+		//	Shame (CSS)
+		//	A file for any changes developers want to make to the theme. Also for my own hacks.
+		//	Acts like the theme's normal stylesheet, so it can be edited inside of WordPress.
+		//
+		wp_register_style( 'shame', get_stylesheet_uri(), array( 'master' ) );
+		
+		
+		
+		wp_enqueue_script( 'modernizr' );
+		wp_enqueue_style( 'master' );
+		wp_enqueue_script( 'navigation' );
+		
+		if ( is_home() || is_archive() || is_search() )
+		{
+			wp_enqueue_style( 'listing' );
+		}
+		
+		if ( is_front_page() || is_page_template( 'showcase.php' ) )
+		{
+			wp_enqueue_style( 'blocks' );
+			wp_enqueue_script( 'slider' );
+		}
+		
+		if ( is_page_template( 'showcase.php' ) )
+		{
+			wp_enqueue_style( 'showcase' );
+		}
+		
+		if ( ( is_singular() && ! is_page_template( 'showcase' ) && ! is_front_page() ) || is_404() )
+		{
+			wp_enqueue_style( 'singular' );
+		}
+		
+		if ( is_single() )
+		{
+			wp_enqueue_style( 'single' );
+			wp_enqueue_script( 'comments_reveal' );
+		}
+		
+		if ( function_exists( 'is_bbpress' ) )
+		{
+			if ( is_bbpress() )
+			{
+				//	Because I don't want bbPress messing with my style.
+				//
+				wp_dequeue_style( 'bbp-default' );
+				
+				//	Because the Ajax in bbPress 2.5.4 is buggy as heck.
+				//
+				wp_dequeue_script( 'bbpress-topic' );
+				wp_dequeue_script( 'bbpress-reply' );
+				wp_dequeue_script( 'bbpress-user' );
+				
+				//	At last, my stuff.
+				//
+				wp_dequeue_script( 'navigation' ); // bbPress pages and regular pages use different scripts
+				wp_enqueue_style( 'bbp_master' );
+				wp_enqueue_script( 'bbp_navigation' );
+			}
+		}
+		
+		wp_enqueue_style( 'shame' );
 	}
 	
 	/**

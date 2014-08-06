@@ -9,6 +9,7 @@ $blocks_query = new WP_Query( array(
 	'meta_key' => 'page',
 	'meta_value' => get_field( 'showcase_slug' ),
 	'orderby' => 'menu_order',
+	'order' => 'ASC',
 ) );
 
 ?>

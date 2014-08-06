@@ -422,7 +422,6 @@ $includes = array(
 	'post-types',
 	'post-meta',
 	'bbpress',
-	'assets',
 );
 
 foreach ( $includes as $include )

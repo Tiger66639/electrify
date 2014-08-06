@@ -34,7 +34,7 @@ class Electrify_Assets_Manager
 	 * @param $slug
 	 * @param $uri
 	 **/
-	public function style( $slug, $uri = '/_css/' . $slug, $deps = array(), $vers = get_bloginfo( 'version' ), $media = 'all' )
+	public function style( $slug, $uri, $deps = array(), $vers = '3.8.1', $media = 'all' )
 	{
 		$this->styles[] = array(
 			'slug' => $slug,
@@ -49,7 +49,7 @@ class Electrify_Assets_Manager
 	 * Register a script with WordPress.
 	 *
 	 */
-	public function script( $slug, $uri = '/_js/' . $slug, $deps = array(), $vers = get_bloginfo( 'version' ), $footer = true )
+	public function script( $slug, $uri, $deps = array(), $vers = '3.8.1', $footer = true )
 	{
 		$this->scripts[] = array(
 			'slug' => $slug,
@@ -60,7 +60,7 @@ class Electrify_Assets_Manager
 		);
 	}
 	
-	public function if( $condition, $do )
+	public function on( $condition, $do )
 	{
 		if ( $condition )
 		{
@@ -79,7 +79,7 @@ class Electrify_Assets_Manager
 		
 		foreach ( $this->scripts as $script )
 		{
-			wp_enqueue_script( $script['slug'], $script['uri'], $script['deps'], $script['vers'], $script['footer'] )
+			wp_enqueue_script( $script['slug'], $script['uri'], $script['deps'], $script['vers'], $script['footer'] );
 		}
 		unset( $script );
 		

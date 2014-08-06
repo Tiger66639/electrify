@@ -1,14 +1,21 @@
 /*
 Theme Name: Electrify
-Theme URI: http://www.first1444.com/
-Author: Ryan Duchene
+Theme URI: http://github.com/duchenerc/electrify
+Author: Ryan Duchene & Lightning Lancers
 Author URI: http://github.com/duchenerc
-Description: A custom theme for FIRST Team #1444 Lightning Lancers. A dark, modern look.
-Version: 6B
-License: GPL2
+Description: Give your website some spark.
+Version: 0.7-pre
+License: GPLv2
 Tags: black, yellow, orange, custom, modern, dark
 */
 
-/* 
-	I used Sass for development; you can find the files for it in the _scss/ directory.
+/*
+	For deverlopers:
+	I used Sass for development; you can find the files for it in the scss/ directory.
+	
+	For everyone else:
+	This file is imported after all the other theme styles. Thusly, any styles
+	you put below will override other styles.
+	
+	Thanks for using Electrify!
 */
